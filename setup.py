@@ -13,11 +13,7 @@ with open("HISTORY.rst") as history_file:
 
 requirements = [
     "Numpy>=1, <2",
-    "Scipy>=1, <2",
     "opencv-python>=4.1, <5",
-    "numpy_indexed==0.3.5",
-    "simplification>=0.4, <1",
-    "Shapely>=1.6.4, <2"
 ]
 
 setup_requirements = ["pytest-runner"]
@@ -34,7 +30,7 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
     ],
-    description="SMALL_DESCRIPTION,
+    description="SMALL_DESCRIPTION",
     entry_points={"console_scripts": ["PACKAGE_NAME=PACKAGE_NAME.cli:__init__"]},
     install_requires=requirements,
     long_description=readme + "\n\n" + history,
@@ -46,6 +42,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://cytosmart.com",
-    version='0.0.1',
+    version="0.0.1",
     zip_safe=False,
 )
