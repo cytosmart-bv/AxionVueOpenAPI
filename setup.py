@@ -1,0 +1,51 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""The setup script."""
+
+from setuptools import setup, find_packages
+
+with open("README.md") as readme_file:
+    readme = readme_file.read()
+
+with open("HISTORY.rst") as history_file:
+    history = history_file.read()
+
+requirements = [
+    "Numpy>=1, <2",
+    "Scipy>=1, <2",
+    "opencv-python>=4.1, <5",
+    "numpy_indexed==0.3.5",
+    "simplification>=0.4, <1",
+    "Shapely>=1.6.4, <2"
+]
+
+setup_requirements = ["pytest-runner"]
+
+test_requirements = ["pytest", "pillow"]
+
+setup(
+    author="AUTHOR_NAME",
+    classifiers=[
+        "Development Status :: 2 - Pre-Alpha",
+        "Intended Audience :: Developers",
+        "Natural Language :: English",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+    ],
+    description="SMALL_DESCRIPTION,
+    entry_points={"console_scripts": ["PACKAGE_NAME=PACKAGE_NAME.cli:__init__"]},
+    install_requires=requirements,
+    long_description=readme + "\n\n" + history,
+    include_package_data=True,
+    keywords="PACKAGE_NAME",
+    name="PACKAGE_NAME",
+    packages=find_packages(include=["PACKAGE_NAME*"], exclude=["docs*"]),
+    setup_requires=setup_requirements,
+    test_suite="tests",
+    tests_require=test_requirements,
+    url="https://cytosmart.com",
+    version='0.0.1',
+    zip_safe=False,
+)
