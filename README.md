@@ -1,22 +1,81 @@
 PACKAGE_NAME
 =====
 
-# creating a package
-Copy all file from '/basic_package' to your repo.
+# Creating a package
+Fork this repo.
+Next up make sure there are 2 remote repositories connected.
+In vscode:
+- ctrl + shift + P
+- Git: Add remote
+- `origin_basic_function_package`
+- `https://cytosmart.visualstudio.com/CytoSmartImageAnalysis/_git/basic_function_package`
+
+Next steps are only if you need to connect it to an existing repo.
+- Open terminal (ctrl + shift + `)
+- git pull orgin_basic_package master --allow-unrelated-histories 
+
+You now can `git > pull from..` and choose to pull from `origin` or `origin_basic_function_package`.
+By choosing `origin_basic_function_package` you will update your package.
+
+# Rename variables
 - Search for 'PACKAGE_NAME' and replace it with the package name of your choosing.
 - - Don't forget to change the folder name too!
 - Search for 'AUTHOR_NAME' and replace it with your name. 
 - Search for 'SMALL_DESCRIPTION' and replace it with a small description of what the package does
 
 # Adding code to the package
-There are 2 types of package:
-- single algorithm:
-    These are packages that enclose a full algorithm. Examples are confluency and scratch.
-    In these kind of package it is expected to find an class with the same name as the package (but in camelcase starting with a capital letter).
-    This class has the function 'calculate' what will be called to run the algorithm.
-- Collection of functions
-    These are packages with multiple different function in a similar theme. Examples are tomni (collection of image analysis functions) and manval (collection of validation functions)
-    In these cases the 'PACKAGE_NAME/main.py' is not needed. But the __init__.py will be used to navigate easily through functions.
+
+The __init__.py will be used to navigate easily through functions.
+You can also add a function of collection.
+
+You import the whole function in PACKAGE_NAME.__init__.py.
+Every function has its own folder.
+Within this folder is a:
+- `main.py` for the function itself.
+- `__init__.py` for importing the code 
+- `test_FUNCTION_NAME.py` for the unit tests
+
+Example **function**:
+
+```
+# PACKAGE_NAME folder
+- __init__.py
+-- from .FUNCTION_NAME import FUNCTION_NAME
+- FUNCTION_NAME (folder)
+-- __init__.py
+--- from .main import FUNCTION_NAME
+-- main.py
+--- def FUNCTION_NAME(...):
+-- test_FUNCTION_NAME.py
+--- class test_FUNCTION_NAME(TestCase)
+```
+This will import all function on COLLECTION_NAME to PACKAGE_NAME.
+Using PACKAGE_NAME will now look like this
+```
+# Using of PACKAGE_NAME
+from PACKAGE_NAME import FUNCTION_NAME
+```
+
+Example **collection**:
+```
+# PACKAGE_NAME folder
+- __init__.py
+-- from .FUNCTION_NAME import FUNCTION_NAME
+- FUNCTION_NAME (folder)
+-- __init__.py
+--- from .main import FUNCTION_NAME
+-- main.py
+--- def FUNCTION_NAME(...):
+-- test_FUNCTION_NAME.py
+--- class test_FUNCTION_NAME(TestCase)
+```
+
+This will import all function on COLLECTION_NAME to PACKAGE_NAME.
+Using PACKAGE_NAME will now look like this
+```
+# Using of PACKAGE_NAME
+from PACKAGE_NAME.COLLECTION_NAME import FUNCTION_NAME
+```
 
 # testing the build of your package
 To test if you function build correctly open your terminal.
