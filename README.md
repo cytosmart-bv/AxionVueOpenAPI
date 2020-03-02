@@ -12,7 +12,7 @@ In vscode:
 
 Next steps are only if you need to connect it to an existing repo.
 - Open terminal (ctrl + shift + `)
-- git pull orgin_basic_package master --allow-unrelated-histories 
+- git pull origin_basic_function_package master --allow-unrelated-histories
 
 You now can `git > pull from..` and choose to pull from `origin` or `origin_basic_function_package`.
 By choosing `origin_basic_function_package` you will update your package.
