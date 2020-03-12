@@ -1,20 +1,39 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+luxconnector
+-----
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# Usage
+This is a python wrapper around the Lux Client windows solution
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+# Install
+To install this package follow the these steps:
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+    1. Create/Edit your pip configuration file:
+            a. Windows users: %APPDATA%\pip\pip.ini
+            b. MacOS users: $HOME/Library/Application Support/pip/pip.conf 
+                if directory $HOME/Library/Application Support/pip exists 
+                else $HOME/.config/pip/pip.conf
+            c. Linux users: $HOME/.config/pip/pip.conf
+    
+    2. Press 'Connect to feed' button on the chosen package feed of ImageAnalysis
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+    3. Press 'Generate Python credentials' and copy contents to pip conf file
+
+    4. Save conf file
+
+    5. Set env variable to config file:
+            a. Windows users: PIP_CONFIG_FILE
+            b. MacOS users: XDG_CONFIG_HOME
+
+    6. Run pip install <package name==version>
+
+    7. Code with happiness.
+
+    
+
+# Features
+
+* 
+
+# Credits
+
+- Tom Nijhof
