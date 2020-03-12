@@ -72,6 +72,22 @@ class LuxConnector:
                 time.sleep(1)
                 if count >= 10:
                     print(f"After trying {count} times it is still not working")
-                    return None
+                    img = None
+                    break
+        
+        msg2 = {
+            "type": "EXPERIMENT",
+            "payload": {
+                "action": "STOP",
+                "experimentId": "",
+                "name": name,
+                "snapshotInterval": 50,
+                "autoStopTime": 1,
+                "sasToken": "",
+            },
+        }
+
+        self.ws.send(json.dumps(msg2))
 
         return img
+    
