@@ -32,7 +32,11 @@ To install this package follow the these steps:
 
 # Features
 
-* 
+* Connect to Lux
+  * Get image
+  * set focus
+  * set live view
+  * set zoom type (broken at the moment)
 
 # Credits
 
