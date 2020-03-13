@@ -37,6 +37,12 @@ class LuxConnector:
         result = self.ws.recv()
         print(result)
 
+    def set_focus(self, focus_level: float = 0):
+        msg1 = {"type": "FOCUS", "payload": {"value": focus_level}}
+        self.ws.send(json.dumps(msg1))
+        result = self.ws.recv()
+        print(result)
+
     def get_image(self):
         name = str(uuid.uuid4())
         msg1 = {
