@@ -5,6 +5,7 @@ import subprocess
 import time
 import uuid
 from pathlib import Path
+from typing import List
 
 import cv2
 import numpy as np
@@ -17,35 +18,43 @@ class LuxConnector:
         self.ws = create_connection("ws://localhost:3333/luxservice")
         self.set_zoom(zoom_type)
         self.set_liveview(True)
-        
-    def __start_lux_app(self)-> None:
+        img = self.get_image()
+    
+    def __activate(self) -> None:
+        """
+        Activate Lux
+        """
+        msg1 = {"type": "ACTIVATE", "payload": {}}
+        self.ws.send(json.dumps(msg1))
+        result = self.ws.recv()
+        print(result)
+
+    def __start_lux_app(self) -> None:
         """
         Run the Lux server in a subservers
         """
         print("Start Lux Server")
         basefolder_loc = Path(__file__).parents[0]
-        exe_loc = os.path.join(
-            basefolder_loc, "LuxServer", "CytoSmartLuxService.exe"
-        )
+        exe_loc = os.path.join(basefolder_loc, "LuxServer", "CytoSmartLuxService.exe")
         subprocess.Popen(["cmd", "/K", exe_loc])
 
-    def set_liveview(self, state: bool = True)-> None:
-        '''
+    def set_liveview(self, state: bool = True) -> None:
+        """
         Turn the liveview on or off
 
         state: (bool) True = live view on
-        '''
+        """
         msg1 = {"type": "LIVE_STREAM", "payload": {"enable": state}}
         self.ws.send(json.dumps(msg1))
         result = self.ws.recv()
         print(result)
 
-    def set_zoom(self, zoom_type: str = "IN")-> None:
-        '''
+    def set_zoom(self, zoom_type: str = "IN") -> None:
+        """
         Set zoom type by turning off or on binning.
 
         zoom_type: (bool) str = IN or OUT
-        '''
+        """
         zoom_type = zoom_type.upper()
         assert zoom_type in ["IN", "OUT"]
 
@@ -58,13 +67,13 @@ class LuxConnector:
         self.set_liveview(False)
         self.set_liveview(True)
 
-    def set_focus(self, focus_level: float = 0)-> None:
-        '''
+    def set_focus(self, focus_level: float = 0) -> None:
+        """
         Set the relative z-position of the camera.
         And with that the focus.
 
         focus_level: (float) between 0 and 1 where the camera need to be.
-        '''
+        """
         assert focus_level <= 1 and focus_level >= 0
 
         msg1 = {"type": "FOCUS", "payload": {"value": focus_level}}
@@ -72,10 +81,11 @@ class LuxConnector:
         result = self.ws.recv()
         print(result)
 
-    def get_image(self)-> np.array:
-        '''
+    def get_image(self) -> np.array:
+        """
         Get the current image of the camera.
-        '''
+        """
+        self.__activate()
         name = str(uuid.uuid4())
         msg1 = {
             "type": "EXPERIMENT",
@@ -92,7 +102,7 @@ class LuxConnector:
         self.ws.send(json.dumps(msg1))
         result = self.ws.recv()
         print(result)
-        
+
         count = 0
         while True:
             try:
@@ -100,19 +110,21 @@ class LuxConnector:
                     r"C:\ProgramData", "CytoSmartLuxService", "Images", name
                 )
 
-                all_img_names = [i for i in os.listdir(load_location) if i.endswith(".jpg")]
+                all_img_names = [
+                    i for i in os.listdir(load_location) if i.endswith(".jpg")
+                ]
 
                 img = cv2.imread(os.path.join(load_location, max(all_img_names)))
                 break
             except:
                 count += 1
                 print(f"failed {count} times to load image from experiment")
-                time.sleep(1)
-                if count >= 10:
+                time.sleep(0.2)
+                if count >= 50:
                     print(f"After trying {count} times it is still not working")
                     img = None
                     break
-        
+
         msg2 = {
             "type": "EXPERIMENT",
             "payload": {
@@ -128,4 +140,24 @@ class LuxConnector:
         self.ws.send(json.dumps(msg2))
 
         return img
-    
+
+    def get_z_stack(
+        self, num_img: int = 10, start_focus: float = 0, stop_focus: float = 1
+    ) -> List[np.array]:
+        """
+        Creates a z-stack 
+        """
+        
+        result = []
+        focus_step = (stop_focus - start_focus)/(num_img - 1)
+
+        for focus_n in range(num_img):
+            focus = start_focus + focus_n * focus_step
+            focus = focus if focus <= 1 else 1
+
+            print(f"focus level: {focus}")
+            self.set_focus(focus)
+            img = self.get_image()
+            result.append(img)
+
+        return result
