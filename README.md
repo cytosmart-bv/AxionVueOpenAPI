@@ -34,9 +34,10 @@ To install this package follow the these steps:
 
 * Connect to Lux
   * Get image
+  * Get z stack
   * set focus
   * set live view
-  * set zoom type (broken at the moment)
+  * set zoom type
 
 # Credits
 
