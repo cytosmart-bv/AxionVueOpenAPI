@@ -18,7 +18,13 @@ class LuxConnector:
         self.ws = create_connection("ws://localhost:3333/luxservice")
         self.set_zoom(zoom_type)
         self.set_liveview(True)
-        img = self.get_image()
+        while True:
+            try:
+                img = self.get_image()
+                if img is not None:
+                    break
+            except:
+                pass
     
     def __activate(self) -> None:
         """
@@ -115,6 +121,8 @@ class LuxConnector:
                 ]
 
                 img = cv2.imread(os.path.join(load_location, max(all_img_names)))
+
+                assert img is not None
                 break
             except:
                 count += 1
