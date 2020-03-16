@@ -16,7 +16,6 @@ requirements = [
     "opencv-python>=4.1, <5",
     "websocket>=0.2.1, <0.3",
     "websocket-client>=0.57.0, <0.58",
-    "pillow>=6, <7",
 ]
 
 setup_requirements = ["pytest-runner"]
