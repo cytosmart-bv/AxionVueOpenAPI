@@ -6,7 +6,8 @@ import time
 import uuid
 from pathlib import Path
 
-from PIL import Image
+import cv2
+import numpy as np
 from websocket import create_connection
 
 
@@ -14,9 +15,9 @@ class LuxConnector:
     def __init__(self, zoom_type: str = "IN") -> None:
         self.__start_lux_app()
         self.ws = create_connection("ws://localhost:3333/luxservice")
-        self.set_liveview(True)
         self.set_zoom(zoom_type)
-
+        self.set_liveview(True)
+        
     def __start_lux_app(self)-> None:
         """
         Run the Lux server in a subservers
@@ -71,7 +72,7 @@ class LuxConnector:
         result = self.ws.recv()
         print(result)
 
-    def get_image(self)-> Image:
+    def get_image(self)-> np.array:
         '''
         Get the current image of the camera.
         '''
@@ -101,7 +102,7 @@ class LuxConnector:
 
                 all_img_names = [i for i in os.listdir(load_location) if i.endswith(".jpg")]
 
-                img = Image.open(os.path.join(load_location, max(all_img_names)))
+                img = cv2.imread(os.path.join(load_location, max(all_img_names)))
                 break
             except:
                 count += 1
