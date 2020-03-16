@@ -153,7 +153,12 @@ class LuxConnector:
         self, num_img: int = 10, start_focus: float = 0, stop_focus: float = 1
     ) -> List[np.array]:
         """
-        Creates a z-stack 
+        Creates a z-stack.
+        It will take multiple different image on different focus levels.
+
+        num_img: (int) the amount of image in the z-stack
+        start_focus: (float) The focus of the first image
+        stop_focus: (float) the focus of the last image
         """
         
         result = []
