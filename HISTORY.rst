@@ -1,6 +1,10 @@
 History
 -------
 
+0.0.2 (2020-03-24)
+------------------
+- Bugfix: stop waiting for response after sending a message
+
 0.0.1 (2020-03-16)
 ------------------
 

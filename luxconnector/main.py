@@ -32,8 +32,6 @@ class LuxConnector:
         """
         msg1 = {"type": "ACTIVATE", "payload": {}}
         self.ws.send(json.dumps(msg1))
-        result = self.ws.recv()
-        print(result)
 
     def __start_lux_app(self) -> None:
         """
@@ -52,8 +50,6 @@ class LuxConnector:
         """
         msg1 = {"type": "LIVE_STREAM", "payload": {"enable": state}}
         self.ws.send(json.dumps(msg1))
-        result = self.ws.recv()
-        print(result)
 
     def set_zoom(self, zoom_type: str = "IN") -> None:
         """
@@ -66,8 +62,6 @@ class LuxConnector:
 
         msg1 = {"type": "ZOOM", "payload": {"action": zoom_type}}
         self.ws.send(json.dumps(msg1))
-        result = self.ws.recv()
-        print(result)
 
         # Toggle liveview to enforce the settings
         self.set_liveview(False)
@@ -84,8 +78,6 @@ class LuxConnector:
 
         msg1 = {"type": "FOCUS", "payload": {"value": focus_level}}
         self.ws.send(json.dumps(msg1))
-        result = self.ws.recv()
-        print(result)
 
     def get_image(self) -> np.array:
         """
@@ -106,8 +98,6 @@ class LuxConnector:
         }
 
         self.ws.send(json.dumps(msg1))
-        result = self.ws.recv()
-        print(result)
 
         count = 0
         while True:
