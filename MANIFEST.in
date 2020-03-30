@@ -1,7 +1,7 @@
 include HISTORY.rst
 include LICENSE
 include README.md
-recursive-include * LuxServer\*
+recursive-include * LuxServer/*
 
 recursive-include tests *
 recursive-exclude * __pycache__
