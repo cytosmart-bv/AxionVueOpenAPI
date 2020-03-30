@@ -17,11 +17,6 @@ jobs:
     endpoint: DockerRegTest
 
   steps:
-  - task: CopyFiles@2
-    inputs:
-      SourceFolder: '/home/vsts/work/1/s/luxconnector/LuxServer'
-      Contents: '**'
-      TargetFolder: 'luxconnector/LuxServer'
 
   - task: Bash@3
     displayName: build package
