@@ -1,5 +1,8 @@
 History
 -------
+0.1.0 (2020-05-20)
+------------------
+- App updated to https://cytosmart.visualstudio.com/CytoSmartApps/_build/results?buildId=21687&view=artifacts&type=publishedArtifacts
 0.0.3 (2020-03-30)
 ------------------
 - bugfix: files were not copied into package on linux
