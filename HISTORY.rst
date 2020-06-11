@@ -1,8 +1,15 @@
 History
 -------
+
+0.1.1 (2020-06-11)
+------------------
+- Update documentation
+- Make setup.py fit for PyPI
+ 
 0.1.0 (2020-05-20)
 ------------------
-- App updated to https://cytosmart.visualstudio.com/CytoSmartApps/_build/results?buildId=21687&view=artifacts&type=publishedArtifacts
+- Update lux server to latest version
+
 0.0.3 (2020-03-30)
 ------------------
 - bugfix: files were not copied into package on linux

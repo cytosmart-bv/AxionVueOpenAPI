@@ -36,6 +36,7 @@ setup(
     entry_points={"console_scripts": ["luxconnector=luxconnector.cli:__init__"]},
     install_requires=requirements,
     long_description=readme + "\n\n" + history,
+    long_description_content_type="text/markdown",
     include_package_data=True,
     keywords="luxconnector",
     name="luxconnector",
@@ -44,6 +45,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://cytosmart.com",
-    version="0.1.0",
+    version="0.1.1",
     zip_safe=False,
 )
