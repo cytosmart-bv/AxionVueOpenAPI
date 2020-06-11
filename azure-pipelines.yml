@@ -1,0 +1,34 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+- develop
+
+jobs:
+- job: RunInContainer
+  
+  pool:
+    vmImage: 'ubuntu-16.04'
+
+  container:
+    image: cytosmarttestreg.azurecr.io/omni/base:17936
+    endpoint: DockerRegTest
+
+  steps:
+
+  - task: Bash@3
+    displayName: build package
+    inputs:
+      targetType: 'inline'
+      script: |
+        python -m pip install --user --upgrade setuptools wheel
+        python setup.py sdist bdist_wheel
+
+  - task: PublishBuildArtifacts@1
+    displayName: publish package
+    inputs:
+      PathtoPublish: 'dist'
+      ArtifactName: 'dist_$(build.buildID)'
+      publishLocation: 'Container'
