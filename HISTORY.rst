@@ -1,5 +1,8 @@
 History
 -------
+0.1.2 (2020-06-30)
+------------------
+- Rename failing to pinging in print statement
 
 0.1.1 (2020-06-11)
 ------------------
