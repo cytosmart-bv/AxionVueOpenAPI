@@ -119,7 +119,7 @@ class LuxConnector:
                 print(f"Pinged Lux device {count} times to load image from experiment")
                 time.sleep(0.2)
                 if count >= 50:
-                    print(f"After Pinging {count} times it is still not working")
+                    print(f"After pinging {count} times it is still not working")
                     img = None
                     break
 
