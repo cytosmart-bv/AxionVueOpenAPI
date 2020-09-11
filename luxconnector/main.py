@@ -110,7 +110,7 @@ class LuxConnector:
                     i for i in os.listdir(load_location) if i.endswith(".jpg")
                 ]
 
-                img = cv2.imread(os.path.join(load_location, max(all_img_names)))
+                img = cv2.imread(os.path.join(load_location, max(all_img_names)), 0)
 
                 assert img is not None
                 break
