@@ -13,12 +13,7 @@ connector = LuxConnector()
 
 serial_numbers = connector.get_all_serial_numbers()
 
-if len(serial_numbers) > 0:
-    s = time.time()
-    connector.set_focus(serial_numbers[0], 0)
-    img = connector.get_image(serial_numbers[0])
-    print(time.time() - s)
-else:
-    print("No devices are connected")
+for serial_number in serial_numbers:
+    img = connector.get_image(serial_number)
 
-img.save(os.path.join(result_folder, f"{time.time()}.png"), "JPEG")
+    img.save(os.path.join(result_folder, f"{serial_number}_{int(time.time())}.png"), "JPEG")
