@@ -114,6 +114,7 @@ class LuxConnector:
         serial_number: (str) the serial number of device you want to connect
         """
         self.__activate(serial_number)
+        self.set_liveview(serial_number, True)
         response = requests.get(f"http://localhost:3333/luxservice/lastlive?serialNumber={serial_number}")
         img = Image.open(BytesIO(response.content))
 
