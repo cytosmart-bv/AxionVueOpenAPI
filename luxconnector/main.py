@@ -6,6 +6,9 @@ import time
 import uuid
 from pathlib import Path
 from typing import List
+from PIL import Image
+import requests
+from io import BytesIO
 
 import cv2
 import numpy as np
@@ -20,7 +23,9 @@ class LuxConnector:
         self.ws_listener = Listener(self.ws)
         self.ws_listener.start()
         self.__all_devices = self.ws_listener.all_devices
-
+        for i in self.__all_devices:
+            self.set_liveview(i, True)
+        
         if wait_till_a_device_connects:
             while True:
                 try:
@@ -31,11 +36,14 @@ class LuxConnector:
                 except:
                     pass
     
-    def __activate(self) -> None:
+    def __activate(self, serial_number: str,) -> None:
         """
         Activate Lux
+
+        serial_number: (str) the serial number of device you want to connect
+
         """
-        msg1 = {"type": "ACTIVATE", "payload": {}}
+        msg1 = {"type": "ACTIVATE", "payload": {"serialNumber": serial_number}}
         self.ws.send(json.dumps(msg1))
 
     @staticmethod
@@ -105,61 +113,9 @@ class LuxConnector:
 
         serial_number: (str) the serial number of device you want to connect
         """
-        self.__activate()
-        name = str(uuid.uuid4())
-        msg1 = {
-            "type": "EXPERIMENT",
-            "payload": {
-                "serialNumber": serial_number,
-                "action": "START",
-                "experimentId": "",
-                "name": name,
-                "snapshotInterval": 50,
-                "autoStopTime": 1,
-                "sasToken": "",
-            },
-        }
-
-        self.ws.send(json.dumps(msg1))
-
-        count = 0
-        while True:
-            try:
-                load_location = os.path.join(
-                    r"C:\ProgramData", "CytoSmartLuxService", "Images", name
-                )
-
-                all_img_names = [
-                    i for i in os.listdir(load_location) if i.endswith(".jpg")
-                ]
-
-                img = cv2.imread(os.path.join(load_location, max(all_img_names)), 0)
-
-                assert img is not None
-                break
-            except:
-                count += 1
-                print(f"Pinged Lux device {count} times to load image from experiment")
-                time.sleep(0.2)
-                if count >= 100:
-                    print(f"After pinging {count} times it is still not working")
-                    img = None
-                    break
-
-        msg2 = {
-            "type": "EXPERIMENT",
-            "payload": {
-                "serialNumber": serial_number,
-                "action": "STOP",
-                "experimentId": "",
-                "name": name,
-                "snapshotInterval": 50,
-                "autoStopTime": 1,
-                "sasToken": "",
-            },
-        }
-
-        self.ws.send(json.dumps(msg2))
+        self.__activate(serial_number)
+        response = requests.get(f"http://localhost:3333/luxservice/lastlive?serialNumber={serial_number}")
+        img = Image.open(BytesIO(response.content))
 
         return img
 
@@ -184,7 +140,7 @@ class LuxConnector:
             focus = focus if focus <= 1 else 1
 
             print(f"focus level: {focus}")
-            self.set_focus(focus)
+            self.set_focus(serial_number, focus)
             img = self.get_image(serial_number)
             result.append(img)
 
