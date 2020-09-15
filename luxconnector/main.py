@@ -64,17 +64,6 @@ class LuxConnector:
         exe_loc = os.path.join(basefolder_loc, "LuxServer", "CytoSmartLuxService.exe")
         subprocess.Popen(["cmd", "/K", exe_loc])
 
-    def get_all_serial_numbers(self):
-        """
-        Returns all the serial numbers of the devices that are connected.
-        """
-        all_serial_numbers = []
-        for serial_number in self.__all_devices.keys():
-            device = self.__all_devices[serial_number]
-            if device.is_connected:
-                all_serial_numbers.append(serial_number)
-        return all_serial_numbers
-
     def set_liveview(self, serial_number: str, state: bool = True) -> None:
         """
         Turn the liveview on or off
@@ -123,6 +112,26 @@ class LuxConnector:
             "payload": {"serialNumber": serial_number, "value": focus_level},
         }
         self.ws.send(json.dumps(msg1))
+
+    def get_all_serial_numbers(self):
+        """
+        Returns all the serial numbers of the devices that are connected.
+        """
+        all_serial_numbers = []
+        for serial_number in self.__all_devices.keys():
+            device = self.__all_devices[serial_number]
+            if device.is_connected:
+                all_serial_numbers.append(serial_number)
+        return all_serial_numbers
+    
+    def get_temperature(self, serial_number: str) -> float:
+        """
+        Returns the latest know temperature of the device.
+
+        serial_number: (str) the serial number of device you want to connect
+        """
+        device = self.__all_devices[serial_number]
+        return device.temperature
 
     def get_image(self, serial_number: str) -> Image.Image:
         """
