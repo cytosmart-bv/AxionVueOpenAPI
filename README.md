@@ -114,6 +114,10 @@ connector.set_liveview(serial_number, True) # in the browser you can see the ima
 connector.set_liveview(serial_number, False) # Led of Lux turns off till you take a picture
 ```
 
+# Developers
+
+Developers of the luxconnector please look at the [`developers readme`](README_DEV.md)
+
 # Credits
 
 - Tom Nijhof

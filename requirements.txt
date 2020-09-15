@@ -1,3 +1,4 @@
+bump2version==1.0.0
 pillow==7.2.0
 requests==2.24.0
 websocket==0.2.1
