@@ -18,7 +18,11 @@ from .listener import Listener
 
 
 class LuxConnector:
-    def __init__(self, zoom_type: str = "IN", number_of_devices: int = 1) -> None:
+    def __init__(self, number_of_devices: int = 1) -> None:
+        ''' 
+        number_of_devices: (int) How many devices should be connected.
+            It will keep trying connecting till it is connected to all connected devices.
+        '''
         self.__start_lux_app()
         self.ws = create_connection("ws://localhost:3333/luxservice")
         self.ws_listener = Listener(self.ws)
