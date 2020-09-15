@@ -124,6 +124,15 @@ class LuxConnector:
                 all_serial_numbers.append(serial_number)
         return all_serial_numbers
     
+    def get_temperature(self, serial_number: str) -> float:
+        """
+        Returns the latest know temperature of the device.
+
+        serial_number: (str) the serial number of device you want to connect
+        """
+        device = self.__all_devices[serial_number]
+        return device.temperature
+
     def get_image(self, serial_number: str) -> Image.Image:
         """
         Get the current image of the camera.
