@@ -1,5 +1,11 @@
 History
 -------
+1.0.0 (2020-09-15)
+------------------
+- Added multi lux support
+- Changed output from numpy array to pillow
+- Require serial number with function to get information
+
 0.1.2 (2020-06-30)
 ------------------
 - Rename failing to pinging in print statement

@@ -1,14 +1,18 @@
 #%%
+import os
 import time
 
 from luxconnector import LuxConnector
 
-connector = LuxConnector()
+result_folder = os.path.join("results", "single_image")
+os.makedirs(result_folder, exist_ok=True)
 
-# s = time.time()
-# img = connector.get_image()
-# print(time.time() - s)
+connector = LuxConnector(number_of_devices=2)
 
-s = time.time()
-z_stack = connector.get_z_stack(10, 0, 1)
-print(time.time() - s)
+serial_numbers = connector.get_all_serial_numbers()
+
+for serial_number in serial_numbers:
+    s = time.time()
+    img = connector.get_image(serial_number)
+    print(f"total time {time.time() - s}")
+    img.save(os.path.join(result_folder, f"{serial_number}_{int(time.time())}.png"), "JPEG")
