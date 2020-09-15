@@ -27,6 +27,8 @@ class LuxConnector:
         self.ws_listener.start()
         self.__all_devices = self.ws_listener.all_devices
 
+        print(f"Connecting to {number_of_devices} devices")
+
         while True:
             try:
                 connected_devices = 0
@@ -38,6 +40,7 @@ class LuxConnector:
 
                 if connected_devices >= number_of_devices:
                     break
+                
             except:
                 pass
 
@@ -121,7 +124,7 @@ class LuxConnector:
         }
         self.ws.send(json.dumps(msg1))
 
-    def get_image(self, serial_number: str) -> Image:
+    def get_image(self, serial_number: str) -> Image.Image:
         """
         Get the current image of the camera.
 
@@ -142,7 +145,7 @@ class LuxConnector:
         num_img: int = 10,
         start_focus: float = 0,
         stop_focus: float = 1,
-    ) -> List[Image]:
+    ) -> List[Image.Image]:
         """
         Creates a z-stack.
         It will take multiple different image on different focus levels.
