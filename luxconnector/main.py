@@ -4,38 +4,41 @@ import os
 import subprocess
 import time
 import uuid
+from io import BytesIO
 from pathlib import Path
 from typing import List
-from PIL import Image
-import requests
-from io import BytesIO
 
 import cv2
 import numpy as np
+import requests
+from PIL import Image
 from websocket import create_connection
 
 from .listener import Listener
 
+
 class LuxConnector:
-    def __init__(self, zoom_type: str = "IN", wait_till_a_device_connects: bool = True) -> None:
+    def __init__(self, zoom_type: str = "IN", number_of_devices: int = 1) -> None:
         self.__start_lux_app()
         self.ws = create_connection("ws://localhost:3333/luxservice")
         self.ws_listener = Listener(self.ws)
         self.ws_listener.start()
         self.__all_devices = self.ws_listener.all_devices
-        for i in self.__all_devices:
-            self.set_liveview(i, True)
-        
-        if wait_till_a_device_connects:
-            while True:
-                try:
-                    all_serial_numbers = self.get_all_serial_numbers()
-                    img = self.get_image(all_serial_numbers[0])
+
+        while True:
+            try:
+                connected_devices = 0
+                all_serial_numbers = self.get_all_serial_numbers()
+                for serial_number in all_serial_numbers:
+                    img = self.get_image(serial_number)
                     if img is not None:
-                        break
-                except:
-                    pass
-    
+                        connected_devices += 1
+
+                if connected_devices >= number_of_devices:
+                    break
+            except:
+                pass
+
     def __activate(self, serial_number: str,) -> None:
         """
         Activate Lux
@@ -66,7 +69,7 @@ class LuxConnector:
             if device.is_connected:
                 all_serial_numbers.append(serial_number)
         return all_serial_numbers
-    
+
     def set_liveview(self, serial_number: str, state: bool = True) -> None:
         """
         Turn the liveview on or off
@@ -74,7 +77,10 @@ class LuxConnector:
         serial_number: (str) the serial number of device you want to connect
         state: (bool) True = live view on
         """
-        msg1 = {"type": "LIVE_STREAM", "payload": {"serialNumber": serial_number, "enable": state}}
+        msg1 = {
+            "type": "LIVE_STREAM",
+            "payload": {"serialNumber": serial_number, "enable": state},
+        }
         self.ws.send(json.dumps(msg1))
 
     def set_zoom(self, serial_number: str, zoom_type: str = "IN") -> None:
@@ -87,7 +93,10 @@ class LuxConnector:
         zoom_type = zoom_type.upper()
         assert zoom_type in ["IN", "OUT"]
 
-        msg1 = {"type": "ZOOM", "payload": {"serialNumber": serial_number,"action": zoom_type}}
+        msg1 = {
+            "type": "ZOOM",
+            "payload": {"serialNumber": serial_number, "action": zoom_type},
+        }
         self.ws.send(json.dumps(msg1))
 
         # Toggle liveview to enforce the settings
@@ -104,7 +113,10 @@ class LuxConnector:
         """
         assert focus_level <= 1 and focus_level >= 0
 
-        msg1 = {"type": "FOCUS", "payload": {"serialNumber": serial_number,"value": focus_level}}
+        msg1 = {
+            "type": "FOCUS",
+            "payload": {"serialNumber": serial_number, "value": focus_level},
+        }
         self.ws.send(json.dumps(msg1))
 
     def get_image(self, serial_number: str) -> np.array:
@@ -115,13 +127,19 @@ class LuxConnector:
         """
         self.__activate(serial_number)
         self.set_liveview(serial_number, True)
-        response = requests.get(f"http://localhost:3333/luxservice/lastlive?serialNumber={serial_number}")
+        response = requests.get(
+            f"http://localhost:3333/luxservice/lastlive?serialNumber={serial_number}"
+        )
         img = Image.open(BytesIO(response.content))
 
         return img
 
     def get_z_stack(
-        self, serial_number: str, num_img: int = 10, start_focus: float = 0, stop_focus: float = 1
+        self,
+        serial_number: str,
+        num_img: int = 10,
+        start_focus: float = 0,
+        stop_focus: float = 1,
     ) -> List[np.array]:
         """
         Creates a z-stack.
@@ -132,9 +150,9 @@ class LuxConnector:
         start_focus: (float) The focus of the first image
         stop_focus: (float) the focus of the last image
         """
-        
+
         result = []
-        focus_step = (stop_focus - start_focus)/(num_img - 1)
+        focus_step = (stop_focus - start_focus) / (num_img - 1)
 
         for focus_n in range(num_img):
             focus = start_focus + focus_n * focus_step
