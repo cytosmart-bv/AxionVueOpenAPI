@@ -12,8 +12,8 @@ with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
 requirements = [
-    "Numpy>=1, <2",
-    "opencv-python>=4.1, <5",
+    "pillow>=6.2.2, <8",
+    "requests>=2.24.0, <3",
     "websocket>=0.2.1, <0.3",
     "websocket-client>=0.57.0, <0.58",
 ]
@@ -51,6 +51,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/cytosmart-bv/luxconnector",
-    version="0.1.3",
+    version="1.0.0",
     zip_safe=False,
 )

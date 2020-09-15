@@ -1,4 +1,4 @@
-numpy==1.18.1
-opencv_python==4.2.0.32
+pillow==7.2.0
+requests==2.24.0
 websocket==0.2.1
 websocket-client==0.57.0
