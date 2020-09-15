@@ -21,7 +21,7 @@ pip install luxconnector
 
 ## Initialization
 
-Make sure atleast one lux is physically connected to your computer via a USB3 port.
+Make sure at least one lux is physically connected to your computer via a USB3 port.
 The luxconnector is an object that maintains the connection with the Lux.
 To create the object use the following code:
 
@@ -30,7 +30,7 @@ from luxconnector import LuxConnector
 connector = LuxConnector(number_of_devices=2)
 ```
 
-NOTE: Make sure number_of_devices is atleast the number of devices you have connected.
+NOTE: Make sure number_of_devices is at least the number of devices you have connected.
 If not the luxconnector will look for the missing devices forever.
 
 ## Getting serial numbers
