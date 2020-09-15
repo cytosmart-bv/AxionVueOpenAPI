@@ -2,8 +2,6 @@
 import os
 import time
 
-import cv2
-
 from luxconnector import LuxConnector
 
 result_folder = os.path.join("results", "single_image")

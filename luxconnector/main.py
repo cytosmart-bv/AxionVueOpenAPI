@@ -8,8 +8,6 @@ from io import BytesIO
 from pathlib import Path
 from typing import List
 
-import cv2
-import numpy as np
 import requests
 from PIL import Image
 from websocket import create_connection
@@ -123,7 +121,7 @@ class LuxConnector:
         }
         self.ws.send(json.dumps(msg1))
 
-    def get_image(self, serial_number: str) -> np.array:
+    def get_image(self, serial_number: str) -> Image:
         """
         Get the current image of the camera.
 
@@ -144,7 +142,7 @@ class LuxConnector:
         num_img: int = 10,
         start_focus: float = 0,
         stop_focus: float = 1,
-    ) -> List[np.array]:
+    ) -> List[Image]:
         """
         Creates a z-stack.
         It will take multiple different image on different focus levels.

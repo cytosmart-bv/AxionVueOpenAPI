@@ -12,8 +12,6 @@ with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
 requirements = [
-    "Numpy>=1, <2",
-    "opencv-python>=4.1, <5",
     "websocket>=0.2.1, <0.3",
     "websocket-client>=0.57.0, <0.58",
 ]
