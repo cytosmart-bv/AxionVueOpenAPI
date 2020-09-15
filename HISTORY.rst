@@ -5,6 +5,7 @@ History
 - Added multi lux support
 - Changed output from numpy array to pillow
 - Require serial number with function to get information
+- Add get_temperature
 
 0.1.2 (2020-06-30)
 ------------------
