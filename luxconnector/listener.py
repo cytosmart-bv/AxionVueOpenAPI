@@ -28,8 +28,8 @@ class Listener(Thread):
                 self.__connect_device(serial_number, isConnected)
 
             if type_message == "TEMPERATURE_CHANGE":
-                new_tempature = float(payload.get("value", -9999999))
-                self.__update_tempature(serial_number, new_tempature)
+                new_temperature = float(payload.get("value", -9999999))
+                self.__update_temperature(serial_number, new_temperature)
     
     def __connect_device(self, serial_number: str, is_connected: bool = True):
         device = self.all_devices.get(serial_number, None)
@@ -40,10 +40,10 @@ class Listener(Thread):
         else:
             self.all_devices[serial_number].is_connected = is_connected
     
-    def __update_tempature(self, serial_number: str, new_tempature: float):
+    def __update_temperature(self, serial_number: str, new_temperature: float):
         device = self.all_devices.get(serial_number, None)
         if device is not None:
-            device.tempature = new_tempature
+            device.temperature = new_temperature
         
 # l = Listener(websocket.create_connection("ws://localhost:3333/luxservice"))
 # l.start()

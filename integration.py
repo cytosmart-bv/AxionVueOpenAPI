@@ -15,4 +15,6 @@ for serial_number in serial_numbers:
     s = time.time()
     img = connector.get_image(serial_number)
     print(f"total time {time.time() - s}")
+    temperature = connector.get_temperature(serial_number)
+    print(f"temperature of {serial_number} is {temperature}")
     img.save(os.path.join(result_folder, f"{serial_number}_{int(time.time())}.png"), "JPEG")

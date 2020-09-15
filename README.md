@@ -66,6 +66,14 @@ connector.set_focus(serial_number, 0.7)
 img2 = connector.get_image(serial_number) # Image with focus of 0.7
 img3 = connector.get_image(serial_number) # Image with focus of 0.7
 ```
+## Getting the temperature
+This function returns the temperature in celsius of the device.
+
+You need to give the serial number of the device you want to target
+
+```
+temperature = connector.get_temperature(serial_number)
+```
 
 ## Getting a z-stack
 This function will return a list of [`pillow images`](https://pillow.readthedocs.io/en/stable/reference/Image.html).
