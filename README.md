@@ -68,7 +68,7 @@ img3 = connector.get_image(serial_number) # Image with focus of 0.7
 ```
 
 ## Getting a z-stack
-This function will return a list of [`numpy arrays`](https://numpy.org/doc/1.18/reference/generated/numpy.array.html).
+This function will return a list of [`pillow images`](https://pillow.readthedocs.io/en/stable/reference/Image.html).
 Each image will be at a different focus level.
 
 This code will create a z-stack of 6 images.
