@@ -108,7 +108,7 @@ connector.set_liveview(serial_number, False) # Led of Lux turns off till you tak
 
 # Developers
 
-Developers of the luxconnector please look at the [`developers readme`](\README_DEV.md)
+Developers of the luxconnector please look at the [`developers readme`](README_DEV.md)
 
 # Credits
 
