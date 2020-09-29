@@ -1,5 +1,9 @@
 History
 -------
+1.0.1 (2020-09-29)
+------------------
+- Bugfix: toggle liveview when change zoom level
+
 1.0.0 (2020-09-15)
 ------------------
 - Added multi lux support
