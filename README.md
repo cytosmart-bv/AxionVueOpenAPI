@@ -7,7 +7,7 @@ The package will only work on Windows.
 # Installation
 To install this package follow the these steps:
 
-## Step 1: Divers
+## Step 1: Drivers
 Make sure you have or had a [CytoSmart application installed](http://download.cytosmart.com/). 
 Recommend is the cell counter given it do not restart itself after closing.
 This is needed to have all the correct drivers installed.
