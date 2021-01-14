@@ -9,6 +9,7 @@ To install this package follow the these steps:
 
 ## Step 1: Divers
 Make sure you have or had a [CytoSmart application installed](http://download.cytosmart.com/). 
+Recommend is the cell counter given it do not restart itself after closing.
 This is needed to have all the correct drivers installed.
 It doesn't matter if the app is uninstalled afterwards.
 

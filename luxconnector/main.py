@@ -92,10 +92,10 @@ class LuxConnector:
             "payload": {"serialNumber": serial_number, "action": zoom_type},
         }
         self.ws.send(json.dumps(msg1))
-
+        
         # Toggle liveview to enforce the settings
-        self.set_liveview(False)
-        self.set_liveview(True)
+        self.set_liveview(serial_number, False)
+        self.set_liveview(serial_number, True)
 
     def set_focus(self, serial_number: str, focus_level: float = 0) -> None:
         """
