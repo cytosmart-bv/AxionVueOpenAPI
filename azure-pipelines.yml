@@ -13,7 +13,7 @@ jobs:
     vmImage: 'ubuntu-16.04'
 
   container:
-    image: cytosmarttestreg.azurecr.io/omni/base:17936
+    image: cytosmarttestreg.azurecr.io/omni/base:24470
     endpoint: DockerRegTest
 
   steps:
