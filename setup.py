@@ -51,6 +51,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/cytosmart-bv/luxconnector",
-    version="1.0.1",
+    version="1.0.1b0",
     zip_safe=False,
 )

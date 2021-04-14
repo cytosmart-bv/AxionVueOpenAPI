@@ -4,6 +4,7 @@ History
 1.0.1 (2021-14-01)
 ------------------
 - Added support for LUX3 FL
+- Bugfix: toggle liveview when change zoom level
 
 1.0.0 (2020-09-15)
 ------------------
