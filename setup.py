@@ -18,7 +18,7 @@ requirements = [
     "pillow>=6.2.2, <9",
     "requests>=2.24.0, <3",
     "websocket>=0.2.1, <0.3",
-    "websocket-client>=0.57.0, <0.58",
+    "websocket-client>=0.57.0, <0.59",
 ]
 
 setup_requirements = ["pytest-runner"]
