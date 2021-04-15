@@ -11,11 +11,14 @@ with open("README.md") as readme_file:
 with open("HISTORY.rst") as history_file:
     history = history_file.read()
 
+with open("LICENSE") as license_file:
+    license = license_file.read()
+
 requirements = [
-    "pillow>=6.2.2, <8",
+    "pillow>=6.2.2, <9",
     "requests>=2.24.0, <3",
     "websocket>=0.2.1, <0.3",
-    "websocket-client>=0.57.0, <0.58",
+    "websocket-client>=0.57.0, <0.59",
 ]
 
 setup_requirements = ["pytest-runner"]
@@ -41,7 +44,7 @@ setup(
     description="This is a python wrapper around the Lux Client windows solution",
     entry_points={"console_scripts": ["luxconnector=luxconnector.cli:__init__"]},
     install_requires=requirements,
-    long_description=readme + "\n\n" + history,
+    long_description=readme + "\n\n" + history + "\n\n" + license,
     long_description_content_type="text/markdown",
     include_package_data=True,
     keywords="luxconnector",
@@ -51,6 +54,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/cytosmart-bv/luxconnector",
-    version="1.0.1b0",
+    version="1.0.2b0",
     zip_safe=False,
 )

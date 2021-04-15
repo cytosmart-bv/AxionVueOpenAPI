@@ -1,7 +1,12 @@
 History
 -------
 
-1.0.1 (2021-14-01)
+1.0.2 (2021-04-15)
+------------------
+- Update pillow
+- Update license to ACADEMIC PUBLIC LICENSE
+
+1.0.1 (2021-01-14)
 ------------------
 - Added support for LUX3 FL
 - Bugfix: toggle liveview when change zoom level
