@@ -52,6 +52,12 @@ You need to give the serial number of the device you want to target
 img = connector.get_image(serial_number)
 ```
 
+or
+
+```
+img = connector.get_image(serial_numbers[index])
+```
+
 ## Changing the focus
 This function will change the focus for the luxconnector object.
 Every image taken after this function will have the new focus.
@@ -105,10 +111,10 @@ img2 = connector.get_image(serial_number) # Image is zoomed out
 ```
 
 ## Live view
-The live view of the Lux is hosted at http://localhost:3333/luxservice/live.
+The live view of the Lux is hosted at http://localhost:3333/luxservice/live?serialNumber=##########.
 This image can only been seen if the live view is turned on (by default the live view is turned on).
 
-You need to give the serial number of the device you want to target
+You need to give the serial number of the device you want to target at the place of the #-symbols.
 
 ```
 connector.set_liveview(serial_number, True) # in the browser you can see the image being updated
