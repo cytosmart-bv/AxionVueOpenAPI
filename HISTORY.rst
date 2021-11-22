@@ -1,5 +1,8 @@
 History
 -------
+1.0.3 (2021-11-22)
+------------------
+- Update requirements of websocket and websocket-client to include version 1
 
 1.0.2 (2021-04-15)
 ------------------
