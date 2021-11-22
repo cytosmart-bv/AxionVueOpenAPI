@@ -19,8 +19,14 @@ class LuxConnector:
         number_of_devices: (int) How many devices should be connected.
             It will keep trying connecting till it is connected to all connected devices.
         '''
-        self.__start_lux_app()
-        self.ws = create_connection("ws://localhost:3333/luxservice")
+
+        try:
+            # Try to make a connection with the app
+            self.ws = create_connection("ws://localhost:3333/luxservice")
+        except:
+            # If that fails, start the app first and make the connection again
+            self.__start_lux_app()
+            self.ws = create_connection("ws://localhost:3333/luxservice")
         self.ws_listener = Listener(self.ws)
         self.ws_listener.start()
         self.__all_devices = self.ws_listener.all_devices
