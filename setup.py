@@ -17,8 +17,8 @@ with open("LICENSE") as license_file:
 requirements = [
     "pillow>=6.2.2, <9",
     "requests>=2.24.0, <3",
-    "websocket>=0.2.1, <0.3",
-    "websocket-client>=0.57.0, <0.59",
+    "websocket>=0.2.1, <2",
+    "websocket-client>=0.57.0, <2",
 ]
 
 setup_requirements = ["pytest-runner"]
@@ -53,6 +53,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/cytosmart-bv/luxconnector",
-    version="1.0.2",
+    version="1.0.3",
     zip_safe=False,
 )
