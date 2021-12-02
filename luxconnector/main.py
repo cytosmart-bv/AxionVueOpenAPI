@@ -22,11 +22,11 @@ class LuxConnector:
 
         try:
             # Try to make a connection with the app
-            self.ws = create_connection("ws://localhost:3333/luxservice")
+            self.ws = create_connection("ws://localhost:3333/cytosmartservice")
         except:
             # If that fails, start the app first and make the connection again
             self.__start_lux_app()
-            self.ws = create_connection("ws://localhost:3333/luxservice")
+            self.ws = create_connection("ws://localhost:3333/cytosmartservice")
         self.ws_listener = Listener(self.ws)
         self.ws_listener.start()
         self.__all_devices = self.ws_listener.all_devices
@@ -65,7 +65,7 @@ class LuxConnector:
         """
         print("Start Lux Server")
         basefolder_loc = Path(__file__).parents[0]
-        exe_loc = os.path.join(basefolder_loc, "LuxServer", "CytoSmartLuxService.exe")
+        exe_loc = os.path.join(basefolder_loc, "LuxServer", "CytoSmartService.exe")
         subprocess.Popen(["cmd", "/K", exe_loc])
 
     def set_liveview(self, serial_number: str, state: bool = True) -> None:
@@ -146,7 +146,7 @@ class LuxConnector:
         self.__activate(serial_number)
         self.set_liveview(serial_number, True)
         response = requests.get(
-            f"http://localhost:3333/luxservice/lastlive?serialNumber={serial_number}"
+            f"http://localhost:3333/cytosmartservice/lastlive?serialNumber={serial_number}"
         )
         img = Image.open(BytesIO(response.content))
 
