@@ -1,0 +1,3376 @@
+[
+    {
+        "PatternId": "be2af31b-6761-4ba0-8190-f0d9adac6c3a",
+        "PatternName": "Some name",
+        "PatternPoints": [
+            {
+                "wellPlateName": "A 1",
+                "x": 11.2,
+                "y": 14.3,
+                "enabled": true,
+                "pointId": "0"
+            },
+            {
+                "wellPlateName": "A 2",
+                "x": 11.2,
+                "y": 23.3,
+                "enabled": true,
+                "pointId": "1"
+            },
+            {
+                "wellPlateName": "A 3",
+                "x": 11.2,
+                "y": 32.3,
+                "enabled": true,
+                "pointId": "2"
+            },
+            {
+                "wellPlateName": "A 4",
+                "x": 11.2,
+                "y": 41.3,
+                "enabled": true,
+                "pointId": "3"
+            },
+            {
+                "wellPlateName": "A 5",
+                "x": 11.2,
+                "y": 50.3,
+                "enabled": true,
+                "pointId": "4"
+            },
+            {
+                "wellPlateName": "A 6",
+                "x": 11.2,
+                "y": 59.3,
+                "enabled": true,
+                "pointId": "5"
+            },
+            {
+                "wellPlateName": "A 7",
+                "x": 11.2,
+                "y": 68.3,
+                "enabled": true,
+                "pointId": "6"
+            },
+            {
+                "wellPlateName": "A 8",
+                "x": 11.2,
+                "y": 77.3,
+                "enabled": true,
+                "pointId": "7"
+            },
+            {
+                "wellPlateName": "A 9",
+                "x": 11.2,
+                "y": 86.3,
+                "enabled": true,
+                "pointId": "8"
+            },
+            {
+                "wellPlateName": "A10",
+                "x": 11.2,
+                "y": 95.3,
+                "enabled": true,
+                "pointId": "9"
+            },
+            {
+                "wellPlateName": "A11",
+                "x": 11.2,
+                "y": 104.3,
+                "enabled": true,
+                "pointId": "10"
+            },
+            {
+                "wellPlateName": "A12",
+                "x": 11.2,
+                "y": 113.3,
+                "enabled": true,
+                "pointId": "11"
+            },
+            {
+                "wellPlateName": "B 1",
+                "x": 20.2,
+                "y": 14.3,
+                "enabled": true,
+                "pointId": "12"
+            },
+            {
+                "wellPlateName": "B 2",
+                "x": 20.2,
+                "y": 23.3,
+                "enabled": true,
+                "pointId": "13"
+            },
+            {
+                "wellPlateName": "B 3",
+                "x": 20.2,
+                "y": 32.3,
+                "enabled": true,
+                "pointId": "14"
+            },
+            {
+                "wellPlateName": "B 4",
+                "x": 20.2,
+                "y": 41.3,
+                "enabled": true,
+                "pointId": "15"
+            },
+            {
+                "wellPlateName": "B 5",
+                "x": 20.2,
+                "y": 50.3,
+                "enabled": true,
+                "pointId": "16"
+            },
+            {
+                "wellPlateName": "B 6",
+                "x": 20.2,
+                "y": 59.3,
+                "enabled": true,
+                "pointId": "17"
+            },
+            {
+                "wellPlateName": "B 7",
+                "x": 20.2,
+                "y": 68.3,
+                "enabled": true,
+                "pointId": "18"
+            },
+            {
+                "wellPlateName": "B 8",
+                "x": 20.2,
+                "y": 77.3,
+                "enabled": true,
+                "pointId": "19"
+            },
+            {
+                "wellPlateName": "B 9",
+                "x": 20.2,
+                "y": 86.3,
+                "enabled": true,
+                "pointId": "20"
+            },
+            {
+                "wellPlateName": "B10",
+                "x": 20.2,
+                "y": 95.3,
+                "enabled": true,
+                "pointId": "21"
+            },
+            {
+                "wellPlateName": "B11",
+                "x": 20.2,
+                "y": 104.3,
+                "enabled": true,
+                "pointId": "22"
+            },
+            {
+                "wellPlateName": "B12",
+                "x": 20.2,
+                "y": 113.3,
+                "enabled": true,
+                "pointId": "23"
+            },
+            {
+                "wellPlateName": "C 1",
+                "x": 29.2,
+                "y": 14.3,
+                "enabled": true,
+                "pointId": "24"
+            },
+            {
+                "wellPlateName": "C 2",
+                "x": 29.2,
+                "y": 23.3,
+                "enabled": true,
+                "pointId": "25"
+            },
+            {
+                "wellPlateName": "C 3",
+                "x": 29.2,
+                "y": 32.3,
+                "enabled": true,
+                "pointId": "26"
+            },
+            {
+                "wellPlateName": "C 4",
+                "x": 29.2,
+                "y": 41.3,
+                "enabled": true,
+                "pointId": "27"
+            },
+            {
+                "wellPlateName": "C 5",
+                "x": 29.2,
+                "y": 50.3,
+                "enabled": true,
+                "pointId": "28"
+            },
+            {
+                "wellPlateName": "C 6",
+                "x": 29.2,
+                "y": 59.3,
+                "enabled": true,
+                "pointId": "29"
+            },
+            {
+                "wellPlateName": "C 7",
+                "x": 29.2,
+                "y": 68.3,
+                "enabled": true,
+                "pointId": "30"
+            },
+            {
+                "wellPlateName": "C 8",
+                "x": 29.2,
+                "y": 77.3,
+                "enabled": true,
+                "pointId": "31"
+            },
+            {
+                "wellPlateName": "C 9",
+                "x": 29.2,
+                "y": 86.3,
+                "enabled": true,
+                "pointId": "32"
+            },
+            {
+                "wellPlateName": "C10",
+                "x": 29.2,
+                "y": 95.3,
+                "enabled": true,
+                "pointId": "33"
+            },
+            {
+                "wellPlateName": "C11",
+                "x": 29.2,
+                "y": 104.3,
+                "enabled": true,
+                "pointId": "34"
+            },
+            {
+                "wellPlateName": "C12",
+                "x": 29.2,
+                "y": 113.3,
+                "enabled": true,
+                "pointId": "35"
+            },
+            {
+                "wellPlateName": "D 1",
+                "x": 38.2,
+                "y": 14.3,
+                "enabled": true,
+                "pointId": "36"
+            },
+            {
+                "wellPlateName": "D 2",
+                "x": 38.2,
+                "y": 23.3,
+                "enabled": true,
+                "pointId": "37"
+            },
+            {
+                "wellPlateName": "D 3",
+                "x": 38.2,
+                "y": 32.3,
+                "enabled": true,
+                "pointId": "38"
+            },
+            {
+                "wellPlateName": "D 4",
+                "x": 38.2,
+                "y": 41.3,
+                "enabled": true,
+                "pointId": "39"
+            },
+            {
+                "wellPlateName": "D 5",
+                "x": 38.2,
+                "y": 50.3,
+                "enabled": true,
+                "pointId": "40"
+            },
+            {
+                "wellPlateName": "D 6",
+                "x": 38.2,
+                "y": 59.3,
+                "enabled": true,
+                "pointId": "41"
+            },
+            {
+                "wellPlateName": "D 7",
+                "x": 38.2,
+                "y": 68.3,
+                "enabled": true,
+                "pointId": "42"
+            },
+            {
+                "wellPlateName": "D 8",
+                "x": 38.2,
+                "y": 77.3,
+                "enabled": true,
+                "pointId": "43"
+            },
+            {
+                "wellPlateName": "D 9",
+                "x": 38.2,
+                "y": 86.3,
+                "enabled": true,
+                "pointId": "44"
+            },
+            {
+                "wellPlateName": "D10",
+                "x": 38.2,
+                "y": 95.3,
+                "enabled": true,
+                "pointId": "45"
+            },
+            {
+                "wellPlateName": "D11",
+                "x": 38.2,
+                "y": 104.3,
+                "enabled": true,
+                "pointId": "46"
+            },
+            {
+                "wellPlateName": "D12",
+                "x": 38.2,
+                "y": 113.3,
+                "enabled": true,
+                "pointId": "47"
+            },
+            {
+                "wellPlateName": "E 1",
+                "x": 47.2,
+                "y": 14.3,
+                "enabled": true,
+                "pointId": "48"
+            },
+            {
+                "wellPlateName": "E 2",
+                "x": 47.2,
+                "y": 23.3,
+                "enabled": true,
+                "pointId": "49"
+            },
+            {
+                "wellPlateName": "E 3",
+                "x": 47.2,
+                "y": 32.3,
+                "enabled": true,
+                "pointId": "50"
+            },
+            {
+                "wellPlateName": "E 4",
+                "x": 47.2,
+                "y": 41.3,
+                "enabled": true,
+                "pointId": "51"
+            },
+            {
+                "wellPlateName": "E 5",
+                "x": 47.2,
+                "y": 50.3,
+                "enabled": true,
+                "pointId": "52"
+            },
+            {
+                "wellPlateName": "E 6",
+                "x": 47.2,
+                "y": 59.3,
+                "enabled": true,
+                "pointId": "53"
+            },
+            {
+                "wellPlateName": "E 7",
+                "x": 47.2,
+                "y": 68.3,
+                "enabled": true,
+                "pointId": "54"
+            },
+            {
+                "wellPlateName": "E 8",
+                "x": 47.2,
+                "y": 77.3,
+                "enabled": true,
+                "pointId": "55"
+            },
+            {
+                "wellPlateName": "E 9",
+                "x": 47.2,
+                "y": 86.3,
+                "enabled": true,
+                "pointId": "56"
+            },
+            {
+                "wellPlateName": "E10",
+                "x": 47.2,
+                "y": 95.3,
+                "enabled": true,
+                "pointId": "57"
+            },
+            {
+                "wellPlateName": "E11",
+                "x": 47.2,
+                "y": 104.3,
+                "enabled": true,
+                "pointId": "58"
+            },
+            {
+                "wellPlateName": "E12",
+                "x": 47.2,
+                "y": 113.3,
+                "enabled": true,
+                "pointId": "59"
+            },
+            {
+                "wellPlateName": "F 1",
+                "x": 56.2,
+                "y": 14.3,
+                "enabled": true,
+                "pointId": "60"
+            },
+            {
+                "wellPlateName": "F 2",
+                "x": 56.2,
+                "y": 23.3,
+                "enabled": true,
+                "pointId": "61"
+            },
+            {
+                "wellPlateName": "F 3",
+                "x": 56.2,
+                "y": 32.3,
+                "enabled": true,
+                "pointId": "62"
+            },
+            {
+                "wellPlateName": "F 4",
+                "x": 56.2,
+                "y": 41.3,
+                "enabled": true,
+                "pointId": "63"
+            },
+            {
+                "wellPlateName": "F 5",
+                "x": 56.2,
+                "y": 50.3,
+                "enabled": true,
+                "pointId": "64"
+            },
+            {
+                "wellPlateName": "F 6",
+                "x": 56.2,
+                "y": 59.3,
+                "enabled": true,
+                "pointId": "65"
+            },
+            {
+                "wellPlateName": "F 7",
+                "x": 56.2,
+                "y": 68.3,
+                "enabled": true,
+                "pointId": "66"
+            },
+            {
+                "wellPlateName": "F 8",
+                "x": 56.2,
+                "y": 77.3,
+                "enabled": true,
+                "pointId": "67"
+            },
+            {
+                "wellPlateName": "F 9",
+                "x": 56.2,
+                "y": 86.3,
+                "enabled": true,
+                "pointId": "68"
+            },
+            {
+                "wellPlateName": "F10",
+                "x": 56.2,
+                "y": 95.3,
+                "enabled": true,
+                "pointId": "69"
+            },
+            {
+                "wellPlateName": "F11",
+                "x": 56.2,
+                "y": 104.3,
+                "enabled": true,
+                "pointId": "70"
+            },
+            {
+                "wellPlateName": "F12",
+                "x": 56.2,
+                "y": 113.3,
+                "enabled": true,
+                "pointId": "71"
+            },
+            {
+                "wellPlateName": "G 1",
+                "x": 65.2,
+                "y": 14.3,
+                "enabled": true,
+                "pointId": "72"
+            },
+            {
+                "wellPlateName": "G 2",
+                "x": 65.2,
+                "y": 23.3,
+                "enabled": true,
+                "pointId": "73"
+            },
+            {
+                "wellPlateName": "G 3",
+                "x": 65.2,
+                "y": 32.3,
+                "enabled": true,
+                "pointId": "74"
+            },
+            {
+                "wellPlateName": "G 4",
+                "x": 65.2,
+                "y": 41.3,
+                "enabled": true,
+                "pointId": "75"
+            },
+            {
+                "wellPlateName": "G 5",
+                "x": 65.2,
+                "y": 50.3,
+                "enabled": true,
+                "pointId": "76"
+            },
+            {
+                "wellPlateName": "G 6",
+                "x": 65.2,
+                "y": 59.3,
+                "enabled": true,
+                "pointId": "77"
+            },
+            {
+                "wellPlateName": "G 7",
+                "x": 65.2,
+                "y": 68.3,
+                "enabled": true,
+                "pointId": "78"
+            },
+            {
+                "wellPlateName": "G 8",
+                "x": 65.2,
+                "y": 77.3,
+                "enabled": true,
+                "pointId": "79"
+            },
+            {
+                "wellPlateName": "G 9",
+                "x": 65.2,
+                "y": 86.3,
+                "enabled": true,
+                "pointId": "80"
+            },
+            {
+                "wellPlateName": "G10",
+                "x": 65.2,
+                "y": 95.3,
+                "enabled": true,
+                "pointId": "81"
+            },
+            {
+                "wellPlateName": "G11",
+                "x": 65.2,
+                "y": 104.3,
+                "enabled": true,
+                "pointId": "82"
+            },
+            {
+                "wellPlateName": "G12",
+                "x": 65.2,
+                "y": 113.3,
+                "enabled": true,
+                "pointId": "83"
+            },
+            {
+                "wellPlateName": "H 1",
+                "x": 74.2,
+                "y": 14.3,
+                "enabled": true,
+                "pointId": "84"
+            },
+            {
+                "wellPlateName": "H 2",
+                "x": 74.2,
+                "y": 23.3,
+                "enabled": true,
+                "pointId": "85"
+            },
+            {
+                "wellPlateName": "H 3",
+                "x": 74.2,
+                "y": 32.3,
+                "enabled": true,
+                "pointId": "86"
+            },
+            {
+                "wellPlateName": "H 4",
+                "x": 74.2,
+                "y": 41.3,
+                "enabled": true,
+                "pointId": "87"
+            },
+            {
+                "wellPlateName": "H 5",
+                "x": 74.2,
+                "y": 50.3,
+                "enabled": true,
+                "pointId": "88"
+            },
+            {
+                "wellPlateName": "H 6",
+                "x": 74.2,
+                "y": 59.3,
+                "enabled": true,
+                "pointId": "89"
+            },
+            {
+                "wellPlateName": "H 7",
+                "x": 74.2,
+                "y": 68.3,
+                "enabled": true,
+                "pointId": "90"
+            },
+            {
+                "wellPlateName": "H 8",
+                "x": 74.2,
+                "y": 77.3,
+                "enabled": true,
+                "pointId": "91"
+            },
+            {
+                "wellPlateName": "H 9",
+                "x": 74.2,
+                "y": 86.3,
+                "enabled": true,
+                "pointId": "92"
+            },
+            {
+                "wellPlateName": "H10",
+                "x": 74.2,
+                "y": 95.3,
+                "enabled": true,
+                "pointId": "93"
+            },
+            {
+                "wellPlateName": "H11",
+                "x": 74.2,
+                "y": 104.3,
+                "enabled": true,
+                "pointId": "94"
+            },
+            {
+                "wellPlateName": "H12",
+                "x": 74.2,
+                "y": 113.3,
+                "enabled": true,
+                "pointId": "95"
+            }
+        ],
+        "WellPlates": ["96-wellplate"]
+    },
+    {
+        "PatternId": "8c60ec30-7819-4077-bf69-d2715b393240",
+        "PatternName": "Some name",
+        "PatternPoints": [
+            {
+                "wellPlateName": "A 1",
+                "x": 10.35,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "0"
+            },
+            {
+                "wellPlateName": "A 2",
+                "x": 10.35,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "1"
+            },
+            {
+                "wellPlateName": "A 3",
+                "x": 10.35,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "2"
+            },
+            {
+                "wellPlateName": "A 4",
+                "x": 10.35,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "3"
+            },
+            {
+                "wellPlateName": "A 5",
+                "x": 10.35,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "4"
+            },
+            {
+                "wellPlateName": "A 6",
+                "x": 10.35,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "5"
+            },
+            {
+                "wellPlateName": "A 7",
+                "x": 10.35,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "6"
+            },
+            {
+                "wellPlateName": "A 8",
+                "x": 10.35,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "7"
+            },
+            {
+                "wellPlateName": "A 9",
+                "x": 10.35,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "8"
+            },
+            {
+                "wellPlateName": "A10",
+                "x": 10.35,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "9"
+            },
+            {
+                "wellPlateName": "A11",
+                "x": 10.35,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "10"
+            },
+            {
+                "wellPlateName": "A12",
+                "x": 10.35,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "11"
+            },
+            {
+                "wellPlateName": "A13",
+                "x": 10.35,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "12"
+            },
+            {
+                "wellPlateName": "A14",
+                "x": 10.35,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "13"
+            },
+            {
+                "wellPlateName": "A15",
+                "x": 10.35,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "14"
+            },
+            {
+                "wellPlateName": "A16",
+                "x": 10.35,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "15"
+            },
+            {
+                "wellPlateName": "A17",
+                "x": 10.35,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "16"
+            },
+            {
+                "wellPlateName": "A18",
+                "x": 10.35,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "17"
+            },
+            {
+                "wellPlateName": "A19",
+                "x": 10.35,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "18"
+            },
+            {
+                "wellPlateName": "A20",
+                "x": 10.35,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "19"
+            },
+            {
+                "wellPlateName": "A21",
+                "x": 10.35,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "20"
+            },
+            {
+                "wellPlateName": "A22",
+                "x": 10.35,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "21"
+            },
+            {
+                "wellPlateName": "A23",
+                "x": 10.35,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "22"
+            },
+            {
+                "wellPlateName": "A24",
+                "x": 10.35,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "23"
+            },
+            {
+                "wellPlateName": "B 1",
+                "x": 14.85,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "24"
+            },
+            {
+                "wellPlateName": "B 2",
+                "x": 14.85,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "25"
+            },
+            {
+                "wellPlateName": "B 3",
+                "x": 14.85,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "26"
+            },
+            {
+                "wellPlateName": "B 4",
+                "x": 14.85,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "27"
+            },
+            {
+                "wellPlateName": "B 5",
+                "x": 14.85,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "28"
+            },
+            {
+                "wellPlateName": "B 6",
+                "x": 14.85,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "29"
+            },
+            {
+                "wellPlateName": "B 7",
+                "x": 14.85,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "30"
+            },
+            {
+                "wellPlateName": "B 8",
+                "x": 14.85,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "31"
+            },
+            {
+                "wellPlateName": "B 9",
+                "x": 14.85,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "32"
+            },
+            {
+                "wellPlateName": "B10",
+                "x": 14.85,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "33"
+            },
+            {
+                "wellPlateName": "B11",
+                "x": 14.85,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "34"
+            },
+            {
+                "wellPlateName": "B12",
+                "x": 14.85,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "35"
+            },
+            {
+                "wellPlateName": "B13",
+                "x": 14.85,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "36"
+            },
+            {
+                "wellPlateName": "B14",
+                "x": 14.85,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "37"
+            },
+            {
+                "wellPlateName": "B15",
+                "x": 14.85,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "38"
+            },
+            {
+                "wellPlateName": "B16",
+                "x": 14.85,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "39"
+            },
+            {
+                "wellPlateName": "B17",
+                "x": 14.85,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "40"
+            },
+            {
+                "wellPlateName": "B18",
+                "x": 14.85,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "41"
+            },
+            {
+                "wellPlateName": "B19",
+                "x": 14.85,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "42"
+            },
+            {
+                "wellPlateName": "B20",
+                "x": 14.85,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "43"
+            },
+            {
+                "wellPlateName": "B21",
+                "x": 14.85,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "44"
+            },
+            {
+                "wellPlateName": "B22",
+                "x": 14.85,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "45"
+            },
+            {
+                "wellPlateName": "B23",
+                "x": 14.85,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "46"
+            },
+            {
+                "wellPlateName": "B24",
+                "x": 14.85,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "47"
+            },
+            {
+                "wellPlateName": "C 1",
+                "x": 19.35,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "48"
+            },
+            {
+                "wellPlateName": "C 2",
+                "x": 19.35,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "49"
+            },
+            {
+                "wellPlateName": "C 3",
+                "x": 19.35,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "50"
+            },
+            {
+                "wellPlateName": "C 4",
+                "x": 19.35,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "51"
+            },
+            {
+                "wellPlateName": "C 5",
+                "x": 19.35,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "52"
+            },
+            {
+                "wellPlateName": "C 6",
+                "x": 19.35,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "53"
+            },
+            {
+                "wellPlateName": "C 7",
+                "x": 19.35,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "54"
+            },
+            {
+                "wellPlateName": "C 8",
+                "x": 19.35,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "55"
+            },
+            {
+                "wellPlateName": "C 9",
+                "x": 19.35,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "56"
+            },
+            {
+                "wellPlateName": "C10",
+                "x": 19.35,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "57"
+            },
+            {
+                "wellPlateName": "C11",
+                "x": 19.35,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "58"
+            },
+            {
+                "wellPlateName": "C12",
+                "x": 19.35,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "59"
+            },
+            {
+                "wellPlateName": "C13",
+                "x": 19.35,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "60"
+            },
+            {
+                "wellPlateName": "C14",
+                "x": 19.35,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "61"
+            },
+            {
+                "wellPlateName": "C15",
+                "x": 19.35,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "62"
+            },
+            {
+                "wellPlateName": "C16",
+                "x": 19.35,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "63"
+            },
+            {
+                "wellPlateName": "C17",
+                "x": 19.35,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "64"
+            },
+            {
+                "wellPlateName": "C18",
+                "x": 19.35,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "65"
+            },
+            {
+                "wellPlateName": "C19",
+                "x": 19.35,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "66"
+            },
+            {
+                "wellPlateName": "C20",
+                "x": 19.35,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "67"
+            },
+            {
+                "wellPlateName": "C21",
+                "x": 19.35,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "68"
+            },
+            {
+                "wellPlateName": "C22",
+                "x": 19.35,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "69"
+            },
+            {
+                "wellPlateName": "C23",
+                "x": 19.35,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "70"
+            },
+            {
+                "wellPlateName": "C24",
+                "x": 19.35,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "71"
+            },
+            {
+                "wellPlateName": "D 1",
+                "x": 23.85,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "72"
+            },
+            {
+                "wellPlateName": "D 2",
+                "x": 23.85,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "73"
+            },
+            {
+                "wellPlateName": "D 3",
+                "x": 23.85,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "74"
+            },
+            {
+                "wellPlateName": "D 4",
+                "x": 23.85,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "75"
+            },
+            {
+                "wellPlateName": "D 5",
+                "x": 23.85,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "76"
+            },
+            {
+                "wellPlateName": "D 6",
+                "x": 23.85,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "77"
+            },
+            {
+                "wellPlateName": "D 7",
+                "x": 23.85,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "78"
+            },
+            {
+                "wellPlateName": "D 8",
+                "x": 23.85,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "79"
+            },
+            {
+                "wellPlateName": "D 9",
+                "x": 23.85,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "80"
+            },
+            {
+                "wellPlateName": "D10",
+                "x": 23.85,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "81"
+            },
+            {
+                "wellPlateName": "D11",
+                "x": 23.85,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "82"
+            },
+            {
+                "wellPlateName": "D12",
+                "x": 23.85,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "83"
+            },
+            {
+                "wellPlateName": "D13",
+                "x": 23.85,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "84"
+            },
+            {
+                "wellPlateName": "D14",
+                "x": 23.85,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "85"
+            },
+            {
+                "wellPlateName": "D15",
+                "x": 23.85,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "86"
+            },
+            {
+                "wellPlateName": "D16",
+                "x": 23.85,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "87"
+            },
+            {
+                "wellPlateName": "D17",
+                "x": 23.85,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "88"
+            },
+            {
+                "wellPlateName": "D18",
+                "x": 23.85,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "89"
+            },
+            {
+                "wellPlateName": "D19",
+                "x": 23.85,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "90"
+            },
+            {
+                "wellPlateName": "D20",
+                "x": 23.85,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "91"
+            },
+            {
+                "wellPlateName": "D21",
+                "x": 23.85,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "92"
+            },
+            {
+                "wellPlateName": "D22",
+                "x": 23.85,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "93"
+            },
+            {
+                "wellPlateName": "D23",
+                "x": 23.85,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "94"
+            },
+            {
+                "wellPlateName": "D24",
+                "x": 23.85,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "95"
+            },
+            {
+                "wellPlateName": "E 1",
+                "x": 28.35,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "96"
+            },
+            {
+                "wellPlateName": "E 2",
+                "x": 28.35,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "97"
+            },
+            {
+                "wellPlateName": "E 3",
+                "x": 28.35,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "98"
+            },
+            {
+                "wellPlateName": "E 4",
+                "x": 28.35,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "99"
+            },
+            {
+                "wellPlateName": "E 5",
+                "x": 28.35,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "100"
+            },
+            {
+                "wellPlateName": "E 6",
+                "x": 28.35,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "101"
+            },
+            {
+                "wellPlateName": "E 7",
+                "x": 28.35,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "102"
+            },
+            {
+                "wellPlateName": "E 8",
+                "x": 28.35,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "103"
+            },
+            {
+                "wellPlateName": "E 9",
+                "x": 28.35,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "104"
+            },
+            {
+                "wellPlateName": "E10",
+                "x": 28.35,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "105"
+            },
+            {
+                "wellPlateName": "E11",
+                "x": 28.35,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "106"
+            },
+            {
+                "wellPlateName": "E12",
+                "x": 28.35,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "107"
+            },
+            {
+                "wellPlateName": "E13",
+                "x": 28.35,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "108"
+            },
+            {
+                "wellPlateName": "E14",
+                "x": 28.35,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "109"
+            },
+            {
+                "wellPlateName": "E15",
+                "x": 28.35,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "110"
+            },
+            {
+                "wellPlateName": "E16",
+                "x": 28.35,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "111"
+            },
+            {
+                "wellPlateName": "E17",
+                "x": 28.35,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "112"
+            },
+            {
+                "wellPlateName": "E18",
+                "x": 28.35,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "113"
+            },
+            {
+                "wellPlateName": "E19",
+                "x": 28.35,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "114"
+            },
+            {
+                "wellPlateName": "E20",
+                "x": 28.35,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "115"
+            },
+            {
+                "wellPlateName": "E21",
+                "x": 28.35,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "116"
+            },
+            {
+                "wellPlateName": "E22",
+                "x": 28.35,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "117"
+            },
+            {
+                "wellPlateName": "E23",
+                "x": 28.35,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "118"
+            },
+            {
+                "wellPlateName": "E24",
+                "x": 28.35,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "119"
+            },
+            {
+                "wellPlateName": "F 1",
+                "x": 32.85,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "120"
+            },
+            {
+                "wellPlateName": "F 2",
+                "x": 32.85,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "121"
+            },
+            {
+                "wellPlateName": "F 3",
+                "x": 32.85,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "122"
+            },
+            {
+                "wellPlateName": "F 4",
+                "x": 32.85,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "123"
+            },
+            {
+                "wellPlateName": "F 5",
+                "x": 32.85,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "124"
+            },
+            {
+                "wellPlateName": "F 6",
+                "x": 32.85,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "125"
+            },
+            {
+                "wellPlateName": "F 7",
+                "x": 32.85,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "126"
+            },
+            {
+                "wellPlateName": "F 8",
+                "x": 32.85,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "127"
+            },
+            {
+                "wellPlateName": "F 9",
+                "x": 32.85,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "128"
+            },
+            {
+                "wellPlateName": "F10",
+                "x": 32.85,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "129"
+            },
+            {
+                "wellPlateName": "F11",
+                "x": 32.85,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "130"
+            },
+            {
+                "wellPlateName": "F12",
+                "x": 32.85,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "131"
+            },
+            {
+                "wellPlateName": "F13",
+                "x": 32.85,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "132"
+            },
+            {
+                "wellPlateName": "F14",
+                "x": 32.85,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "133"
+            },
+            {
+                "wellPlateName": "F15",
+                "x": 32.85,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "134"
+            },
+            {
+                "wellPlateName": "F16",
+                "x": 32.85,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "135"
+            },
+            {
+                "wellPlateName": "F17",
+                "x": 32.85,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "136"
+            },
+            {
+                "wellPlateName": "F18",
+                "x": 32.85,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "137"
+            },
+            {
+                "wellPlateName": "F19",
+                "x": 32.85,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "138"
+            },
+            {
+                "wellPlateName": "F20",
+                "x": 32.85,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "139"
+            },
+            {
+                "wellPlateName": "F21",
+                "x": 32.85,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "140"
+            },
+            {
+                "wellPlateName": "F22",
+                "x": 32.85,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "141"
+            },
+            {
+                "wellPlateName": "F23",
+                "x": 32.85,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "142"
+            },
+            {
+                "wellPlateName": "F24",
+                "x": 32.85,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "143"
+            },
+            {
+                "wellPlateName": "G 1",
+                "x": 37.35,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "144"
+            },
+            {
+                "wellPlateName": "G 2",
+                "x": 37.35,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "145"
+            },
+            {
+                "wellPlateName": "G 3",
+                "x": 37.35,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "146"
+            },
+            {
+                "wellPlateName": "G 4",
+                "x": 37.35,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "147"
+            },
+            {
+                "wellPlateName": "G 5",
+                "x": 37.35,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "148"
+            },
+            {
+                "wellPlateName": "G 6",
+                "x": 37.35,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "149"
+            },
+            {
+                "wellPlateName": "G 7",
+                "x": 37.35,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "150"
+            },
+            {
+                "wellPlateName": "G 8",
+                "x": 37.35,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "151"
+            },
+            {
+                "wellPlateName": "G 9",
+                "x": 37.35,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "152"
+            },
+            {
+                "wellPlateName": "G10",
+                "x": 37.35,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "153"
+            },
+            {
+                "wellPlateName": "G11",
+                "x": 37.35,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "154"
+            },
+            {
+                "wellPlateName": "G12",
+                "x": 37.35,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "155"
+            },
+            {
+                "wellPlateName": "G13",
+                "x": 37.35,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "156"
+            },
+            {
+                "wellPlateName": "G14",
+                "x": 37.35,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "157"
+            },
+            {
+                "wellPlateName": "G15",
+                "x": 37.35,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "158"
+            },
+            {
+                "wellPlateName": "G16",
+                "x": 37.35,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "159"
+            },
+            {
+                "wellPlateName": "G17",
+                "x": 37.35,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "160"
+            },
+            {
+                "wellPlateName": "G18",
+                "x": 37.35,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "161"
+            },
+            {
+                "wellPlateName": "G19",
+                "x": 37.35,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "162"
+            },
+            {
+                "wellPlateName": "G20",
+                "x": 37.35,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "163"
+            },
+            {
+                "wellPlateName": "G21",
+                "x": 37.35,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "164"
+            },
+            {
+                "wellPlateName": "G22",
+                "x": 37.35,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "165"
+            },
+            {
+                "wellPlateName": "G23",
+                "x": 37.35,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "166"
+            },
+            {
+                "wellPlateName": "G24",
+                "x": 37.35,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "167"
+            },
+            {
+                "wellPlateName": "H 1",
+                "x": 41.85,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "168"
+            },
+            {
+                "wellPlateName": "H 2",
+                "x": 41.85,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "169"
+            },
+            {
+                "wellPlateName": "H 3",
+                "x": 41.85,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "170"
+            },
+            {
+                "wellPlateName": "H 4",
+                "x": 41.85,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "171"
+            },
+            {
+                "wellPlateName": "H 5",
+                "x": 41.85,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "172"
+            },
+            {
+                "wellPlateName": "H 6",
+                "x": 41.85,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "173"
+            },
+            {
+                "wellPlateName": "H 7",
+                "x": 41.85,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "174"
+            },
+            {
+                "wellPlateName": "H 8",
+                "x": 41.85,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "175"
+            },
+            {
+                "wellPlateName": "H 9",
+                "x": 41.85,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "176"
+            },
+            {
+                "wellPlateName": "H10",
+                "x": 41.85,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "177"
+            },
+            {
+                "wellPlateName": "H11",
+                "x": 41.85,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "178"
+            },
+            {
+                "wellPlateName": "H12",
+                "x": 41.85,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "179"
+            },
+            {
+                "wellPlateName": "H13",
+                "x": 41.85,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "180"
+            },
+            {
+                "wellPlateName": "H14",
+                "x": 41.85,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "181"
+            },
+            {
+                "wellPlateName": "H15",
+                "x": 41.85,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "182"
+            },
+            {
+                "wellPlateName": "H16",
+                "x": 41.85,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "183"
+            },
+            {
+                "wellPlateName": "H17",
+                "x": 41.85,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "184"
+            },
+            {
+                "wellPlateName": "H18",
+                "x": 41.85,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "185"
+            },
+            {
+                "wellPlateName": "H19",
+                "x": 41.85,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "186"
+            },
+            {
+                "wellPlateName": "H20",
+                "x": 41.85,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "187"
+            },
+            {
+                "wellPlateName": "H21",
+                "x": 41.85,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "188"
+            },
+            {
+                "wellPlateName": "H22",
+                "x": 41.85,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "189"
+            },
+            {
+                "wellPlateName": "H23",
+                "x": 41.85,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "190"
+            },
+            {
+                "wellPlateName": "H24",
+                "x": 41.85,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "191"
+            },
+            {
+                "wellPlateName": "I 1",
+                "x": 46.35,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "192"
+            },
+            {
+                "wellPlateName": "I 2",
+                "x": 46.35,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "193"
+            },
+            {
+                "wellPlateName": "I 3",
+                "x": 46.35,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "194"
+            },
+            {
+                "wellPlateName": "I 4",
+                "x": 46.35,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "195"
+            },
+            {
+                "wellPlateName": "I 5",
+                "x": 46.35,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "196"
+            },
+            {
+                "wellPlateName": "I 6",
+                "x": 46.35,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "197"
+            },
+            {
+                "wellPlateName": "I 7",
+                "x": 46.35,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "198"
+            },
+            {
+                "wellPlateName": "I 8",
+                "x": 46.35,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "199"
+            },
+            {
+                "wellPlateName": "I 9",
+                "x": 46.35,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "200"
+            },
+            {
+                "wellPlateName": "I10",
+                "x": 46.35,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "201"
+            },
+            {
+                "wellPlateName": "I11",
+                "x": 46.35,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "202"
+            },
+            {
+                "wellPlateName": "I12",
+                "x": 46.35,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "203"
+            },
+            {
+                "wellPlateName": "I13",
+                "x": 46.35,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "204"
+            },
+            {
+                "wellPlateName": "I14",
+                "x": 46.35,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "205"
+            },
+            {
+                "wellPlateName": "I15",
+                "x": 46.35,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "206"
+            },
+            {
+                "wellPlateName": "I16",
+                "x": 46.35,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "207"
+            },
+            {
+                "wellPlateName": "I17",
+                "x": 46.35,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "208"
+            },
+            {
+                "wellPlateName": "I18",
+                "x": 46.35,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "209"
+            },
+            {
+                "wellPlateName": "I19",
+                "x": 46.35,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "210"
+            },
+            {
+                "wellPlateName": "I20",
+                "x": 46.35,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "211"
+            },
+            {
+                "wellPlateName": "I21",
+                "x": 46.35,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "212"
+            },
+            {
+                "wellPlateName": "I22",
+                "x": 46.35,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "213"
+            },
+            {
+                "wellPlateName": "I23",
+                "x": 46.35,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "214"
+            },
+            {
+                "wellPlateName": "I24",
+                "x": 46.35,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "215"
+            },
+            {
+                "wellPlateName": "J 1",
+                "x": 50.85,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "216"
+            },
+            {
+                "wellPlateName": "J 2",
+                "x": 50.85,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "217"
+            },
+            {
+                "wellPlateName": "J 3",
+                "x": 50.85,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "218"
+            },
+            {
+                "wellPlateName": "J 4",
+                "x": 50.85,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "219"
+            },
+            {
+                "wellPlateName": "J 5",
+                "x": 50.85,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "220"
+            },
+            {
+                "wellPlateName": "J 6",
+                "x": 50.85,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "221"
+            },
+            {
+                "wellPlateName": "J 7",
+                "x": 50.85,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "222"
+            },
+            {
+                "wellPlateName": "J 8",
+                "x": 50.85,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "223"
+            },
+            {
+                "wellPlateName": "J 9",
+                "x": 50.85,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "224"
+            },
+            {
+                "wellPlateName": "J10",
+                "x": 50.85,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "225"
+            },
+            {
+                "wellPlateName": "J11",
+                "x": 50.85,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "226"
+            },
+            {
+                "wellPlateName": "J12",
+                "x": 50.85,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "227"
+            },
+            {
+                "wellPlateName": "J13",
+                "x": 50.85,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "228"
+            },
+            {
+                "wellPlateName": "J14",
+                "x": 50.85,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "229"
+            },
+            {
+                "wellPlateName": "J15",
+                "x": 50.85,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "230"
+            },
+            {
+                "wellPlateName": "J16",
+                "x": 50.85,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "231"
+            },
+            {
+                "wellPlateName": "J17",
+                "x": 50.85,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "232"
+            },
+            {
+                "wellPlateName": "J18",
+                "x": 50.85,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "233"
+            },
+            {
+                "wellPlateName": "J19",
+                "x": 50.85,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "234"
+            },
+            {
+                "wellPlateName": "J20",
+                "x": 50.85,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "235"
+            },
+            {
+                "wellPlateName": "J21",
+                "x": 50.85,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "236"
+            },
+            {
+                "wellPlateName": "J22",
+                "x": 50.85,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "237"
+            },
+            {
+                "wellPlateName": "J23",
+                "x": 50.85,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "238"
+            },
+            {
+                "wellPlateName": "J24",
+                "x": 50.85,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "239"
+            },
+            {
+                "wellPlateName": "K 1",
+                "x": 55.35,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "240"
+            },
+            {
+                "wellPlateName": "K 2",
+                "x": 55.35,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "241"
+            },
+            {
+                "wellPlateName": "K 3",
+                "x": 55.35,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "242"
+            },
+            {
+                "wellPlateName": "K 4",
+                "x": 55.35,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "243"
+            },
+            {
+                "wellPlateName": "K 5",
+                "x": 55.35,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "244"
+            },
+            {
+                "wellPlateName": "K 6",
+                "x": 55.35,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "245"
+            },
+            {
+                "wellPlateName": "K 7",
+                "x": 55.35,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "246"
+            },
+            {
+                "wellPlateName": "K 8",
+                "x": 55.35,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "247"
+            },
+            {
+                "wellPlateName": "K 9",
+                "x": 55.35,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "248"
+            },
+            {
+                "wellPlateName": "K10",
+                "x": 55.35,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "249"
+            },
+            {
+                "wellPlateName": "K11",
+                "x": 55.35,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "250"
+            },
+            {
+                "wellPlateName": "K12",
+                "x": 55.35,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "251"
+            },
+            {
+                "wellPlateName": "K13",
+                "x": 55.35,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "252"
+            },
+            {
+                "wellPlateName": "K14",
+                "x": 55.35,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "253"
+            },
+            {
+                "wellPlateName": "K15",
+                "x": 55.35,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "254"
+            },
+            {
+                "wellPlateName": "K16",
+                "x": 55.35,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "255"
+            },
+            {
+                "wellPlateName": "K17",
+                "x": 55.35,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "256"
+            },
+            {
+                "wellPlateName": "K18",
+                "x": 55.35,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "257"
+            },
+            {
+                "wellPlateName": "K19",
+                "x": 55.35,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "258"
+            },
+            {
+                "wellPlateName": "K20",
+                "x": 55.35,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "259"
+            },
+            {
+                "wellPlateName": "K21",
+                "x": 55.35,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "260"
+            },
+            {
+                "wellPlateName": "K22",
+                "x": 55.35,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "261"
+            },
+            {
+                "wellPlateName": "K23",
+                "x": 55.35,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "262"
+            },
+            {
+                "wellPlateName": "K24",
+                "x": 55.35,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "263"
+            },
+            {
+                "wellPlateName": "L 1",
+                "x": 59.85,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "264"
+            },
+            {
+                "wellPlateName": "L 2",
+                "x": 59.85,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "265"
+            },
+            {
+                "wellPlateName": "L 3",
+                "x": 59.85,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "266"
+            },
+            {
+                "wellPlateName": "L 4",
+                "x": 59.85,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "267"
+            },
+            {
+                "wellPlateName": "L 5",
+                "x": 59.85,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "268"
+            },
+            {
+                "wellPlateName": "L 6",
+                "x": 59.85,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "269"
+            },
+            {
+                "wellPlateName": "L 7",
+                "x": 59.85,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "270"
+            },
+            {
+                "wellPlateName": "L 8",
+                "x": 59.85,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "271"
+            },
+            {
+                "wellPlateName": "L 9",
+                "x": 59.85,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "272"
+            },
+            {
+                "wellPlateName": "L10",
+                "x": 59.85,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "273"
+            },
+            {
+                "wellPlateName": "L11",
+                "x": 59.85,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "274"
+            },
+            {
+                "wellPlateName": "L12",
+                "x": 59.85,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "275"
+            },
+            {
+                "wellPlateName": "L13",
+                "x": 59.85,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "276"
+            },
+            {
+                "wellPlateName": "L14",
+                "x": 59.85,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "277"
+            },
+            {
+                "wellPlateName": "L15",
+                "x": 59.85,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "278"
+            },
+            {
+                "wellPlateName": "L16",
+                "x": 59.85,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "279"
+            },
+            {
+                "wellPlateName": "L17",
+                "x": 59.85,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "280"
+            },
+            {
+                "wellPlateName": "L18",
+                "x": 59.85,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "281"
+            },
+            {
+                "wellPlateName": "L19",
+                "x": 59.85,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "282"
+            },
+            {
+                "wellPlateName": "L20",
+                "x": 59.85,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "283"
+            },
+            {
+                "wellPlateName": "L21",
+                "x": 59.85,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "284"
+            },
+            {
+                "wellPlateName": "L22",
+                "x": 59.85,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "285"
+            },
+            {
+                "wellPlateName": "L23",
+                "x": 59.85,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "286"
+            },
+            {
+                "wellPlateName": "L24",
+                "x": 59.85,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "287"
+            },
+            {
+                "wellPlateName": "M 1",
+                "x": 64.35,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "288"
+            },
+            {
+                "wellPlateName": "M 2",
+                "x": 64.35,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "289"
+            },
+            {
+                "wellPlateName": "M 3",
+                "x": 64.35,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "290"
+            },
+            {
+                "wellPlateName": "M 4",
+                "x": 64.35,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "291"
+            },
+            {
+                "wellPlateName": "M 5",
+                "x": 64.35,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "292"
+            },
+            {
+                "wellPlateName": "M 6",
+                "x": 64.35,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "293"
+            },
+            {
+                "wellPlateName": "M 7",
+                "x": 64.35,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "294"
+            },
+            {
+                "wellPlateName": "M 8",
+                "x": 64.35,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "295"
+            },
+            {
+                "wellPlateName": "M 9",
+                "x": 64.35,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "296"
+            },
+            {
+                "wellPlateName": "M10",
+                "x": 64.35,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "297"
+            },
+            {
+                "wellPlateName": "M11",
+                "x": 64.35,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "298"
+            },
+            {
+                "wellPlateName": "M12",
+                "x": 64.35,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "299"
+            },
+            {
+                "wellPlateName": "M13",
+                "x": 64.35,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "300"
+            },
+            {
+                "wellPlateName": "M14",
+                "x": 64.35,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "301"
+            },
+            {
+                "wellPlateName": "M15",
+                "x": 64.35,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "302"
+            },
+            {
+                "wellPlateName": "M16",
+                "x": 64.35,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "303"
+            },
+            {
+                "wellPlateName": "M17",
+                "x": 64.35,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "304"
+            },
+            {
+                "wellPlateName": "M18",
+                "x": 64.35,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "305"
+            },
+            {
+                "wellPlateName": "M19",
+                "x": 64.35,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "306"
+            },
+            {
+                "wellPlateName": "M20",
+                "x": 64.35,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "307"
+            },
+            {
+                "wellPlateName": "M21",
+                "x": 64.35,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "308"
+            },
+            {
+                "wellPlateName": "M22",
+                "x": 64.35,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "309"
+            },
+            {
+                "wellPlateName": "M23",
+                "x": 64.35,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "310"
+            },
+            {
+                "wellPlateName": "M24",
+                "x": 64.35,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "311"
+            },
+            {
+                "wellPlateName": "N 1",
+                "x": 68.85,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "312"
+            },
+            {
+                "wellPlateName": "N 2",
+                "x": 68.85,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "313"
+            },
+            {
+                "wellPlateName": "N 3",
+                "x": 68.85,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "314"
+            },
+            {
+                "wellPlateName": "N 4",
+                "x": 68.85,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "315"
+            },
+            {
+                "wellPlateName": "N 5",
+                "x": 68.85,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "316"
+            },
+            {
+                "wellPlateName": "N 6",
+                "x": 68.85,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "317"
+            },
+            {
+                "wellPlateName": "N 7",
+                "x": 68.85,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "318"
+            },
+            {
+                "wellPlateName": "N 8",
+                "x": 68.85,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "319"
+            },
+            {
+                "wellPlateName": "N 9",
+                "x": 68.85,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "320"
+            },
+            {
+                "wellPlateName": "N10",
+                "x": 68.85,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "321"
+            },
+            {
+                "wellPlateName": "N11",
+                "x": 68.85,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "322"
+            },
+            {
+                "wellPlateName": "N12",
+                "x": 68.85,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "323"
+            },
+            {
+                "wellPlateName": "N13",
+                "x": 68.85,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "324"
+            },
+            {
+                "wellPlateName": "N14",
+                "x": 68.85,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "325"
+            },
+            {
+                "wellPlateName": "N15",
+                "x": 68.85,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "326"
+            },
+            {
+                "wellPlateName": "N16",
+                "x": 68.85,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "327"
+            },
+            {
+                "wellPlateName": "N17",
+                "x": 68.85,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "328"
+            },
+            {
+                "wellPlateName": "N18",
+                "x": 68.85,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "329"
+            },
+            {
+                "wellPlateName": "N19",
+                "x": 68.85,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "330"
+            },
+            {
+                "wellPlateName": "N20",
+                "x": 68.85,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "331"
+            },
+            {
+                "wellPlateName": "N21",
+                "x": 68.85,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "332"
+            },
+            {
+                "wellPlateName": "N22",
+                "x": 68.85,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "333"
+            },
+            {
+                "wellPlateName": "N23",
+                "x": 68.85,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "334"
+            },
+            {
+                "wellPlateName": "N24",
+                "x": 68.85,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "335"
+            },
+            {
+                "wellPlateName": "O 1",
+                "x": 73.35,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "336"
+            },
+            {
+                "wellPlateName": "O 2",
+                "x": 73.35,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "337"
+            },
+            {
+                "wellPlateName": "O 3",
+                "x": 73.35,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "338"
+            },
+            {
+                "wellPlateName": "O 4",
+                "x": 73.35,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "339"
+            },
+            {
+                "wellPlateName": "O 5",
+                "x": 73.35,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "340"
+            },
+            {
+                "wellPlateName": "O 6",
+                "x": 73.35,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "341"
+            },
+            {
+                "wellPlateName": "O 7",
+                "x": 73.35,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "342"
+            },
+            {
+                "wellPlateName": "O 8",
+                "x": 73.35,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "343"
+            },
+            {
+                "wellPlateName": "O 9",
+                "x": 73.35,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "344"
+            },
+            {
+                "wellPlateName": "O10",
+                "x": 73.35,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "345"
+            },
+            {
+                "wellPlateName": "O11",
+                "x": 73.35,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "346"
+            },
+            {
+                "wellPlateName": "O12",
+                "x": 73.35,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "347"
+            },
+            {
+                "wellPlateName": "O13",
+                "x": 73.35,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "348"
+            },
+            {
+                "wellPlateName": "O14",
+                "x": 73.35,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "349"
+            },
+            {
+                "wellPlateName": "O15",
+                "x": 73.35,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "350"
+            },
+            {
+                "wellPlateName": "O16",
+                "x": 73.35,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "351"
+            },
+            {
+                "wellPlateName": "O17",
+                "x": 73.35,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "352"
+            },
+            {
+                "wellPlateName": "O18",
+                "x": 73.35,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "353"
+            },
+            {
+                "wellPlateName": "O19",
+                "x": 73.35,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "354"
+            },
+            {
+                "wellPlateName": "O20",
+                "x": 73.35,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "355"
+            },
+            {
+                "wellPlateName": "O21",
+                "x": 73.35,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "356"
+            },
+            {
+                "wellPlateName": "O22",
+                "x": 73.35,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "357"
+            },
+            {
+                "wellPlateName": "O23",
+                "x": 73.35,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "358"
+            },
+            {
+                "wellPlateName": "O24",
+                "x": 73.35,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "359"
+            },
+            {
+                "wellPlateName": "P 1",
+                "x": 77.85,
+                "y": 13.36,
+                "enabled": true,
+                "pointId": "360"
+            },
+            {
+                "wellPlateName": "P 2",
+                "x": 77.85,
+                "y": 17.86,
+                "enabled": true,
+                "pointId": "361"
+            },
+            {
+                "wellPlateName": "P 3",
+                "x": 77.85,
+                "y": 22.36,
+                "enabled": true,
+                "pointId": "362"
+            },
+            {
+                "wellPlateName": "P 4",
+                "x": 77.85,
+                "y": 26.86,
+                "enabled": true,
+                "pointId": "363"
+            },
+            {
+                "wellPlateName": "P 5",
+                "x": 77.85,
+                "y": 31.36,
+                "enabled": true,
+                "pointId": "364"
+            },
+            {
+                "wellPlateName": "P 6",
+                "x": 77.85,
+                "y": 35.86,
+                "enabled": true,
+                "pointId": "365"
+            },
+            {
+                "wellPlateName": "P 7",
+                "x": 77.85,
+                "y": 40.36,
+                "enabled": true,
+                "pointId": "366"
+            },
+            {
+                "wellPlateName": "P 8",
+                "x": 77.85,
+                "y": 44.86,
+                "enabled": true,
+                "pointId": "367"
+            },
+            {
+                "wellPlateName": "P 9",
+                "x": 77.85,
+                "y": 49.36,
+                "enabled": true,
+                "pointId": "368"
+            },
+            {
+                "wellPlateName": "P10",
+                "x": 77.85,
+                "y": 53.86,
+                "enabled": true,
+                "pointId": "369"
+            },
+            {
+                "wellPlateName": "P11",
+                "x": 77.85,
+                "y": 58.36,
+                "enabled": true,
+                "pointId": "370"
+            },
+            {
+                "wellPlateName": "P12",
+                "x": 77.85,
+                "y": 62.86,
+                "enabled": true,
+                "pointId": "371"
+            },
+            {
+                "wellPlateName": "P13",
+                "x": 77.85,
+                "y": 67.36,
+                "enabled": true,
+                "pointId": "372"
+            },
+            {
+                "wellPlateName": "P14",
+                "x": 77.85,
+                "y": 71.86,
+                "enabled": true,
+                "pointId": "373"
+            },
+            {
+                "wellPlateName": "P15",
+                "x": 77.85,
+                "y": 76.36,
+                "enabled": true,
+                "pointId": "374"
+            },
+            {
+                "wellPlateName": "P16",
+                "x": 77.85,
+                "y": 80.86,
+                "enabled": true,
+                "pointId": "375"
+            },
+            {
+                "wellPlateName": "P17",
+                "x": 77.85,
+                "y": 85.36,
+                "enabled": true,
+                "pointId": "376"
+            },
+            {
+                "wellPlateName": "P18",
+                "x": 77.85,
+                "y": 89.86,
+                "enabled": true,
+                "pointId": "377"
+            },
+            {
+                "wellPlateName": "P19",
+                "x": 77.85,
+                "y": 94.36,
+                "enabled": true,
+                "pointId": "378"
+            },
+            {
+                "wellPlateName": "P20",
+                "x": 77.85,
+                "y": 98.86,
+                "enabled": true,
+                "pointId": "379"
+            },
+            {
+                "wellPlateName": "P21",
+                "x": 77.85,
+                "y": 103.36,
+                "enabled": true,
+                "pointId": "380"
+            },
+            {
+                "wellPlateName": "P22",
+                "x": 77.85,
+                "y": 107.86,
+                "enabled": true,
+                "pointId": "381"
+            },
+            {
+                "wellPlateName": "P23",
+                "x": 77.85,
+                "y": 112.36,
+                "enabled": true,
+                "pointId": "382"
+            },
+            {
+                "wellPlateName": "P24",
+                "x": 77.85,
+                "y": 116.86,
+                "enabled": true,
+                "pointId": "383"
+            }
+        ],
+        "WellPlates": ["384-wellplate"]
+    }
+]
