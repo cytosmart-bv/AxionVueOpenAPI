@@ -30,6 +30,10 @@ class Listener(Thread):
             if type_message == "TEMPERATURE_CHANGE":
                 new_temperature = float(payload.get("value", -9999999))
                 self.__update_temperature(serial_number, new_temperature)
+
+            if type_message == "LIVE_STREAM_CHANGE":
+                new_live_stream = bool(payload.get("isEnabled", -9999999))
+                self.__update_live_stream(serial_number, new_live_stream)
     
     def __connect_device(self, serial_number: str, is_connected: bool = True):
         device = self.all_devices.get(serial_number, None)
@@ -44,7 +48,12 @@ class Listener(Thread):
         device = self.all_devices.get(serial_number, None)
         if device is not None:
             device.temperature = new_temperature
-        
+
+    def __update_live_stream(self, serial_number: str, new_live_stream: float):
+        device = self.all_devices.get(serial_number, None)
+        if device is not None:
+            device.live_stream = new_live_stream
+
 # l = Listener(websocket.create_connection("ws://localhost:3333/luxservice"))
 # l.start()
 # print(l.last_msg)
