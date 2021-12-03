@@ -4,6 +4,7 @@ import os
 import subprocess
 from io import BytesIO
 from pathlib import Path
+import time
 from typing import List
 
 import requests
@@ -30,7 +31,7 @@ class LuxConnector:
         self.ws_listener = Listener(self.ws)
         self.ws_listener.start()
         self.__all_devices = self.ws_listener.all_devices
-
+        self.active_camera = "BRIGHTFIELD"
         print(f"Connecting to {number_of_devices} devices")
 
         while True:
@@ -114,11 +115,18 @@ class LuxConnector:
         """
         assert focus_level <= 1 and focus_level >= 0
 
+        self.__set_active_camera(serial_number, "BRIGHTFIELD")
         msg1 = {
             "type": "FOCUS",
             "payload": {"serialNumber": serial_number, "value": focus_level},
         }
         self.ws.send(json.dumps(msg1))
+        self.__set_active_camera(serial_number, self.active_camera)
+        # Give device time to go to new focus
+        if self.active_camera == "BRIGHTFIELD":
+            time.sleep(0.5)
+        else:
+            time.sleep(2)
 
     def set_active_camera(
         self, serial_number: str, color_channel: str = "BRIGHTFIELD"
@@ -134,8 +142,13 @@ class LuxConnector:
             options: "BRIGHTFIELD", "RED", "GREEN"
             Default: "BRIGHTFIELD"
         """
+        color_channel = color_channel.upper()
         assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"]
-
+        self.active_camera = color_channel
+        self.__set_active_camera(serial_number, color_channel)
+    
+    def __set_active_camera(self, serial_number: str, color_channel: str = "BRIGHTFIELD"
+    ) -> None:
         msg1 = {
             "type": "COLOR_CHANNEL",
             "payload": {"serialNumber": serial_number, "colorChannel": color_channel},
@@ -149,6 +162,7 @@ class LuxConnector:
         exposure: float = 10,
         gain: int = 20,
         brightness: int = 7500,
+        focus_offset: float = 0.0,
     ) -> None:
         """
         Change the camera settings for 1 camera of 1 device.
@@ -167,8 +181,10 @@ class LuxConnector:
         color_channel: (str) The camera you want to change the setting of.
             options: "BRIGHTFIELD", "RED", "GREEN"
             Default: "BRIGHTFIELD"
-
+        focus_offset: (float) the difference in focus between brightfield and fluo.
+            If focus is set to 0.4 and focus_offset for RED is set to 0.1 RED focus is 0.5
         """
+        color_channel = color_channel.upper()
         assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"]
         assert 0 < exposure and exposure < 8000
         assert 0 < gain and gain < 100
@@ -182,7 +198,7 @@ class LuxConnector:
                 "exposure": exposure,
                 "colorChannel": color_channel,
                 "brightness": brightness,
-                "focusOffset": 0.0,
+                "focusOffset": focus_offset,
             },
         }
 
