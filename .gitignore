@@ -105,5 +105,5 @@ venv.bak/
 
 # vscode files
 .vscode/
-*.png
+results/
 credentials.txt
