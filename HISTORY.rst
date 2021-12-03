@@ -1,5 +1,14 @@
 History
 -------
+1.1.0 (2021-12-03)
+------------------
+- Add change camera settings
+- Add set activate camera (brightfield, red-fluo, or green-fluo)
+- Change focus: 
+    make sure focus always happens in brightfield camera mode
+    Add sleep after changing to focus so camera can move to new position
+- Update to new Cytosmart app
+
 1.0.3 (2021-11-22)
 ------------------
 - Update requirements of websocket and websocket-client to include version 1
