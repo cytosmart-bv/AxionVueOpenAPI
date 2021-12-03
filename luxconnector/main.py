@@ -15,10 +15,10 @@ from .listener import Listener
 
 class LuxConnector:
     def __init__(self, number_of_devices: int = 1) -> None:
-        ''' 
+        """
         number_of_devices: (int) How many devices should be connected.
             It will keep trying connecting till it is connected to all connected devices.
-        '''
+        """
 
         try:
             # Try to make a connection with the app
@@ -44,11 +44,14 @@ class LuxConnector:
 
                 if connected_devices >= number_of_devices:
                     break
-                
+
             except:
                 pass
 
-    def __activate(self, serial_number: str,) -> None:
+    def __activate(
+        self,
+        serial_number: str,
+    ) -> None:
         """
         Activate Lux
 
@@ -96,7 +99,7 @@ class LuxConnector:
             "payload": {"serialNumber": serial_number, "action": zoom_type},
         }
         self.ws.send(json.dumps(msg1))
-        
+
         # Toggle liveview to enforce the settings
         self.set_liveview(serial_number, False)
         self.set_liveview(serial_number, True)
@@ -117,6 +120,82 @@ class LuxConnector:
         }
         self.ws.send(json.dumps(msg1))
 
+    def set_active_camera(
+        self, serial_number: str, color_channel: str = "BRIGHTFIELD"
+    ) -> None:
+        """
+        Set a camera to active.
+        You can switch between brightfield, red fluo, and green fluo
+        This is only for fluo devices
+
+        serial_number: (str) the serial number of device you want to connect
+        focus_level: (float) between 0 and 1 where the camera need to be.
+        color_channel: (str) The camera you want to change the setting of.
+            options: "BRIGHTFIELD", "RED", "GREEN"
+            Default: "BRIGHTFIELD"
+        """
+        assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"]
+
+        msg1 = {
+            "type": "COLOR_CHANNEL",
+            "payload": {"serialNumber": serial_number, "colorChannel": color_channel},
+        }
+        self.ws.send(json.dumps(msg1))
+
+    def set_camera_settings(
+        self,
+        serial_number: str,
+        color_channel: str = "BRIGHTFIELD",
+        exposure: float = 10,
+        gain: int = 20,
+        brightness: int = 7500,
+    ) -> None:
+        """
+        Change the camera settings for 1 camera of 1 device.
+        Brightfield devices have 1 camera; BRIGHTFIELD
+        Fluo device have 3; BRIGHTFIELD, RED, and GREEN
+
+        WARNING: This only changes settings of the camera,
+            it does NOT activate it.
+            Use set_active_camera to activate the camera you need.
+
+        serial_number: (str) the serial number of device you want to connect
+        exposure: (float) The time in milliseconds the camera is detecting light.
+        gain: (int) The multiplication of the camera. (Fluo only)
+            If very little light goes into the camera sensor make sure the gain is high.
+        brightness: (int) Strength of the led when it is on (Fluo only)
+        color_channel: (str) The camera you want to change the setting of.
+            options: "BRIGHTFIELD", "RED", "GREEN"
+            Default: "BRIGHTFIELD"
+
+        """
+        assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"]
+        assert 0 < exposure and exposure < 8000
+        assert 0 < gain and gain < 100
+        assert 0 < brightness and brightness < 10000
+
+        msg1 = {
+            "type": "CAMERA_SETTINGS",
+            "payload": {
+                "serialNumber": serial_number,
+                "gain": gain,
+                "exposure": exposure,
+                "colorChannel": color_channel,
+                "brightness": brightness,
+                "focusOffset": 0.0,
+            },
+        }
+
+        # Turn on live stream and wait till it is one
+        device = self.__all_devices[serial_number]
+
+        self.set_liveview(serial_number, True)
+
+        while device.live_stream == False:
+            pass
+
+        self.ws.send(json.dumps(msg1))
+
     def get_all_serial_numbers(self):
         """
         Returns all the serial numbers of the devices that are connected.
@@ -127,7 +206,7 @@ class LuxConnector:
             if device.is_connected:
                 all_serial_numbers.append(serial_number)
         return all_serial_numbers
-    
+
     def get_temperature(self, serial_number: str) -> float:
         """
         Returns the latest know temperature of the device.
