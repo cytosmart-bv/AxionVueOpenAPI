@@ -1,5 +1,9 @@
 History
 -------
+1.0.4 (2021-04-15)
+------------------
+- Update Pillow
+- Fix installation requirements
 
 1.0.2 (2021-04-15)
 ------------------
