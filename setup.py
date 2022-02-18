@@ -26,7 +26,6 @@ setup(
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: Apache Software License",
         "Operating System :: Microsoft",
         "Natural Language :: English",
         "Programming Language :: Python :: 3",
