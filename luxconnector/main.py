@@ -186,9 +186,12 @@ class LuxConnector:
         """
         color_channel = color_channel.upper()
         assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"]
-        assert 0 < exposure and exposure < 8000
+        if color_channel == "BRIGHTFIELD":
+            assert 0 < exposure and exposure <= 10
+        else:
+            assert 0 < exposure and exposure <= 8000
         assert 0 < gain and gain < 100
-        assert 0 < brightness and brightness < 10000
+        assert 0 < brightness and brightness <= 10000
 
         msg1 = {
             "type": "CAMERA_SETTINGS",
