@@ -14,12 +14,8 @@ with open("HISTORY.rst") as history_file:
 with open("LICENSE") as license_file:
     license = license_file.read()
 
-requirements = [
-    "pillow>=6.2.2, <9",
-    "requests>=2.24.0, <3",
-    "websocket>=0.2.1, <0.3",
-    "websocket-client>=0.57.0, <0.59",
-]
+with open("requirements.txt") as requirements_file:
+    requirements = requirements_file.read().split("\n")
 
 setup_requirements = ["pytest-runner"]
 
@@ -30,7 +26,6 @@ setup(
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Science/Research",
-        "License :: OSI Approved :: Apache Software License",
         "Operating System :: Microsoft",
         "Natural Language :: English",
         "Programming Language :: Python :: 3",
@@ -54,6 +49,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/cytosmart-bv/luxconnector",
-    version="1.0.2b0",
+    version="1.0.4",
     zip_safe=False,
 )
