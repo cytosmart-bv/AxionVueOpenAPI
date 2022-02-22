@@ -1,5 +1,10 @@
 History
 -------
+1.0.4 (2021-04-15)
+------------------
+- Update Pillow
+- Fix installation requirements
+
 1.0.3 (2021-11-22)
 ------------------
 - Update requirements of websocket and websocket-client to include version 1
