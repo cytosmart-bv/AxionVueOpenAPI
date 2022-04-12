@@ -111,7 +111,7 @@ img2 = connector.get_image(serial_number) # Image is zoomed out
 ```
 
 ## Live view
-The live view of the Lux is hosted at http://localhost:3333/luxservice/live?serialNumber=##########.
+The live view of the Lux is hosted at http://localhost:3333/cytosmartservice/live?serialNumber=##########.
 This image can only been seen if the live view is turned on (by default the live view is turned on).
 
 You need to give the serial number of the device you want to target at the place of the #-symbols.
