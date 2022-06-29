@@ -1,19 +1,21 @@
-luxconnector
------
+## luxconnector
 
 This is a python wrapper for the Lux Client windows solution.
 The package will only work on Windows.
 
 # Installation
+
 To install this package follow the these steps:
 
 ## Step 1: Drivers
-Make sure you have or had a [CytoSmart application installed](http://download.cytosmart.com/). 
+
+Make sure you have or had a [CytoSmart application installed](http://download.cytosmart.com/).
 Recommend is the cell counter given it do not restart itself after closing.
 This is needed to have all the correct drivers installed.
 It doesn't matter if the app is uninstalled afterwards.
 
 ## Step 2: pip install
+
 ```
 pip install luxconnector
 ```
@@ -44,6 +46,7 @@ serial_numbers = connector.get_all_serial_numbers()
 ```
 
 ## Getting a single image
+
 When you want a single image taken at this moment use get_image.
 This will return the image as a [`pillow image`](https://pillow.readthedocs.io/en/stable/reference/Image.html).
 You need to give the serial number of the device you want to target
@@ -59,6 +62,7 @@ img = connector.get_image(serial_numbers[index])
 ```
 
 ## Changing the focus
+
 This function will change the focus for the luxconnector object.
 Every image taken after this function will have the new focus.
 
@@ -73,7 +77,9 @@ connector.set_focus(serial_number, 0.7)
 img2 = connector.get_image(serial_number) # Image with focus of 0.7
 img3 = connector.get_image(serial_number) # Image with focus of 0.7
 ```
+
 ## Getting the temperature
+
 This function returns the temperature in celsius of the device.
 
 You need to give the serial number of the device you want to target
@@ -82,7 +88,37 @@ You need to give the serial number of the device you want to target
 temperature = connector.get_temperature(serial_number)
 ```
 
+## Change activate camera (fluorescence)
+
+To use fluorescence you will need change the active camera.
+The camera can be set to 3 different values, RED, GREEN, or BRIGHTFIELD.
+This will only work if your device is a fl device otherwise only BRIGHTFIELD is available.
+
+```
+connector.set_active_camera(serial_number, "RED")
+connector.set_active_camera(serial_number, "GREEN")
+connector.set_active_camera(serial_number, "BRIGHTFIELD")
+```
+
+## Change camera setting
+
+Each camera has its own settings.
+Not all settings are available for BRIGHTFIELD.
+
+- exposure: The time in milliseconds the camera is detecting light.
+- gain: The multiplication of the camera. (Fluo only)
+  If very little light goes into the camera sensor make sure the gain is high.
+- brightness: Strength of the led when it is on (Fluo only)
+- focus_offset: the difference in focus between brightfield and fluo.
+  If focus is set to 0.4 and focus_offset for RED is set to 0.1 RED focus is 0.5 (Fluo only)
+
+```
+connector.set_camera_settings(serial_number, "RED", 500, gain=30, brightness=5000)
+connector.set_camera_settings(serial_number, "BRIGHTFIELD", 10)
+```
+
 ## Getting a z-stack
+
 This function will return a list of [`pillow images`](https://pillow.readthedocs.io/en/stable/reference/Image.html).
 Each image will be at a different focus level.
 
@@ -96,6 +132,7 @@ list_of_imgs = connector.get_z_stack(serial_number, num_img = 6, start_focus = 0
 ```
 
 ## Changing zoom modes
+
 There are 2 zoom modes: "IN" and "OUT".
 While zoomed in the resolution is higher but the ROI is smaller, zoomed out has a higher ROI but a lower resolution.
 
@@ -111,7 +148,8 @@ img2 = connector.get_image(serial_number) # Image is zoomed out
 ```
 
 ## Live view
-The live view of the Lux is hosted at http://localhost:3333/luxservice/live?serialNumber=##########.
+
+The live view of the Lux is hosted at http://localhost:3333/cytosmartservice/live?serialNumber=##########.
 This image can only been seen if the live view is turned on (by default the live view is turned on).
 
 You need to give the serial number of the device you want to target at the place of the #-symbols.

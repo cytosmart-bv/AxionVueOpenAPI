@@ -182,7 +182,7 @@ class LuxConnector:
             options: "BRIGHTFIELD", "RED", "GREEN"
             Default: "BRIGHTFIELD"
         focus_offset: (float) the difference in focus between brightfield and fluo.
-            If focus is set to 0.4 and focus_offset for RED is set to 0.1 RED focus is 0.5
+            If focus is set to 0.4 and focus_offset for RED is set to 0.1 RED focus is 0.5 (Fluo only)
         """
         color_channel = color_channel.upper()
         assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"]
