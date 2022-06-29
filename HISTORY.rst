@@ -8,6 +8,10 @@ History
     make sure focus always happens in brightfield camera mode
     Add sleep after changing to focus so camera can move to new position
 - Update to new Cytosmart app
+1.0.4 (2021-04-15)
+------------------
+- Update Pillow
+- Fix installation requirements
 
 1.0.3 (2021-11-22)
 ------------------
