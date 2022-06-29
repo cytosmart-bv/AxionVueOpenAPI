@@ -1,5 +1,9 @@
 History
 -------
+1.1.1 (2022-06-29)
+------------------
+- Update documentation
+
 1.1.0 (2021-12-03)
 ------------------
 - Add change camera settings
