@@ -16,7 +16,7 @@ It doesn't matter if the app is uninstalled afterwards.
 
 ## Step 2: pip install
 
-```
+```cmd
 pip install luxconnector
 ```
 
@@ -28,7 +28,7 @@ Make sure at least one lux is physically connected to your computer via a USB3 p
 The luxconnector is an object that maintains the connection with the Lux.
 To create the object use the following code:
 
-```
+```python
 from luxconnector import LuxConnector
 connector = LuxConnector(number_of_devices=2)
 ```
@@ -41,7 +41,7 @@ If not the luxconnector will look for the missing devices forever.
 Each physical device has a serial number.
 This number is needed to send commands to a specific device.
 
-```
+```python
 serial_numbers = connector.get_all_serial_numbers()
 ```
 
@@ -51,13 +51,13 @@ When you want a single image taken at this moment use get_image.
 This will return the image as a [`pillow image`](https://pillow.readthedocs.io/en/stable/reference/Image.html).
 You need to give the serial number of the device you want to target
 
-```
+```python
 img = connector.get_image(serial_number)
 ```
 
 or
 
-```
+```python
 img = connector.get_image(serial_numbers[index])
 ```
 
@@ -70,7 +70,7 @@ The focus is in the range 0 until 1. (0.0 and 1.0 are valid entries)
 
 You need to give the serial number of the device you want to target
 
-```
+```python
 connector.set_focus(serial_number, 0.5)
 img1 = connector.get_image(serial_number) # Image with focus of 0.5
 connector.set_focus(serial_number, 0.7)
@@ -84,7 +84,7 @@ This function returns the temperature in celsius of the device.
 
 You need to give the serial number of the device you want to target
 
-```
+```python
 temperature = connector.get_temperature(serial_number)
 ```
 
@@ -94,7 +94,7 @@ To use fluorescence you will need change the active camera.
 The camera can be set to 3 different values, RED, GREEN, or BRIGHTFIELD.
 This will only work if your device is a fl device otherwise only BRIGHTFIELD is available.
 
-```
+```python
 connector.set_active_camera(serial_number, "RED")
 connector.set_active_camera(serial_number, "GREEN")
 connector.set_active_camera(serial_number, "BRIGHTFIELD")
@@ -112,7 +112,7 @@ Not all settings are available for BRIGHTFIELD.
 - focus_offset: the difference in focus between brightfield and fluo.
   If focus is set to 0.4 and focus_offset for RED is set to 0.1 RED focus is 0.5 (Fluo only)
 
-```
+```python
 connector.set_camera_settings(serial_number, "RED", 500, gain=30, brightness=5000)
 connector.set_camera_settings(serial_number, "BRIGHTFIELD", 10)
 ```
@@ -127,7 +127,7 @@ The focuses of these images will be [0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 
 You need to give the serial number of the device you want to target
 
-```
+```python
 list_of_imgs = connector.get_z_stack(serial_number, num_img = 6, start_focus = 0.5, stop_focus = 1)
 ```
 
@@ -140,7 +140,7 @@ Changing this will change it for every image or z-stack taken afterwards.
 
 You need to give the serial number of the device you want to target
 
-```
+```python
 connector.set_zoom(serial_number, "IN")
 img1 = connector.get_image(serial_number) # Image is zoomed in
 connector.set_zoom(serial_number, "OUT")
@@ -154,7 +154,7 @@ This image can only been seen if the live view is turned on (by default the live
 
 You need to give the serial number of the device you want to target at the place of the #-symbols.
 
-```
+```python
 connector.set_liveview(serial_number, True) # in the browser you can see the image being updated
 connector.set_liveview(serial_number, False) # Led of Lux turns off till you take a picture
 ```
