@@ -6,7 +6,6 @@ Before submitting/accepting this Pull Request, please make sure:
 - [ ] Explain how to run the code `(docstring)`
 - [ ] Function is tested
 - [ ] All needed package are in [requirements.txt](requirements.txt)
-- [ ] Requirements in setup.py are updated
 - [ ] Version number is updated
 - [ ] `HISTORY.rst` is updated
 - [ ] New feature is added to `README.md` subsection `Features`
@@ -16,7 +15,6 @@ Before submitting/accepting this Pull Request, please make sure:
 - [ ] The code is executed on another machine
 - [ ] Function is tested
 - [ ] Installing just the [requirements.txt](requirements.txt) is enough to run the code
-- [ ] Requirements in setup.py are updated
 - [ ] Version number is updated
 - [ ] `HISTORY.rst` is updated
 - [ ] New feature is added to `README.md` subsection `Features`
