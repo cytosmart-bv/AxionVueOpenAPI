@@ -7,7 +7,7 @@ from luxconnector import LuxConnector
 result_folder = os.path.join("results", "single_image")
 os.makedirs(result_folder, exist_ok=True)
 
-connector = LuxConnector(number_of_devices=2)
+connector = LuxConnector(number_of_devices=1)
 
 serial_numbers = connector.get_all_serial_numbers()
 
