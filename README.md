@@ -1,26 +1,26 @@
-## luxconnector
+[![Downloads](https://pepy.tech/badge/luxconnector)](https://pepy.tech/project/luxconnector)
+
+# Lux Connector
 
 This is a python wrapper for the Lux Client windows solution.
 The package will only work on Windows.
 
-# Installation
+## Installation
 
 To install this package follow the these steps:
 
-## Step 1: Drivers
+### Step 1: Drivers
 
 Make sure you have or had a [CytoSmart application installed](http://download.cytosmart.com/).
 Recommend is the cell counter given it do not restart itself after closing.
 This is needed to have all the correct drivers installed.
 It doesn't matter if the app is uninstalled afterwards.
 
-## Step 2: pip install
+### Step 2: pip install
 
 ```cmd
 pip install luxconnector
 ```
-
-# Usage
 
 ## Initialization
 
@@ -159,11 +159,11 @@ connector.set_liveview(serial_number, True) # in the browser you can see the ima
 connector.set_liveview(serial_number, False) # Led of Lux turns off till you take a picture
 ```
 
-# Developers
+## Developers
 
 Developers of the luxconnector please look at the [`developers readme`](README_DEV.md)
 
-# Credits
+## Credits
 
 - Tom Nijhof
 - Kyap
