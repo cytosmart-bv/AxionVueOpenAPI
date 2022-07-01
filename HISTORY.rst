@@ -1,5 +1,18 @@
 History
 -------
+1.1.1 (2022-06-29)
+------------------
+- Update documentation
+
+1.1.0 (2021-12-03)
+------------------
+- Add change camera settings
+- Add set activate camera (brightfield, red-fluo, or green-fluo)
+- Change focus: 
+    make sure focus always happens in brightfield camera mode
+    Add sleep after changing to focus so camera can move to new position
+- Update to new Cytosmart app
+
 1.0.4 (2021-04-15)
 ------------------
 - Update Pillow
