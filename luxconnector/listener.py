@@ -16,7 +16,8 @@ class Listener(Thread):
         self.daemon = True
         self.last_msg = None
         self.all_devices: Dict[str, LuxDevice] = {}
-
+        self.x = -1.
+        self.y = -1.
     def run(self):
         while True:
             new_message = json.loads(self.ws.recv())
@@ -38,6 +39,15 @@ class Listener(Thread):
                 new_live_stream = bool(payload.get("isEnabled", -9999999))
                 self.__update_live_stream(serial_number, new_live_stream)
 
+            if type_message == "OMNI_MOVE_STAGE_CHANGE":
+                new_x = float(payload.get("x", -1.))
+                new_y = float(payload.get("y", -1.))
+                self.__update_position(serial_number, new_x, new_y)
+
+            if type_message == "SLEEP_CHANGE":
+                is_sleeping = float(payload.get("isSleeping", True))
+                self.__update_sleep(serial_number, is_sleeping)
+
     def __connect_device(self, serial_number: str, is_connected: bool = True):
         device = self.all_devices.get(serial_number, None)
         if device is None:
@@ -56,3 +66,14 @@ class Listener(Thread):
         device = self.all_devices.get(serial_number, None)
         if device is not None:
             device.live_stream = new_live_stream
+
+    def __update_position(self, serial_number: str, x: float, y: float):
+        device = self.all_devices.get(serial_number, None)
+        if device is not None:
+            device.x = x
+            device.y = y
+
+    def __update_sleep(self, serial_number, is_sleeping):
+        device = self.all_devices.get(serial_number, None)
+        if device is not None:
+            device.is_sleeping = is_sleeping

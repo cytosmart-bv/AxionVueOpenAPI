@@ -5,7 +5,7 @@ import subprocess
 from io import BytesIO
 from pathlib import Path
 import time
-from typing import List
+from typing import List, Tuple
 
 import requests
 from PIL import Image
@@ -67,7 +67,7 @@ class LuxConnector:
         """
         Run the Lux server in a subservers
         """
-        print("Start Lux Server")
+        print("Start CytoSMART Server")
         basefolder_loc = Path(__file__).parents[0]
         exe_loc = os.path.join(basefolder_loc, "LuxServer", "CytoSmartService.exe")
         subprocess.Popen(["cmd", "/K", exe_loc])
@@ -234,6 +234,52 @@ class LuxConnector:
         """
         device = self.__all_devices[serial_number]
         return device.temperature
+
+    def move_stage(self, serial_number: str, new_x: float, new_y: float, max_waiting_time: float = 10) -> None:
+        """
+        Returns the latest know position of the device.
+
+        serial_number: (str) the serial number of device you want to connect
+        """
+
+        msg1 = {
+            "type": "OMNI_MOVE_STAGE",
+            "payload": {"serialNumber": serial_number, "X": float(new_x), "Y": float(new_y)},
+        }
+        self.ws.send(json.dumps(msg1))
+
+        start_time = time.time()
+        while True:
+            cur_x, cur_y = self.get_position(serial_number)
+            print(cur_x, cur_y)
+            if abs(cur_x - new_x) < 0.1 and abs(cur_y - new_y) < 0.1:
+                time.sleep(0.1)
+                cur_x, cur_y = self.get_position(serial_number)
+                if abs(cur_x - new_x) < 0.1 and abs(cur_y - new_y) < 0.1:
+                    break
+            time.sleep(0.5)
+
+            current_waiting_time = time.time() - start_time
+            if current_waiting_time > max_waiting_time:
+                raise TimeoutError(f"Moving stage toke to long. It took {current_waiting_time}, max is {max_waiting_time}")
+
+    def get_position(self, serial_number: str) -> Tuple[float, float]:
+        """
+        Returns the latest know position of the device.
+
+        serial_number: (str) the serial number of device you want to connect
+        """
+
+        msg1 = {
+            "type": "OMNI_REQUEST_STAGE_POSITION",
+            "payload": {"serialNumber": serial_number},
+        }
+        self.ws.send(json.dumps(msg1))
+        time.sleep(0.1)
+        device = self.__all_devices[serial_number]
+        if device.is_sleeping:
+            return -1, -1
+        return device.x, device.y
 
     def get_image(self, serial_number: str) -> Image.Image:
         """
