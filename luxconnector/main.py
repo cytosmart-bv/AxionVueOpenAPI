@@ -235,7 +235,7 @@ class LuxConnector:
         device = self.__all_devices[serial_number]
         return device.temperature
 
-    def move_stage(self, serial_number: str, new_x: float, new_y: float, max_waiting_time: float = 10) -> None:
+    def move_stage(self, serial_number: str, new_x: float, new_y: float, max_waiting_time: float = 60) -> None:
         """
         Returns the latest know position of the device.
 
