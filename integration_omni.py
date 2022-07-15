@@ -1,6 +1,5 @@
 #%%
 import os
-import time
 
 from luxconnector import LuxConnector
 
@@ -23,9 +22,9 @@ print(connector.get_position(serial_number))
 connector.move_stage(serial_number, 18, 13)
 print(connector.get_position(serial_number))
 
-connector.set_focus(serial_number, 0.7)
+connector.set_focus(serial_number, 0.5)
 connector.set_camera_settings(serial_number, "BRIGHTFIELD", 10)
 connector.set_active_camera(serial_number, "BRIGHTFIELD")
 
 img = connector.get_image(serial_number)
-# img.show()
+img.show()
