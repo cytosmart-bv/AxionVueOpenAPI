@@ -1,18 +1,16 @@
 #%%
 import json
-import time
 from threading import Thread
-from typing import Dict
-
-import websocket
+import time
+from typing import Dict, Callable
 
 from .lux_device import LuxDevice
 
 
 class Listener(Thread):
-    def __init__(self, ws: websocket.WebSocket):
+    def __init__(self, receive_function: Callable):
         Thread.__init__(self)
-        self.ws = ws
+        self.receive_function = receive_function
         self.daemon = True
         self.last_msg = None
         self.all_devices: Dict[str, LuxDevice] = {}
@@ -20,9 +18,10 @@ class Listener(Thread):
         self.y = -1.
     def run(self):
         while True:
-            new_message = json.loads(self.ws.recv())
-            self.last_msg = new_message
-
+            new_message = self.receive_function()
+            if new_message == None:
+                time.sleep(0.5)
+                continue
             type_message = new_message.get("type", "")
             payload = new_message.get("payload", {})
             serial_number = payload.get("serialNumber", "")
