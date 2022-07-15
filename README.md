@@ -131,6 +131,25 @@ You need to give the serial number of the device you want to target
 list_of_imgs = connector.get_z_stack(serial_number, num_img = 6, start_focus = 0.5, stop_focus = 1)
 ```
 
+## Change stage (Omni only)
+
+To change the position of the omni stage (camera, led, arm, ect.) give the new position in mm.
+
+```python
+connector.move_stage(serial_number, 100, 100)
+```
+
+After this the normal process for obtaining and changing cameras applies.
+
+## Get stage position (Omni only)
+
+If you need to know where the stage is use get_position.
+This also works if the omni moved without a move_stage command (e.q. when it goes to sleep).
+
+```python
+print(connector.get_position(serial_number))
+```
+
 ## Changing zoom modes
 
 There are 2 zoom modes: "IN" and "OUT".
