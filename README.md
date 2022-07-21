@@ -186,5 +186,5 @@ Developers of the CytoSmartOpenAPI please look at the [`developers readme`](READ
 ## Credits
 
 - Tom Nijhof
-- Kyap
 - Nora
+- Tessa
