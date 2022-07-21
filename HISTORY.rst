@@ -1,5 +1,13 @@
 History
 -------
+1.2.0 (2022-06-29)
+------------------
+- Update server to support Omni
+- Add move stage
+- Add get position
+- Check for connection loss and reconnect is closed
+- Check for sleeping device
+
 1.1.1 (2022-06-29)
 ------------------
 - Update documentation
