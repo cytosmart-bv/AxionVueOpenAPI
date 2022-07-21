@@ -33,7 +33,7 @@ setup(
         "Topic :: Scientific/Engineering :: Bio-Informatics ",
         "Topic :: Scientific/Engineering :: Medical Science Apps.",
     ],
-    description="This is a python wrapper around the Lux Client windows solution",
+    description="This is a python wrapper for the CytoSMART windows app to use it headless",
     entry_points={"console_scripts": ["CytoSmartOpenAPI=CytoSmartOpenAPI.cli:__init__"]},
     install_requires=requirements,
     long_description=readme + "\n\n" + history + "\n\n" + license,

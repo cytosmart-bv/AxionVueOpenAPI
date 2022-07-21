@@ -1,9 +1,9 @@
 [![Downloads](https://pepy.tech/badge/CytoSmartOpenAPI)](https://pepy.tech/project/CytoSmartOpenAPI)
 
-# Lux Connector
+# CytoSMART Open API
 
-This is a python wrapper for the Lux Client windows solution.
-The package will only work on Windows.
+This is a python wrapper for the CytoSMART windows app to use it headless.
+The package will only work on Windows 10 and above.
 
 ## Installation
 
@@ -14,7 +14,7 @@ To install this package follow the these steps:
 Make sure you have or had a [CytoSmart application installed](http://download.cytosmart.com/).
 Recommend is the cell counter given it do not restart itself after closing.
 This is needed to have all the correct drivers installed.
-Uninstall the app afterwards. 
+Uninstall the app afterwards.
 If the app is on the same machine the openAPI might connect with the wrong one.
 
 ### Step 2: pip install
@@ -25,8 +25,8 @@ pip install CytoSmartOpenAPI
 
 ## Initialization
 
-Make sure at least one lux is physically connected to your computer via a USB3 port.
-The CytoSmartOpenAPI is an object that maintains the connection with the Lux.
+Make sure at least one CytoSMART device is physically connected to your computer via a USB3 port.
+The CytoSmartOpenAPI is an object that maintains the connection with the device.
 To create the object use the following code:
 
 ```python
@@ -169,14 +169,14 @@ img2 = connector.get_image(serial_number) # Image is zoomed out
 
 ## Live view
 
-The live view of the Lux is hosted at http://localhost:3333/cytosmartservice/live?serialNumber=##########.
+The live view of the device is hosted at http://localhost:3333/cytosmartservice/live?serialNumber=##########.
 This image can only been seen if the live view is turned on (by default the live view is turned on).
 
 You need to give the serial number of the device you want to target at the place of the #-symbols.
 
 ```python
 connector.set_liveview(serial_number, True) # in the browser you can see the image being updated
-connector.set_liveview(serial_number, False) # Led of Lux turns off till you take a picture
+connector.set_liveview(serial_number, False) # Led of device turns off till you take a picture
 ```
 
 ## Developers
