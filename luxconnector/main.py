@@ -270,6 +270,13 @@ class LuxConnector:
                 },
             }
         )
+        # Omni exposure is really flash duration
+        self.__send_ws_message(
+            {
+                "type": "OMNI_SET_FLASH_DURATION",
+                "payload": {"serialNumber": serial_number, "duration": exposure},
+            }
+        )
 
     def get_all_serial_numbers(self):
         """
