@@ -1,4 +1,4 @@
-[![Downloads](https://pepy.tech/badge/luxconnector)](https://pepy.tech/project/luxconnector)
+[![Downloads](https://pepy.tech/badge/CytoSmartOpenAPI)](https://pepy.tech/project/CytoSmartOpenAPI)
 
 # Lux Connector
 
@@ -20,22 +20,22 @@ If the app is on the same machine the openAPI might connect with the wrong one.
 ### Step 2: pip install
 
 ```cmd
-pip install luxconnector
+pip install CytoSmartOpenAPI
 ```
 
 ## Initialization
 
 Make sure at least one lux is physically connected to your computer via a USB3 port.
-The luxconnector is an object that maintains the connection with the Lux.
+The CytoSmartOpenAPI is an object that maintains the connection with the Lux.
 To create the object use the following code:
 
 ```python
-from luxconnector import LuxConnector
-connector = LuxConnector(number_of_devices=2)
+from CytoSmartOpenAPI import CytoSmartOpenAPI
+connector = CytoSmartOpenAPI(number_of_devices=2)
 ```
 
 NOTE: Make sure number_of_devices is at least the number of devices you have connected.
-If not the luxconnector will look for the missing devices forever.
+If not the CytoSmartOpenAPI will look for the missing devices forever.
 
 ## Getting serial numbers
 
@@ -64,7 +64,7 @@ img = connector.get_image(serial_numbers[index])
 
 ## Changing the focus
 
-This function will change the focus for the luxconnector object.
+This function will change the focus for the CytoSmartOpenAPI object.
 Every image taken after this function will have the new focus.
 
 The focus is in the range 0 until 1. (0.0 and 1.0 are valid entries)
@@ -181,7 +181,7 @@ connector.set_liveview(serial_number, False) # Led of Lux turns off till you tak
 
 ## Developers
 
-Developers of the luxconnector please look at the [`developers readme`](README_DEV.md)
+Developers of the CytoSmartOpenAPI please look at the [`developers readme`](README_DEV.md)
 
 ## Credits
 

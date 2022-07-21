@@ -2,12 +2,12 @@
 import os
 import time
 
-from luxconnector import LuxConnector
+from CytoSmartOpenAPI import CytoSmartOpenAPI
 
 result_folder = os.path.join("results", "z_stack")
 os.makedirs(result_folder, exist_ok=True)
 
-connector = LuxConnector()
+connector = CytoSmartOpenAPI()
 
 serial_numbers = connector.get_all_serial_numbers()
 

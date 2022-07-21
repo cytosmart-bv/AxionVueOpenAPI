@@ -14,7 +14,7 @@ from websocket import create_connection
 from .listener import Listener
 
 
-class LuxConnector:
+class CytoSmartOpenAPI:
     def __init__(self, number_of_devices: int = 1) -> None:
         """
         number_of_devices: (int) How many devices should be connected.

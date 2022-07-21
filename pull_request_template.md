@@ -1,4 +1,4 @@
-Thank you for your contribution to the **luxconnector** package. 
+Thank you for your contribution to the **CytoSmartOpenAPI** package. 
 Before submitting/accepting this Pull Request, please make sure:
 
 ## Contributor of code

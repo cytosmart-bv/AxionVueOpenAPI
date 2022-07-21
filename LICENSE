@@ -6,16 +6,16 @@
 
                                 Preamble
 
-  This license contains the terms and conditions of using LuxConnector in
+  This license contains the terms and conditions of using CytoSmartOpenAPI in
 noncommercial settings: at academic institutions for teaching and research
 use and for personal or educational purposes. You will find that this
-license provides noncommercial users of LuxConnector with rights that are
+license provides noncommercial users of CytoSmartOpenAPI with rights that are
 similar to the well-known GNU General Public License, yet it retains the
-possibility for LuxConnector authors to financially support the development by
-selling commercial licenses. In fact, if you intend to use LuxConnector in a
+possibility for CytoSmartOpenAPI authors to financially support the development by
+selling commercial licenses. In fact, if you intend to use CytoSmartOpenAPI in a
 "for-profit" environment, where research is conducted to develop or enhance
 a product, is used in a commercial service offering, or when an entity uses
-LuxConnector to participate in government-funded, EU-funded, military or similar
+CytoSmartOpenAPI to participate in government-funded, EU-funded, military or similar
 research projects, then you need to obtain a commercial license.
 In that case, or if you are unsure, please contact the Author info@cytosmart.com 
 to inquire about commercial licenses.
@@ -28,10 +28,10 @@ modified copies of this software, they must be distributed under this
 license.
 
   By modeling the GPL, this license guarantees that you're safe when using
-LuxConnector in your work, for teaching or research. This license guarantees
-that LuxConnector will remain available free of charge for nonprofit use. You
-can modify LuxConnector to your purposes, and you can also share your modifications.
-Even in the unlikely case of the authors abandoning LuxConnector entirely, this
+CytoSmartOpenAPI in your work, for teaching or research. This license guarantees
+that CytoSmartOpenAPI will remain available free of charge for nonprofit use. You
+can modify CytoSmartOpenAPI to your purposes, and you can also share your modifications.
+Even in the unlikely case of the authors abandoning CytoSmartOpenAPI entirely, this
 license permits anyone to continue developing it from the last release, and
 to create further releases under this license.
 
@@ -51,7 +51,7 @@ modification follow.
 
   0. Definitions
 
-  "Program" means a copy of LuxConnector, which is said to be distributed under
+  "Program" means a copy of CytoSmartOpenAPI, which is said to be distributed under
 this Academic Public License.
 
   "Work based on the Program" means either the Program or any derivative work
