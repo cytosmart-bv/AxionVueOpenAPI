@@ -136,8 +136,12 @@ list_of_imgs = connector.get_z_stack(serial_number, num_img = 6, start_focus = 0
 
 To change the position of the omni stage (camera, led, arm, ect.) give the new position in mm.
 
+- Position x in mm
+- Position y in mm
+- Time in seconds it can wait till it arrives (default 60)
+
 ```python
-connector.move_stage(serial_number, 100, 100)
+connector.move_stage(serial_number, 100, 100, 60)
 ```
 
 After this the normal process for obtaining and changing cameras applies.
