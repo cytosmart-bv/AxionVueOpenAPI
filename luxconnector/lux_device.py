@@ -7,7 +7,8 @@ class LuxDevice:
         self.x: float = -1.0
         self.y: float = -1.0
         self.is_sleeping: bool = True
-
+        self.is_moving: bool = False
+        
     @property
     def temperature(self):
         return self.__temperature

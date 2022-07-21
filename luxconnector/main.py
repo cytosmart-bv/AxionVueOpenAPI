@@ -9,7 +9,6 @@ from typing import List, Tuple
 
 import requests
 from PIL import Image
-from tenacity import RetryError
 from websocket import create_connection
 
 from .listener import Listener
@@ -66,10 +65,10 @@ class LuxConnector:
             count (int, optional): Number of times trying. Defaults to 0.
 
         Raises:
-            RetryError: If a 100 times is not enough to send the message, give up
+            RecursionError: If a 100 times is not enough to send the message, give up
         """
         if count == 100:
-            raise RetryError(f"Retried to send a message {count} times")
+            raise RecursionError(f"Retried to send a message {count} times")
         try:
             self.ws.send(json.dumps(msg))
         except ConnectionResetError:
@@ -85,10 +84,10 @@ class LuxConnector:
             count (int, optional): Number of times trying. Defaults to 0.
 
         Raises:
-            RetryError: If a 100 times is not enough to recieve the message, give up
+            RecursionError: If a 100 times is not enough to recieve the message, give up
         """
         if count == 100:
-            raise RetryError(f"Retried to receive a message {count} times")
+            raise RecursionError(f"Retried to receive a message {count} times")
 
         try:
             return json.loads(self.ws.recv())
@@ -300,37 +299,62 @@ class LuxConnector:
         max_waiting_time: float = 60,
     ) -> None:
         """
-        Returns the latest know position of the device.
+        Moves the stage the the new position (Omni only)
 
-        serial_number: (str) the serial number of device you want to connect
+        Args:
+            serial_number: (str) the serial number of device you want to connect
+            new_x (float): new x position in millimeters
+            new_y (float): new y position in millimeters
+            max_waiting_time (float, optional): Maximum time it waits for the stage to arrive.
+                If it is set to -1 it will never timeout
+                Defaults to 60.
+
+        Raises:
+            TimeoutError: Stage took longer then the max_waiting_time to go to new position
         """
 
-        self.__send_ws_message(
-            {
-                "type": "OMNI_MOVE_STAGE",
-                "payload": {
-                    "serialNumber": serial_number,
-                    "X": float(new_x),
-                    "Y": float(new_y),
-                },
-            }
-        )
+        msg = {
+            "type": "OMNI_MOVE_STAGE",
+            "payload": {
+                "serialNumber": serial_number,
+                "X": float(new_x),
+                "Y": float(new_y),
+            },
+        }
+        self.__send_ws_message(msg)
 
         start_time = time.time()
+        device = self.__all_devices[serial_number]
         while True:
             cur_x, cur_y = self.get_position(serial_number)
-            if abs(cur_x - new_x) < 0.1 and abs(cur_y - new_y) < 0.1:
-                time.sleep(0.1)
-                cur_x, cur_y = self.get_position(serial_number)
-                if abs(cur_x - new_x) < 0.1 and abs(cur_y - new_y) < 0.1:
-                    break
-            time.sleep(0.5)
+            is_moving = device.is_moving
 
+            # If the device is not moving AND close enough stop
+            if (
+                abs(cur_x - new_x) < 0.1
+                and abs(cur_y - new_y) < 0.1
+                and is_moving == False
+            ):
+                break
+            # If it is only not move but still not close send the message again
+            elif is_moving == False:
+                self.__send_ws_message(msg)
+
+            # Time out check
             current_waiting_time = time.time() - start_time
-            if current_waiting_time > max_waiting_time:
+            if current_waiting_time > max_waiting_time and max_waiting_time > 0:
                 raise TimeoutError(
-                    f"Moving stage toke to long. It took {current_waiting_time}, max is {max_waiting_time}"
+                    f"""
+                    Moving stage took too long. It took {current_waiting_time}, max is {max_waiting_time}. 
+                    Current state:
+                    Position: {cur_x}, {cur_y}
+                    Is_moving: {is_moving}
+                    Wanted position: {new_x}, {new_y}
+                    """
                 )
+
+            # To not spam the service wait a bit
+            time.sleep(0.5)
 
     def get_position(self, serial_number: str) -> Tuple[float, float]:
         """
