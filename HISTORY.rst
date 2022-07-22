@@ -5,6 +5,7 @@ History
 - Update server to support Omni
 - Add move stage
 - Add get position
+- Add set flash duration
 - Check for connection loss and reconnect is closed
 - Check for sleeping device
 
