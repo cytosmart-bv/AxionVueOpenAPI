@@ -1,9 +1,12 @@
 [![Downloads](https://pepy.tech/badge/CytoSmartOpenAPI)](https://pepy.tech/project/CytoSmartOpenAPI)
+[![Downloads](https://pepy.tech/badge/luxconnector)](https://pepy.tech/project/luxconnector)
 
 # CytoSMART Open API
 
 This is a python wrapper for the CytoSMART windows app to use it headless.
 The package will only work on Windows 10 and above.
+
+This package was formally know as `luxconnector`
 
 ## Installation
 
