@@ -1,4 +1,6 @@
-## luxconnector
+# THIS PROJECT IS DEPRECATED
+
+Please switch to CytoSmartOpenAPI
 
 This is a python wrapper for the Lux Client windows solution.
 The package will only work on Windows.
