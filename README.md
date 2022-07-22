@@ -8,6 +8,15 @@ The package will only work on Windows 10 and above.
 
 This package was formally known as `luxconnector`
 
+## Warranty
+> ⚠️ **Hardware warranty is void by using this open API** ⚠️:
+> 
+> Using the CytoSmartOpenAPI means you will have NO hardware warranty ([see license](LICENSE)).
+ 
+This is because our devices are made to handle the normal usage ([the GUI app](http://download.cytosmart.com/)).
+It also includes additionally bought warranty.
+Only if your additionally bought warranty implicitly includes the open API usage you will have warranty.
+
 ## Installation
 
 To install this package the following steps:
@@ -34,8 +43,10 @@ To create the object use the following code:
 
 ```python
 from CytoSmartOpenAPI import CytoSmartOpenAPI
-connector = CytoSmartOpenAPI(number_of_devices=2)
+connector = CytoSmartOpenAPI(number_of_devices=2, warranty=False)
 ```
+
+> ⚠️ You are voiding your warranty by using this package
 
 NOTE: Make sure number_of_devices does not exceed the number of devices you have physically connected.
 Otherwise the CytoSmartOpenAPI will look for the missing devices forever.
