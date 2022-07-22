@@ -16,7 +16,14 @@ s = time.time()
 connector.set_camera_settings(serial_number, "BRIGHTFIELD", 10)
 connector.set_active_camera(serial_number, "BRIGHTFIELD")
 img = connector.get_image(serial_number)
-img.save(os.path.join(result_folder, f"{serial_number}_BRIGHTFIELD_.jpg"), "JPEG")
+img.save(os.path.join(result_folder, f"{serial_number}_BRIGHTFIELD10_.jpg"), "JPEG")
+
+# BRIGHTFIELD
+s = time.time()
+connector.set_camera_settings(serial_number, "BRIGHTFIELD", 5)
+connector.set_active_camera(serial_number, "BRIGHTFIELD")
+img = connector.get_image(serial_number)
+img.save(os.path.join(result_folder, f"{serial_number}_BRIGHTFIELD5_.jpg"), "JPEG")
 
 # RED
 s = time.time()
