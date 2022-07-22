@@ -5,7 +5,7 @@ import subprocess
 from io import BytesIO
 from pathlib import Path
 import time
-from typing import List
+from typing import List, Tuple
 
 import requests
 from PIL import Image
@@ -21,14 +21,8 @@ class LuxConnector:
             It will keep trying connecting till it is connected to all connected devices.
         """
 
-        try:
-            # Try to make a connection with the app
-            self.ws = create_connection("ws://localhost:3333/cytosmartservice")
-        except:
-            # If that fails, start the app first and make the connection again
-            self.__start_lux_app()
-            self.ws = create_connection("ws://localhost:3333/cytosmartservice")
-        self.ws_listener = Listener(self.ws)
+        self.__connect_with_service()
+        self.ws_listener = Listener(self.__recv_ws_message)
         self.ws_listener.start()
         self.__all_devices = self.ws_listener.all_devices
         self.active_camera = "BRIGHTFIELD"
@@ -49,6 +43,59 @@ class LuxConnector:
             except:
                 pass
 
+    def __connect_with_service(self):
+        """
+        Try to connect with CytoSmartService websocket.
+        If that does not work, start a instants of the service
+        """
+        try:
+            # Try to make a connection with the app
+            self.ws = create_connection("ws://localhost:3333/cytosmartservice")
+        except:
+            # If that fails, start the app first and make the connection again
+            self.__start_lux_app()
+            self.ws = create_connection("ws://localhost:3333/cytosmartservice")
+
+    def __send_ws_message(self, msg: dict, count: int = 0):
+        """Send a message to the service.
+        It will retry if the connection got lost after restoring the connection
+
+        Args:
+            msg (dict): Message itself needs to have type and payload
+            count (int, optional): Number of times trying. Defaults to 0.
+
+        Raises:
+            RecursionError: If a 100 times is not enough to send the message, give up
+        """
+        if count == 100:
+            raise RecursionError(f"Retried to send a message {count} times")
+        try:
+            self.ws.send(json.dumps(msg))
+        except ConnectionResetError:
+            print(f"Connection lost, reconnecting. Attempt {count}")
+            self.__connect_with_service()
+            self.__send_ws_message(msg, count + 1)
+
+    def __recv_ws_message(self, count: int = 0):
+        """Receive a message to the service.
+        It will retry if the connection got lost after restoring the connection
+
+        Args:
+            count (int, optional): Number of times trying. Defaults to 0.
+
+        Raises:
+            RecursionError: If a 100 times is not enough to recieve the message, give up
+        """
+        if count == 100:
+            raise RecursionError(f"Retried to receive a message {count} times")
+
+        try:
+            return json.loads(self.ws.recv())
+        except ConnectionResetError:
+            print(f"Connection lost, reconnecting. Attempt {count}")
+            self.__connect_with_service()
+            self.__recv_ws_message(count + 1)
+
     def __activate(
         self,
         serial_number: str,
@@ -59,15 +106,16 @@ class LuxConnector:
         serial_number: (str) the serial number of device you want to connect
 
         """
-        msg1 = {"type": "ACTIVATE", "payload": {"serialNumber": serial_number}}
-        self.ws.send(json.dumps(msg1))
+        self.__send_ws_message(
+            {"type": "ACTIVATE", "payload": {"serialNumber": serial_number}}
+        )
 
     @staticmethod
     def __start_lux_app() -> None:
         """
         Run the Lux server in a subservers
         """
-        print("Start Lux Server")
+        print("Start CytoSMART Server")
         basefolder_loc = Path(__file__).parents[0]
         exe_loc = os.path.join(basefolder_loc, "LuxServer", "CytoSmartService.exe")
         subprocess.Popen(["cmd", "/K", exe_loc])
@@ -79,11 +127,12 @@ class LuxConnector:
         serial_number: (str) the serial number of device you want to connect
         state: (bool) True = live view on
         """
-        msg1 = {
-            "type": "LIVE_STREAM",
-            "payload": {"serialNumber": serial_number, "enable": state},
-        }
-        self.ws.send(json.dumps(msg1))
+        self.__send_ws_message(
+            {
+                "type": "LIVE_STREAM",
+                "payload": {"serialNumber": serial_number, "enable": state},
+            }
+        )
 
     def set_zoom(self, serial_number: str, zoom_type: str = "IN") -> None:
         """
@@ -95,11 +144,12 @@ class LuxConnector:
         zoom_type = zoom_type.upper()
         assert zoom_type in ["IN", "OUT"]
 
-        msg1 = {
-            "type": "ZOOM",
-            "payload": {"serialNumber": serial_number, "action": zoom_type},
-        }
-        self.ws.send(json.dumps(msg1))
+        self.__send_ws_message(
+            {
+                "type": "ZOOM",
+                "payload": {"serialNumber": serial_number, "action": zoom_type},
+            }
+        )
 
         # Toggle liveview to enforce the settings
         self.set_liveview(serial_number, False)
@@ -116,11 +166,12 @@ class LuxConnector:
         assert focus_level <= 1 and focus_level >= 0
 
         self.__set_active_camera(serial_number, "BRIGHTFIELD")
-        msg1 = {
-            "type": "FOCUS",
-            "payload": {"serialNumber": serial_number, "value": focus_level},
-        }
-        self.ws.send(json.dumps(msg1))
+        self.__send_ws_message(
+            {
+                "type": "FOCUS",
+                "payload": {"serialNumber": serial_number, "value": focus_level},
+            }
+        )
         self.__set_active_camera(serial_number, self.active_camera)
         # Give device time to go to new focus
         if self.active_camera == "BRIGHTFIELD":
@@ -146,14 +197,19 @@ class LuxConnector:
         assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"]
         self.active_camera = color_channel
         self.__set_active_camera(serial_number, color_channel)
-    
-    def __set_active_camera(self, serial_number: str, color_channel: str = "BRIGHTFIELD"
+
+    def __set_active_camera(
+        self, serial_number: str, color_channel: str = "BRIGHTFIELD"
     ) -> None:
-        msg1 = {
-            "type": "COLOR_CHANNEL",
-            "payload": {"serialNumber": serial_number, "colorChannel": color_channel},
-        }
-        self.ws.send(json.dumps(msg1))
+        self.__send_ws_message(
+            {
+                "type": "COLOR_CHANNEL",
+                "payload": {
+                    "serialNumber": serial_number,
+                    "colorChannel": color_channel,
+                },
+            }
+        )
 
     def set_camera_settings(
         self,
@@ -193,18 +249,6 @@ class LuxConnector:
         assert 0 < gain and gain < 100
         assert 0 < brightness and brightness <= 10000
 
-        msg1 = {
-            "type": "CAMERA_SETTINGS",
-            "payload": {
-                "serialNumber": serial_number,
-                "gain": gain,
-                "exposure": exposure,
-                "colorChannel": color_channel,
-                "brightness": brightness,
-                "focusOffset": focus_offset,
-            },
-        }
-
         # Turn on live stream and wait till it is one
         device = self.__all_devices[serial_number]
 
@@ -213,7 +257,26 @@ class LuxConnector:
         while device.live_stream == False:
             pass
 
-        self.ws.send(json.dumps(msg1))
+        self.__send_ws_message(
+            {
+                "type": "CAMERA_SETTINGS",
+                "payload": {
+                    "serialNumber": serial_number,
+                    "gain": gain,
+                    "exposure": exposure,
+                    "colorChannel": color_channel,
+                    "brightness": brightness,
+                    "focusOffset": focus_offset,
+                },
+            }
+        )
+        # Omni exposure is really flash duration
+        self.__send_ws_message(
+            {
+                "type": "OMNI_SET_FLASH_DURATION",
+                "payload": {"serialNumber": serial_number, "duration": exposure},
+            }
+        )
 
     def get_all_serial_numbers(self):
         """
@@ -234,6 +297,90 @@ class LuxConnector:
         """
         device = self.__all_devices[serial_number]
         return device.temperature
+
+    def move_stage(
+        self,
+        serial_number: str,
+        new_x: float,
+        new_y: float,
+        max_waiting_time: float = 60,
+    ) -> None:
+        """
+        Moves the stage the the new position (Omni only)
+
+        Args:
+            serial_number: (str) the serial number of device you want to connect
+            new_x (float): new x position in millimeters
+            new_y (float): new y position in millimeters
+            max_waiting_time (float, optional): Maximum time it waits for the stage to arrive.
+                If it is set to -1 it will never timeout
+                Defaults to 60.
+
+        Raises:
+            TimeoutError: Stage took longer then the max_waiting_time to go to new position
+        """
+
+        msg = {
+            "type": "OMNI_MOVE_STAGE",
+            "payload": {
+                "serialNumber": serial_number,
+                "X": float(new_x),
+                "Y": float(new_y),
+            },
+        }
+        self.__send_ws_message(msg)
+
+        start_time = time.time()
+        device = self.__all_devices[serial_number]
+        while True:
+            cur_x, cur_y = self.get_position(serial_number)
+            is_moving = device.is_moving
+
+            # If the device is not moving AND close enough stop
+            if (
+                abs(cur_x - new_x) < 0.1
+                and abs(cur_y - new_y) < 0.1
+                and is_moving == False
+            ):
+                break
+            # If it is only not move but still not close send the message again
+            elif is_moving == False:
+                self.__send_ws_message(msg)
+
+            # Time out check
+            current_waiting_time = time.time() - start_time
+            if current_waiting_time > max_waiting_time and max_waiting_time > 0:
+                raise TimeoutError(
+                    f"""
+                    Moving stage took too long. It took {current_waiting_time}, max is {max_waiting_time}. 
+                    Current state:
+                    Position: {cur_x}, {cur_y}
+                    Is_moving: {is_moving}
+                    Wanted position: {new_x}, {new_y}
+                    """
+                )
+
+            # To not spam the service wait a bit
+            time.sleep(0.5)
+
+    def get_position(self, serial_number: str) -> Tuple[float, float]:
+        """
+        Returns the latest know position of the device.
+
+        serial_number: (str) the serial number of device you want to connect
+        """
+
+        self.__send_ws_message(
+            {
+                "type": "OMNI_REQUEST_STAGE_POSITION",
+                "payload": {"serialNumber": serial_number},
+            }
+        )
+        time.sleep(0.1)
+        device = self.__all_devices[serial_number]
+        if device.is_sleeping:
+            return -1, -1
+        return device.x, device.y
 
     def get_image(self, serial_number: str) -> Image.Image:
         """

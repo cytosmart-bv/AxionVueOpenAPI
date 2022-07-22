@@ -14,7 +14,8 @@ To install this package follow the these steps:
 Make sure you have or had a [CytoSmart application installed](http://download.cytosmart.com/).
 Recommend is the cell counter given it do not restart itself after closing.
 This is needed to have all the correct drivers installed.
-It doesn't matter if the app is uninstalled afterwards.
+Uninstall the app afterwards. 
+If the app is on the same machine the openAPI might connect with the wrong one.
 
 ### Step 2: pip install
 
@@ -129,6 +130,29 @@ You need to give the serial number of the device you want to target
 
 ```python
 list_of_imgs = connector.get_z_stack(serial_number, num_img = 6, start_focus = 0.5, stop_focus = 1)
+```
+
+## Change stage (Omni only)
+
+To change the position of the omni stage (camera, led, arm, ect.) give the new position in mm.
+
+- Position x in mm
+- Position y in mm
+- Time in seconds it can wait till it arrives (default 60)
+
+```python
+connector.move_stage(serial_number, 100, 100, 60)
+```
+
+After this the normal process for obtaining and changing cameras applies.
+
+## Get stage position (Omni only)
+
+If you need to know where the stage is use get_position.
+This also works if the omni moved without a move_stage command (e.q. when it goes to sleep).
+
+```python
+print(connector.get_position(serial_number))
 ```
 
 ## Changing zoom modes
