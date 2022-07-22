@@ -1,9 +1,12 @@
 [![Downloads](https://pepy.tech/badge/CytoSmartOpenAPI)](https://pepy.tech/project/CytoSmartOpenAPI)
+[![Downloads](https://pepy.tech/badge/luxconnector)](https://pepy.tech/project/luxconnector)
 
 # CytoSMART Open API
 
 This is a python wrapper for the CytoSMART windows app to use it headless.
 The package will only work on Windows 10 and above.
+
+This package was formally know as `luxconnector`
 
 ## Installation
 
@@ -106,7 +109,7 @@ connector.set_active_camera(serial_number, "BRIGHTFIELD")
 Each camera has its own settings.
 Not all settings are available for BRIGHTFIELD.
 
-- exposure: The time in milliseconds the camera is detecting light.
+- exposure: The time in milliseconds the camera is detecting light. (Lux and Exact from Omni use flash duration)
 - gain: The multiplication of the camera. (Fluo only)
   If very little light goes into the camera sensor make sure the gain is high.
 - brightness: Strength of the led when it is on (Fluo only)
@@ -117,6 +120,18 @@ Not all settings are available for BRIGHTFIELD.
 connector.set_camera_settings(serial_number, "RED", 500, gain=30, brightness=5000)
 connector.set_camera_settings(serial_number, "BRIGHTFIELD", 10)
 ```
+
+## Change flash duration (Omni only)
+
+The omni cannot change the exposure time but can change the time the led is one.
+This can be done with set_flash_duration.
+It will set the duration between 40 and 250 μs.
+
+```python
+connector.set_flash_duration(serial_number, duration=120)
+```
+
+If you do NOT have an omni use set_camera_settings.
 
 ## Getting a z-stack
 

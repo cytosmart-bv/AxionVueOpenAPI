@@ -113,7 +113,7 @@ class CytoSmartOpenAPI:
     @staticmethod
     def __start_cytosmart_app() -> None:
         """
-        Run the cytosmart server in a subservers
+        Run the cytosmart server in a subprocess
         """
         print("Start CytoSMART Server")
         basefolder_loc = Path(__file__).parents[0]
@@ -270,11 +270,20 @@ class CytoSmartOpenAPI:
                 },
             }
         )
-        # Omni exposure is really flash duration
+    
+    def set_flash_duration(self, serial_number: str, duration: int) -> None:
+        """ 
+        Setting the time in μs the led is on during the taking of a picture.
+
+        Args:
+        serial_number: (str) the serial number of device you want to connect
+            duration (int): μs between 40 and 250
+        """
+        assert 40 <= duration and duration <= 250
         self.__send_ws_message(
             {
                 "type": "OMNI_SET_FLASH_DURATION",
-                "payload": {"serialNumber": serial_number, "duration": exposure},
+                "payload": {"serialNumber": serial_number, "duration": duration},
             }
         )
 

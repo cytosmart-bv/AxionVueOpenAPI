@@ -28,3 +28,14 @@ connector.set_active_camera(serial_number, "BRIGHTFIELD")
 
 img = connector.get_image(serial_number)
 img.show()
+
+#%% Test duration
+
+connector.move_stage(serial_number, 18, 13)
+connector.set_flash_duration(serial_number, 41)
+img_dark = connector.get_image(serial_number)
+img_dark.show()
+
+connector.set_flash_duration(serial_number, 250)
+img_light = connector.get_image(serial_number)
+img_light.show()
