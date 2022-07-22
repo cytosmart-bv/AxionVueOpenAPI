@@ -125,7 +125,7 @@ connector.set_camera_settings(serial_number, "BRIGHTFIELD", 10)
 
 The omni cannot change the exposure time but can change the time the led is one.
 This can be done with set_flash_duration.
-It will set the duration is μs between 40 and 250.
+It will set the duration between 40 and 250 μs.
 
 ```python
 connector.set_flash_duration(serial_number, duration=120)
