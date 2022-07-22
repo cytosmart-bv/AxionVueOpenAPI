@@ -1,4 +1,4 @@
-class LuxDevice:
+class CytoSmartDevice:
     def __init__(self, serial_number, is_connected=True, temperature=None):
         self.serial_number = serial_number
         self.__temperature = temperature

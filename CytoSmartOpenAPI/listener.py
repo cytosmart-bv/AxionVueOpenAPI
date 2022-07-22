@@ -4,7 +4,7 @@ from threading import Thread
 import time
 from typing import Dict, Callable
 
-from .lux_device import LuxDevice
+from .cytosmart_device import CytoSmartDevice
 
 
 class Listener(Thread):
@@ -12,7 +12,7 @@ class Listener(Thread):
         Thread.__init__(self)
         self.receive_function = receive_function
         self.daemon = True
-        self.all_devices: Dict[str, LuxDevice] = {}
+        self.all_devices: Dict[str, CytoSmartDevice] = {}
 
     def run(self):
         while True:
@@ -55,7 +55,7 @@ class Listener(Thread):
     def __connect_device(self, serial_number: str, is_connected: bool = True):
         device = self.all_devices.get(serial_number, None)
         if device is None:
-            self.all_devices[serial_number] = LuxDevice(
+            self.all_devices[serial_number] = CytoSmartDevice(
                 serial_number, is_connected=is_connected
             )
         else:

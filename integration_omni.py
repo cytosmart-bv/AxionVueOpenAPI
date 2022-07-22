@@ -1,12 +1,12 @@
 #%%
 import os
 
-from luxconnector import LuxConnector
+from CytoSmartOpenAPI import CytoSmartOpenAPI
 
 result_folder = os.path.join("results", "single_image")
 os.makedirs(result_folder, exist_ok=True)
 
-connector = LuxConnector(number_of_devices=1)
+connector = CytoSmartOpenAPI(number_of_devices=1)
 
 serial_number = connector.get_all_serial_numbers()[0]
 

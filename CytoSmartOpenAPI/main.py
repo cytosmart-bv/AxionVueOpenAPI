@@ -14,7 +14,7 @@ from websocket import create_connection
 from .listener import Listener
 
 
-class LuxConnector:
+class CytoSmartOpenAPI:
     def __init__(self, number_of_devices: int = 1) -> None:
         """
         number_of_devices: (int) How many devices should be connected.
@@ -53,7 +53,7 @@ class LuxConnector:
             self.ws = create_connection("ws://localhost:3333/cytosmartservice")
         except:
             # If that fails, start the app first and make the connection again
-            self.__start_lux_app()
+            self.__start_cytosmart_app()
             self.ws = create_connection("ws://localhost:3333/cytosmartservice")
 
     def __send_ws_message(self, msg: dict, count: int = 0):
@@ -101,7 +101,7 @@ class LuxConnector:
         serial_number: str,
     ) -> None:
         """
-        Activate Lux
+        Activate device
 
         serial_number: (str) the serial number of device you want to connect
 
@@ -111,13 +111,13 @@ class LuxConnector:
         )
 
     @staticmethod
-    def __start_lux_app() -> None:
+    def __start_cytosmart_app() -> None:
         """
-        Run the Lux server in a subservers
+        Run the cytosmart server in a subservers
         """
         print("Start CytoSMART Server")
         basefolder_loc = Path(__file__).parents[0]
-        exe_loc = os.path.join(basefolder_loc, "LuxServer", "CytoSmartService.exe")
+        exe_loc = os.path.join(basefolder_loc, "CytoSmartApp", "CytoSmartService.exe")
         subprocess.Popen(["cmd", "/K", exe_loc])
 
     def set_liveview(self, serial_number: str, state: bool = True) -> None:
