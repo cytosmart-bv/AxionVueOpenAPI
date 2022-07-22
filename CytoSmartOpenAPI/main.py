@@ -113,7 +113,7 @@ class CytoSmartOpenAPI:
     @staticmethod
     def __start_cytosmart_app() -> None:
         """
-        Run the cytosmart server in a subservers
+        Run the cytosmart server in a subprocess
         """
         print("Start CytoSMART Server")
         basefolder_loc = Path(__file__).parents[0]
