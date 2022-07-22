@@ -11,7 +11,7 @@ This package was formally known as `luxconnector`
 ## Warranty
 > ⚠️ **Hardware warranty is void by using this open API** ⚠️:
 > 
-> Using the CytoSmartOpenAPI means you will have NO hardware warranty ([see license](LICENSE)).
+> Using the CytoSmartOpenAPI means you will have NO hardware warranty (see license).
  
 This is because our devices are made to handle the normal usage ([the GUI app](http://download.cytosmart.com/)).
 It also includes additionally bought warranty.
