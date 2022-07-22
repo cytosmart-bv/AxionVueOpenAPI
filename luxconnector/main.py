@@ -2,9 +2,9 @@
 import json
 import os
 import subprocess
+import time
 from io import BytesIO
 from pathlib import Path
-import time
 from typing import List
 
 import requests
@@ -20,7 +20,13 @@ class LuxConnector:
         number_of_devices: (int) How many devices should be connected.
             It will keep trying connecting till it is connected to all connected devices.
         """
-
+        print(
+            """
+            ⚠️===================================================⚠️
+            LuxConnector is deprecated. Please use CytoSmartOpenAPI
+            ⚠️===================================================⚠️
+            """
+        )
         try:
             # Try to make a connection with the app
             self.ws = create_connection("ws://localhost:3333/cytosmartservice")
@@ -146,8 +152,9 @@ class LuxConnector:
         assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"]
         self.active_camera = color_channel
         self.__set_active_camera(serial_number, color_channel)
-    
-    def __set_active_camera(self, serial_number: str, color_channel: str = "BRIGHTFIELD"
+
+    def __set_active_camera(
+        self, serial_number: str, color_channel: str = "BRIGHTFIELD"
     ) -> None:
         msg1 = {
             "type": "COLOR_CHANNEL",
