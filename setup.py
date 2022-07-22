@@ -46,6 +46,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/cytosmart-bv/CytoSmartOpenAPI",
-    version="1.2.0b0",
+    version="1.2.0b1",
     zip_safe=False,
 )
