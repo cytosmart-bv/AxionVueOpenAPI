@@ -18,7 +18,7 @@ class CytoSmartOpenAPI:
     def __init__(self, number_of_devices: int = 1, *, warranty: bool) -> None:
         """
         number_of_devices: (int) How many devices should be connected.
-            It will keep trying connecting till it is connected to all connected devices.
+            It will keep trying to connect till it is connected to all connected devices.
         warranty: (bool) ⚠️ When using the openAPI you are voiding the hardware warranty
         """
         if warranty:
