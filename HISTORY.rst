@@ -6,6 +6,7 @@ History
 - Add move stage
 - Add get position
 - Add set flash duration
+- Add mandatory turning off of warranty
 - Check for connection loss and reconnect is closed
 - Check for sleeping device
 
