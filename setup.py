@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """The setup script."""
 
 from setuptools import setup, find_packages
@@ -33,22 +30,24 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "Topic :: Scientific/Engineering :: Bio-Informatics ",
         "Topic :: Scientific/Engineering :: Medical Science Apps.",
     ],
-    description="This is a python wrapper around the Lux Client windows solution",
-    entry_points={"console_scripts": ["luxconnector=luxconnector.cli:__init__"]},
+    description="This is a python wrapper for the CytoSMART windows app to use it headless",
+    entry_points={"console_scripts": ["CytoSmartOpenAPI=CytoSmartOpenAPI.cli:__init__"]},
     install_requires=requirements,
     long_description=readme + "\n\n" + history + "\n\n" + license,
     long_description_content_type="text/markdown",
     include_package_data=True,
-    keywords="luxconnector",
-    name="luxconnector",
-    packages=find_packages(include=["luxconnector*"], exclude=["docs*"]),
+    keywords="CytoSmartOpenAPI",
+    name="CytoSmartOpenAPI",
+    packages=find_packages(include=["CytoSmartOpenAPI*"], exclude=["docs*"]),
     setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
-    url="https://github.com/cytosmart-bv/luxconnector",
-    version="1.1.1",
+    url="https://github.com/cytosmart-bv/CytoSmartOpenAPI",
+    version="1.2.0",
     zip_safe=False,
 )

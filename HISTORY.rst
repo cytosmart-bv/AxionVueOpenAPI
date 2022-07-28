@@ -1,5 +1,15 @@
 History
 -------
+1.2.0 (2022-07-28)
+------------------
+- Update server to support Omni
+- Add move stage
+- Add get position
+- Add set flash duration
+- Add mandatory turning off of warranty
+- Check for connection loss and reconnect is closed
+- Check for sleeping device
+
 1.1.1 (2022-06-29)
 ------------------
 - Update documentation
@@ -64,7 +74,7 @@ History
 0.0.1 (2020-03-16)
 ------------------
 
-- Add function: Copy the luxconnector 
+- Add function: Copy the CytoSmartOpenAPI 
 - Add function: focus change option
 - Add function: z-stack
 - Bugfix: add lux app to manifest
@@ -72,4 +82,4 @@ History
 0.0.0 (2020-03-13)
 ------------------
 
-Copied basic package a start of luxconnector
+Copied basic package a start of CytoSmartOpenAPI
