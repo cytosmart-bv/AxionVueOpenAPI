@@ -15,12 +15,14 @@ from .listener import Listener
 
 
 class CytoSmartOpenAPI:
-    def __init__(self, number_of_devices: int = 1) -> None:
+    def __init__(self, number_of_devices: int = 1, *, warranty: bool) -> None:
         """
         number_of_devices: (int) How many devices should be connected.
-            It will keep trying connecting till it is connected to all connected devices.
+            It will keep trying to connect till it is connected to all connected devices.
+        warranty: (bool) ⚠️ When using the openAPI you are voiding the hardware warranty
         """
-
+        if warranty:
+            raise ValueError("The warranty MOST be set to False")
         self.__connect_with_service()
         self.ws_listener = Listener(self.__recv_ws_message)
         self.ws_listener.start()
@@ -270,9 +272,9 @@ class CytoSmartOpenAPI:
                 },
             }
         )
-    
+
     def set_flash_duration(self, serial_number: str, duration: int) -> None:
-        """ 
+        """
         Setting the time in μs the led is on during the taking of a picture.
 
         Args:

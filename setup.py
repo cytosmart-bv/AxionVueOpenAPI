@@ -30,6 +30,8 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "Topic :: Scientific/Engineering :: Bio-Informatics ",
         "Topic :: Scientific/Engineering :: Medical Science Apps.",
     ],
@@ -46,6 +48,6 @@ setup(
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/cytosmart-bv/CytoSmartOpenAPI",
-    version="1.2.0b0",
+    version="1.2.0b1",
     zip_safe=False,
 )
