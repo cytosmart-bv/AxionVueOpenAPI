@@ -8,6 +8,9 @@ from .cytosmart_device import CytoSmartDevice
 
 
 class Listener(Thread):
+    """Listens to the websocket for changes.
+    Once a change occurs it will update the correct device based on serial number
+    """
     def __init__(self, receive_function: Callable):
         Thread.__init__(self)
         self.receive_function = receive_function
