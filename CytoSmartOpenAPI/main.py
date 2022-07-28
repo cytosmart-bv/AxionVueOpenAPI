@@ -22,7 +22,7 @@ class CytoSmartOpenAPI:
         warranty: (bool) ⚠️ When using the openAPI you are voiding the hardware warranty
         """
         if warranty:
-            raise ValueError("The warranty MOST be set to False")
+            raise ValueError("The warranty MUST be set to False")
         self.__connect_with_service()
         self.ws_listener = Listener(self.__recv_ws_message)
         self.ws_listener.start()
