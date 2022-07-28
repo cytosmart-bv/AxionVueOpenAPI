@@ -28,6 +28,7 @@ class CytoSmartOpenAPI:
         self.ws_listener.start()
         self.__all_devices = self.ws_listener.all_devices
         self.active_camera = "BRIGHTFIELD"
+        assert number_of_devices >= 1, f"number_of_devices needs to be above 1, not {number_of_devices}"
         print(f"Connecting to {number_of_devices} devices")
 
         while True:
