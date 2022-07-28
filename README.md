@@ -24,7 +24,8 @@ To install this package follow the following steps:
 
 ### Step 1: Drivers
 
-Make sure you had a [CytoSmart application installed](http://download.cytosmart.com/).
+Make sure you have a [CytoSmart application installed](http://download.cytosmart.com/).
+
 Recommended is the cell counter given it does not restart itself after closing.
 This is needed to have all the correct drivers installed.
 Uninstall the app afterwards.
