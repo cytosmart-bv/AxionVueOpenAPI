@@ -1,6 +1,6 @@
 History
 -------
-1.2.0 (2022-06-29)
+1.2.0 (2022-07-28)
 ------------------
 - Update server to support Omni
 - Add move stage
