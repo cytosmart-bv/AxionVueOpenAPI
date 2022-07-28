@@ -19,7 +19,7 @@ Only if your additionally bought warranty implicitly includes the open API usage
 
 ## Installation
 
-To install this package follow the following steps:
+To install this package follow these steps:
 
 
 ### Step 1: Drivers
