@@ -47,7 +47,7 @@ class CytoSmartOpenAPI:
 
     def __connect_with_service(self):
         """
-        Try to connect with CytoSmartService websocket.
+        Try to connect with CytoSmartService websocket instance.
         If that does not work, start a instants of the service
         """
         try:
