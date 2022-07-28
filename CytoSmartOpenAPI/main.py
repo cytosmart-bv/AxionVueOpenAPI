@@ -144,7 +144,7 @@ class CytoSmartOpenAPI:
         zoom_type: (bool) str = IN or OUT
         """
         zoom_type = zoom_type.upper()
-        assert zoom_type in ["IN", "OUT"]
+        assert zoom_type in ["IN", "OUT"], f"zoom type needs to be IN or OUT not {zoom_type}"
 
         self.__send_ws_message(
             {
@@ -165,7 +165,7 @@ class CytoSmartOpenAPI:
         serial_number: (str) the serial number of device you want to connect
         focus_level: (float) between 0 and 1 where the camera need to be.
         """
-        assert focus_level <= 1 and focus_level >= 0
+        assert focus_level <= 1 and focus_level >= 0, f"Focus level needs to be between 0 and 1, not {focus_level}"
 
         self.__set_active_camera(serial_number, "BRIGHTFIELD")
         self.__send_ws_message(
@@ -196,7 +196,7 @@ class CytoSmartOpenAPI:
             Default: "BRIGHTFIELD"
         """
         color_channel = color_channel.upper()
-        assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"]
+        assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"], f"color_channel needs to be BRIGHTFIELD, RED, or GREEN not {color_channel}"
         self.active_camera = color_channel
         self.__set_active_camera(serial_number, color_channel)
 
@@ -243,13 +243,13 @@ class CytoSmartOpenAPI:
             If focus is set to 0.4 and focus_offset for RED is set to 0.1 RED focus is 0.5 (Fluo only)
         """
         color_channel = color_channel.upper()
-        assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"]
+        assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"], f"color_channel needs to be BRIGHTFIELD, RED, or GREEN not {color_channel}"
         if color_channel == "BRIGHTFIELD":
-            assert 0 < exposure and exposure <= 10
+            assert 0 < exposure and exposure <= 10, f"exposure for BRIGHTFIELD needs to be between 0 and 10, not {exposure}"
         else:
-            assert 0 < exposure and exposure <= 8000
-        assert 0 < gain and gain < 100
-        assert 0 < brightness and brightness <= 10000
+            assert 0 < exposure and exposure <= 8000, f"exposure for RED, or GREEN needs to be between 0 and 8000, not {exposure}"
+        assert 0 < gain and gain < 100, f"gain needs to be between 0 and 100, not {gain}"
+        assert 0 < brightness and brightness <= 10000, f"brightness needs to be between 0 and 10000, not {brightness}"
 
         # Turn on live stream and wait till it is one
         device = self.__all_devices[serial_number]
@@ -281,7 +281,7 @@ class CytoSmartOpenAPI:
         serial_number: (str) the serial number of device you want to connect
             duration (int): μs between 40 and 250
         """
-        assert 40 <= duration and duration <= 250
+        assert 40 <= duration and duration <= 250, f"Duration needs to be between 40 and 250 ns, not {duration}"
         self.__send_ws_message(
             {
                 "type": "OMNI_SET_FLASH_DURATION",
