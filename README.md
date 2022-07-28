@@ -24,7 +24,7 @@ To install this package follow the following steps:
 
 ### Step 1: Drivers
 
-Make sure you have a [CytoSmart application installed](http://download.cytosmart.com/).
+Make sure you had a [CytoSmart application installed](http://download.cytosmart.com/).
 
 Recommended is the cell counter given it does not restart itself after closing.
 This is needed to have all the correct drivers installed.
@@ -122,7 +122,7 @@ connector.set_active_camera(serial_number, "BRIGHTFIELD")
 Each camera has its own settings.
 Not all settings are available for BRIGHTFIELD.
 
-- exposure: The time in milliseconds the camera is detecting light. (Lux and Exact devices only; for Omni devices use flash duration)
+- exposure: The time in milliseconds that the camera is detecting light. (Lux and Exact devices only; for Omni devices use flash duration)
 - gain: The multiplication of the camera. (Fluo only)
   If very little light goes into the camera sensor make sure the gain is high.
 - brightness: Strength of the led when it is on (Fluo only)
