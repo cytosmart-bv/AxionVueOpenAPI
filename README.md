@@ -9,10 +9,11 @@ The package will only work on Windows 10 and above.
 This package was formally known as `luxconnector`
 
 ## Warranty
+
 > ⚠️ **Hardware warranty is void by using this open API** ⚠️:
-> 
+>
 > Using the CytoSmartOpenAPI means you will have NO hardware warranty (see license).
- 
+
 This is because our devices are made to handle the normal usage ([the GUI app](http://download.cytosmart.com/)).
 It also includes additionally bought warranty.
 Only if your additionally bought warranty implicitly includes the open API usage you will have warranty.
@@ -20,7 +21,6 @@ Only if your additionally bought warranty implicitly includes the open API usage
 ## Installation
 
 To install this package follow these steps:
-
 
 ### Step 1: Drivers
 
@@ -93,6 +93,20 @@ img1 = connector.get_image(serial_number) # Image with focus of 0.5
 connector.set_focus(serial_number, 0.7)
 img2 = connector.get_image(serial_number) # Image with focus of 0.7
 img3 = connector.get_image(serial_number) # Image with focus of 0.7
+```
+
+# Auto focus
+
+The device goes over multiple possible focuses to find the best focus.
+It will use image analysis to determine how well the image is in focus.
+
+```python
+# Slow but goes over the full range of possible focusses
+connector.do_autofocus(serial_number, "unspecified")
+# Faster but goes over a limited range to cover most manufactured slides
+connector.do_autofocus(serial_number, "general slide")
+# Fastest goes over the limited range where cell can be in focus on the cytosmart slide
+connector.do_autofocus(serial_number, "cytoSmart slide")
 ```
 
 ## Getting the temperature
@@ -209,6 +223,7 @@ You need to give the serial number of the device you want to target at the place
 ```python
 connector.set_liveview(serial_number, True) # in the browser you can see the image being updated
 connector.set_liveview(serial_number, False) # Led of device turns off till you take a picture
+connector.open_liveview(serial_number) # Opens liveview in the default browser
 ```
 
 ## Developers

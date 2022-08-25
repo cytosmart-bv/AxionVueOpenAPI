@@ -1,5 +1,11 @@
 History
 -------
+1.3.0 (2022-08-25)
+------------------
+- Add open_liveview
+- Add do_autofocus
+- Add listener to autofocus change
+
 1.2.0 (2022-07-28)
 ------------------
 - Update server to support Omni
