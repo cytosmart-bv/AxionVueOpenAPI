@@ -126,6 +126,60 @@ class CytoSmartOpenAPI:
         exe_loc = os.path.join(basefolder_loc, "CytoSmartApp", "CytoSmartService.exe")
         subprocess.Popen(["cmd", "/K", exe_loc])
 
+    def do_autofocus(
+        self, serial_number: str, chamber_type: str, max_waiting_time: float = 60
+    ) -> None:
+        """
+        Turn the liveview on or off
+
+        serial_number: (str) the serial number of device you want to connect
+        chamber_type: (bool)
+            Unspecified (SLOW) -> the device will go through its whole range of motion.
+            CytoSmart Slide (FAST) -> the device will go through limited range of motion where the cells are expected to be.
+            General Purpose Slide (FAST) -> the device will go through limited range of motion where the cells are expected to be.
+        max_waiting_time (float, optional): Maximum time it waits for the stage to arrive.
+                If it is set to -1 it will never timeout
+                Defaults to 60.
+        """
+        if chamber_type.lower() == "unspecified":
+            chamber_type_number = 0
+        elif chamber_type.lower() == "cytosmart slide":
+            chamber_type_number = 1
+        elif chamber_type.lower() == "general slide":
+            chamber_type_number = 2
+        else:
+            raise ValueError(f"Chamber type {chamber_type} is not supported")
+
+        # Get device and set autofocus to True before starting
+        # This prefents reading False before the device replied with the first True
+        device = self.__all_devices[serial_number]
+        device.is_auto_focusing = True
+
+        self.__send_ws_message(
+            {
+                "type": "AUTOFOCUS",
+                "payload": {
+                    "action": "START",
+                    "serialNumber": serial_number,
+                    "chamberType": chamber_type_number,
+                },
+            }
+        )
+
+        start_time = time.time()
+        while device.is_auto_focusing:
+            # Time out check
+            current_waiting_time = time.time() - start_time
+            if current_waiting_time > max_waiting_time and max_waiting_time > 0:
+                raise TimeoutError(
+                    f"""
+                    Auto focusing took too long. It took {current_waiting_time}, max is {max_waiting_time}. 
+                    """
+                )
+
+            # To not spam the service wait a bit
+            time.sleep(0.1)
+
     def set_liveview(self, serial_number: str, state: bool = True) -> None:
         """
         Turn the liveview on or off
