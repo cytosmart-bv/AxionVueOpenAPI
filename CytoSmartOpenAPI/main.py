@@ -133,13 +133,13 @@ class CytoSmartOpenAPI:
         Turn the liveview on or off
 
         serial_number: (str) the serial number of device you want to connect
-        chamber_type: (bool)
-            Unspecified (SLOW) -> the device will go through its whole range of motion.
-            CytoSmart Slide (FAST) -> the device will go through limited range of motion where the cells are expected to be.
-            General Purpose Slide (FAST) -> the device will go through limited range of motion where the cells are expected to be.
+        chamber_type: (str)
+            other (SLOW) -> the device will go through its whole range of motion.
+            csslide(FAST) -> the device will go through limited range of motion where the cells are expected to be.
+            slide (FAST) -> the device will go through limited range of motion where the cells are expected to be.
         max_waiting_time (float, optional): Maximum time it waits for the stage to arrive.
-                If it is set to -1 it will never timeout
-                Defaults to 60.
+            If it is set to -1 it will never timeout
+            Defaults to 60.
         """
         if chamber_type.lower() == "other":
             chamber_type_number = 0
