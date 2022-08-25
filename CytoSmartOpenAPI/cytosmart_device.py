@@ -8,7 +8,8 @@ class CytoSmartDevice:
         self.y: float = -1.0
         self.is_sleeping: bool = True
         self.is_moving: bool = False
-        
+        self.is_auto_focusing: bool = False
+
     @property
     def temperature(self):
         return self.__temperature

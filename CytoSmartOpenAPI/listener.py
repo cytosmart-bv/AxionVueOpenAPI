@@ -11,6 +11,7 @@ class Listener(Thread):
     """Listens to the websocket for changes.
     Once a change occurs it will update the correct device based on serial number
     """
+
     def __init__(self, receive_function: Callable):
         Thread.__init__(self)
         self.receive_function = receive_function
@@ -43,8 +44,8 @@ class Listener(Thread):
                 continue
 
             if type_message == "OMNI_MOVE_STAGE_CHANGE":
-                _x = float(payload.get("x", -1.))
-                _y = float(payload.get("y", -1.))
+                _x = float(payload.get("x", -1.0))
+                _y = float(payload.get("y", -1.0))
                 _state = payload.get("state")
                 self.__update_position(serial_number, _x, _y)
                 self.__update_is_moving(serial_number, _state)
@@ -53,6 +54,11 @@ class Listener(Thread):
             if type_message == "SLEEP_CHANGE":
                 _is_sleeping = float(payload.get("isSleeping", True))
                 self.__update_sleep(serial_number, _is_sleeping)
+                continue
+
+            if type_message == "AUTOFOCUS_CHANGE":
+                _is_auto_focusing = payload.get("isAutoFocusing", "Not found")
+                self.__update_auto_focusing(serial_number, _is_auto_focusing)
                 continue
 
     def __connect_device(self, serial_number: str, is_connected: bool = True):
@@ -92,3 +98,11 @@ class Listener(Thread):
         device = self.all_devices.get(serial_number, None)
         if device:
             device.is_sleeping = is_sleeping
+
+    def __update_auto_focusing(self, serial_number, _is_auto_focusing):
+        device = self.all_devices.get(serial_number, None)
+        if device:
+            if _is_auto_focusing in ["True", "true", True]:
+                device.is_auto_focusing = True
+            else:
+                device.is_auto_focusing = False
