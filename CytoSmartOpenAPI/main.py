@@ -282,7 +282,7 @@ class CytoSmartOpenAPI:
         serial_number: (str) the serial number of device you want to connect
             duration (int): μs between 40 and 250
         """
-        assert 40 <= duration and duration <= 250, f"Duration needs to be between 40 and 250 ns, not {duration}"
+        assert 40 <= duration and duration <= 250, f"Duration needs to be between 40 and 250 μs, not {duration}"
         self.__send_ws_message(
             {
                 "type": "OMNI_SET_FLASH_DURATION",
