@@ -11,4 +11,4 @@ connector.set_liveview(serial_number, True)
 connector.open_liveview(
     serial_number,
 )
-connector.do_autofocus(serial_number, "cytoSmart slide")
+connector.do_autofocus(serial_number, "CSslide")

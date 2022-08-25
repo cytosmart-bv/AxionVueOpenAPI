@@ -141,11 +141,11 @@ class CytoSmartOpenAPI:
                 If it is set to -1 it will never timeout
                 Defaults to 60.
         """
-        if chamber_type.lower() == "unspecified":
+        if chamber_type.lower() == "other":
             chamber_type_number = 0
-        elif chamber_type.lower() == "cytosmart slide":
+        elif chamber_type.lower() == "csslide":
             chamber_type_number = 1
-        elif chamber_type.lower() == "general slide":
+        elif chamber_type.lower() == "slide":
             chamber_type_number = 2
         else:
             raise ValueError(f"Chamber type {chamber_type} is not supported")

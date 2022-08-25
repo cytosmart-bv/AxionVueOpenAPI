@@ -101,12 +101,12 @@ The device goes over multiple possible focuses to find the best focus.
 It will use image analysis to determine how well the image is in focus.
 
 ```python
-# Slow but goes over the full range of possible focusses
-connector.do_autofocus(serial_number, "unspecified")
-# Faster but goes over a limited range to cover most manufactured slides
-connector.do_autofocus(serial_number, "general slide")
+# Fast but goes over a limited range to cover most manufactured slides
+connector.do_autofocus(serial_number, "slide")
 # Fastest goes over the limited range where cell can be in focus on the cytosmart slide
-connector.do_autofocus(serial_number, "cytoSmart slide")
+connector.do_autofocus(serial_number, "CSslide")
+# Slow but goes over the full range of possible focusses
+connector.do_autofocus(serial_number, "other")
 ```
 
 ## Getting the temperature
