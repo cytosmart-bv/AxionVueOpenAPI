@@ -263,7 +263,7 @@ class CytoSmartOpenAPI:
         This is only for fluo devices
 
         serial_number: (str) the serial number of device you want to connect
-        focus_level: (float) between 0 and 1 where the camera need to be.
+        focus_level: (float) between 0 and 1 where the camera needs to be.
         color_channel: (str) The camera you want to change the setting of.
             options: "BRIGHTFIELD", "RED", "GREEN"
             Default: "BRIGHTFIELD"
@@ -467,7 +467,7 @@ class CytoSmartOpenAPI:
 
     def get_position(self, serial_number: str) -> Tuple[float, float]:
         """
-        Returns the latest know position of the device.
+        Returns the latest known position of the device.
 
         serial_number: (str) the serial number of device you want to connect
         """
@@ -508,10 +508,10 @@ class CytoSmartOpenAPI:
     ) -> List[Image.Image]:
         """
         Creates a z-stack.
-        It will take multiple different image on different focus levels.
+        It will take multiple different images on different focus levels.
 
         serial_number: (str) the serial number of device you want to connect
-        num_img: (int) the amount of image in the z-stack
+        num_img: (int) the amount of images in the z-stack
         start_focus: (float) The focus of the first image
         stop_focus: (float) the focus of the last image
         """

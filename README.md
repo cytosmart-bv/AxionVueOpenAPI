@@ -16,7 +16,7 @@ This package was formally known as `luxconnector`
 
 This is because our devices are made to handle the normal usage ([the GUI app](http://download.cytosmart.com/)).
 It also includes additionally bought warranty.
-Only if your additionally bought warranty implicitly includes the open API usage you will have warranty.
+Only if your additionally bought warranty implicitly includes the Open API usage you will have warranty.
 
 ## Installation
 
@@ -101,11 +101,11 @@ The device goes over multiple possible focuses to find the best focus.
 It will use image analysis to determine how well the image is in focus.
 
 ```python
-# Fast but goes over a limited range to cover most manufactured slides
+# Fast but goes over a limited range to cover most manufactured cell counting slides
 connector.do_autofocus(serial_number, "slide")
-# Fastest goes over the limited range where cell can be in focus on the cytosmart slide
+# Fastest: goes over the limited range where cells can be in focus on the CytoSMART cell counting slide
 connector.do_autofocus(serial_number, "CSslide")
-# Slow but goes over the full range of possible focusses
+# Slow, but goes over the full range of possible focusses: suitable for any vessel that works with the CytoSMART device
 connector.do_autofocus(serial_number, "other")
 ```
 
@@ -201,8 +201,9 @@ print(connector.get_position(serial_number))
 
 There are 2 zoom modes: "IN" and "OUT".
 While zoomed in the resolution is higher but the ROI is smaller, zoomed out has a higher ROI but a lower resolution.
+Since zooming in comprises digital zoom, the image will not show more sample details.
 
-Changing this will change it for every image or z-stack taken afterwards.
+Changing this setting will change it for every image or z-stack taken afterwards.
 
 You need to give the serial number of the device you want to target.
 
@@ -221,8 +222,8 @@ This image can only been seen if the live view is turned on (by default the live
 You need to give the serial number of the device you want to target at the place of the #-symbols.
 
 ```python
-connector.set_liveview(serial_number, True) # In the browser you can see the image being updated
 connector.set_liveview(serial_number, False) # Led of device turns off till you take a picture
+connector.set_liveview(serial_number, True) # In the browser you can see the image being updated
 connector.open_liveview(serial_number) # Opens liveview in the default browser
 ```
 
