@@ -247,7 +247,6 @@ class CytoSmartOpenAPI:
                 "payload": {"serialNumber": serial_number, "value": focus_level},
             }
         )
-        print("current_channel", current_channel)
         self.__set_active_camera(serial_number, current_channel)
         # Give device time to go to new focus
         if current_channel == "BRIGHTFIELD":
