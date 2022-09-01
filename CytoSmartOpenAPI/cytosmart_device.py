@@ -9,6 +9,7 @@ class CytoSmartDevice:
         self.is_sleeping: bool = True
         self.is_moving: bool = False
         self.is_auto_focusing: bool = False
+        self.active_channel: str = "BRIGHTFIELD"
 
     @property
     def temperature(self):

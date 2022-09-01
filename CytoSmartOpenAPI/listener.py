@@ -1,5 +1,4 @@
 #%%
-import json
 from threading import Thread
 import time
 from typing import Dict, Callable
@@ -61,6 +60,10 @@ class Listener(Thread):
                 self.__update_auto_focusing(serial_number, _is_auto_focusing)
                 continue
 
+            if type_message == "COLOR_CHANNEL_CHANGE":
+                _new_channel = payload.get("colorChannel", "")
+                self.__update_active_channel(serial_number, _new_channel)
+
     def __connect_device(self, serial_number: str, is_connected: bool = True):
         device = self.all_devices.get(serial_number, None)
         if device is None:
@@ -98,6 +101,11 @@ class Listener(Thread):
         device = self.all_devices.get(serial_number, None)
         if device:
             device.is_sleeping = is_sleeping
+
+    def __update_active_channel(self, serial_number, new_channel: str):
+        device = self.all_devices.get(serial_number, None)
+        if device:
+            device.active_channel = new_channel
 
     def __update_auto_focusing(self, serial_number, _is_auto_focusing):
         device = self.all_devices.get(serial_number, None)

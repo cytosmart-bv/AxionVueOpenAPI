@@ -28,7 +28,6 @@ class CytoSmartOpenAPI:
         self.ws_listener = Listener(self.__recv_ws_message)
         self.ws_listener.start()
         self.__all_devices = self.ws_listener.all_devices
-        self.active_camera = "BRIGHTFIELD"
         assert (
             number_of_devices >= 1
         ), f"number_of_devices needs to be above 1, not {number_of_devices}"
@@ -240,6 +239,7 @@ class CytoSmartOpenAPI:
             focus_level <= 1 and focus_level >= 0
         ), f"Focus level needs to be between 0 and 1, not {focus_level}"
 
+        current_channel = self.__all_devices[serial_number].active_channel
         self.__set_active_camera(serial_number, "BRIGHTFIELD")
         self.__send_ws_message(
             {
@@ -247,15 +247,19 @@ class CytoSmartOpenAPI:
                 "payload": {"serialNumber": serial_number, "value": focus_level},
             }
         )
-        self.__set_active_camera(serial_number, self.active_camera)
+        print("current_channel", current_channel)
+        self.__set_active_camera(serial_number, current_channel)
         # Give device time to go to new focus
-        if self.active_camera == "BRIGHTFIELD":
+        if current_channel == "BRIGHTFIELD":
             time.sleep(0.5)
         else:
             time.sleep(2)
 
     def set_active_camera(
-        self, serial_number: str, color_channel: str = "BRIGHTFIELD"
+        self,
+        serial_number: str,
+        color_channel: str = "BRIGHTFIELD",
+        max_waiting_time: float = 10,
     ) -> None:
         """
         Set a camera to active.
@@ -267,6 +271,9 @@ class CytoSmartOpenAPI:
         color_channel: (str) The camera you want to change the setting of.
             options: "BRIGHTFIELD", "RED", "GREEN"
             Default: "BRIGHTFIELD"
+        max_waiting_time (float, optional): Maximum time it waits for the stage to arrive.
+                If it is set to -1 it will never timeout
+                Defaults to 10.
         """
         color_channel = color_channel.upper()
         assert color_channel in [
@@ -274,12 +281,19 @@ class CytoSmartOpenAPI:
             "RED",
             "GREEN",
         ], f"color_channel needs to be BRIGHTFIELD, RED, or GREEN not {color_channel}"
-        self.active_camera = color_channel
-        self.__set_active_camera(serial_number, color_channel)
+        self.__set_active_camera(
+            serial_number, color_channel, max_waiting_time=max_waiting_time
+        )
 
     def __set_active_camera(
-        self, serial_number: str, color_channel: str = "BRIGHTFIELD"
+        self,
+        serial_number: str,
+        color_channel: str = "BRIGHTFIELD",
+        max_waiting_time: float = 60,
     ) -> None:
+        device = self.__all_devices[serial_number]
+        if device.active_channel == color_channel:
+            return
         self.__send_ws_message(
             {
                 "type": "COLOR_CHANNEL",
@@ -289,6 +303,19 @@ class CytoSmartOpenAPI:
                 },
             }
         )
+
+        start_time = time.time()
+        while True:
+            if device.active_channel == color_channel:
+                return
+            time.sleep(0.1)
+            current_waiting_time = time.time() - start_time
+            if current_waiting_time > max_waiting_time and max_waiting_time > 0:
+                raise TimeoutError(
+                    f"""
+                    Changing the channel took too long. It took {current_waiting_time}, max is {max_waiting_time}. 
+                    """
+                )
 
     def set_camera_settings(
         self,
