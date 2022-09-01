@@ -5,6 +5,7 @@ History
 - Add open_liveview
 - Add do_autofocus
 - Add listener to autofocus change
+- Bugfix: set_focus. Make sure camera_setting is completed before setting the focus
 
 1.2.0 (2022-07-28)
 ------------------
