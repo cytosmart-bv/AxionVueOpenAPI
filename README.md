@@ -236,3 +236,4 @@ Developers of the CytoSmartOpenAPI please look at the [`developers readme`](READ
 - Tom Nijhof
 - Nora
 - Tessa
+- Count Nicolai Vondracek, Señior sunshine manager
