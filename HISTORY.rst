@@ -1,6 +1,13 @@
 History
 -------
-1.2.0 (2022-07-28)
+1.3.0 (2022-08-25)
+------------------
+- Add open_liveview
+- Add do_autofocus
+- Add listener to autofocus change
+- Bugfix: set_focus. Make sure camera_setting is completed before setting the focus
+
+1.2.0 (2022-06-27)
 ------------------
 - Update server to support Omni
 - Add move stage

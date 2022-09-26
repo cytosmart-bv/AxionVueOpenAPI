@@ -6,6 +6,7 @@ from io import BytesIO
 from pathlib import Path
 import time
 from typing import List, Tuple
+import webbrowser
 
 import requests
 from PIL import Image
@@ -27,8 +28,9 @@ class CytoSmartOpenAPI:
         self.ws_listener = Listener(self.__recv_ws_message)
         self.ws_listener.start()
         self.__all_devices = self.ws_listener.all_devices
-        self.active_camera = "BRIGHTFIELD"
-        assert number_of_devices >= 1, f"number_of_devices needs to be above 1, not {number_of_devices}"
+        assert (
+            number_of_devices >= 1
+        ), f"number_of_devices needs to be above 1, not {number_of_devices}"
         print(f"Connecting to {number_of_devices} devices")
 
         while True:
@@ -123,6 +125,60 @@ class CytoSmartOpenAPI:
         exe_loc = os.path.join(basefolder_loc, "CytoSmartApp", "CytoSmartService.exe")
         subprocess.Popen(["cmd", "/K", exe_loc])
 
+    def do_autofocus(
+        self, serial_number: str, chamber_type: str, max_waiting_time: float = 60
+    ) -> None:
+        """
+        Turn the liveview on or off
+
+        serial_number: (str) the serial number of device you want to connect
+        chamber_type: (str)
+            other (SLOW) -> the device will go through its whole range of motion.
+            csslide(FAST) -> the device will go through limited range of motion where the cells are expected to be.
+            slide (FAST) -> the device will go through limited range of motion where the cells are expected to be.
+        max_waiting_time (float, optional): Maximum time it waits for the stage to arrive.
+            If it is set to -1 it will never timeout
+            Defaults to 60.
+        """
+        if chamber_type.lower() == "other":
+            chamber_type_number = 0
+        elif chamber_type.lower() == "csslide":
+            chamber_type_number = 1
+        elif chamber_type.lower() == "slide":
+            chamber_type_number = 2
+        else:
+            raise ValueError(f"Chamber type {chamber_type} is not supported")
+
+        # Get device and set autofocus to True before starting
+        # This prefents reading False before the device replied with the first True
+        device = self.__all_devices[serial_number]
+        device.is_auto_focusing = True
+
+        self.__send_ws_message(
+            {
+                "type": "AUTOFOCUS",
+                "payload": {
+                    "action": "START",
+                    "serialNumber": serial_number,
+                    "chamberType": chamber_type_number,
+                },
+            }
+        )
+
+        start_time = time.time()
+        while device.is_auto_focusing:
+            # Time out check
+            current_waiting_time = time.time() - start_time
+            if current_waiting_time > max_waiting_time and max_waiting_time > 0:
+                raise TimeoutError(
+                    f"""
+                    Auto focusing took too long. It took {current_waiting_time}, max is {max_waiting_time}. 
+                    """
+                )
+
+            # To not spam the service wait a bit
+            time.sleep(0.1)
+
     def set_liveview(self, serial_number: str, state: bool = True) -> None:
         """
         Turn the liveview on or off
@@ -137,6 +193,16 @@ class CytoSmartOpenAPI:
             }
         )
 
+    def open_liveview(self, serial_number: str) -> None:
+        """
+        Open the live view in the browser
+
+        serial_number: (str) the serial number of device you want to connect
+        """
+        webbrowser.open(
+            f"http://localhost:3333/cytosmartservice/live?serialNumber={serial_number}"
+        )
+
     def set_zoom(self, serial_number: str, zoom_type: str = "IN") -> None:
         """
         Set zoom type by turning off or on binning.
@@ -145,7 +211,10 @@ class CytoSmartOpenAPI:
         zoom_type: (bool) str = IN or OUT
         """
         zoom_type = zoom_type.upper()
-        assert zoom_type in ["IN", "OUT"], f"zoom type needs to be IN or OUT not {zoom_type}"
+        assert zoom_type in [
+            "IN",
+            "OUT",
+        ], f"zoom type needs to be IN or OUT not {zoom_type}"
 
         self.__send_ws_message(
             {
@@ -166,8 +235,11 @@ class CytoSmartOpenAPI:
         serial_number: (str) the serial number of device you want to connect
         focus_level: (float) between 0 and 1 where the camera need to be.
         """
-        assert focus_level <= 1 and focus_level >= 0, f"Focus level needs to be between 0 and 1, not {focus_level}"
+        assert (
+            focus_level <= 1 and focus_level >= 0
+        ), f"Focus level needs to be between 0 and 1, not {focus_level}"
 
+        current_channel = self.__all_devices[serial_number].active_channel
         self.__set_active_camera(serial_number, "BRIGHTFIELD")
         self.__send_ws_message(
             {
@@ -175,15 +247,18 @@ class CytoSmartOpenAPI:
                 "payload": {"serialNumber": serial_number, "value": focus_level},
             }
         )
-        self.__set_active_camera(serial_number, self.active_camera)
+        self.__set_active_camera(serial_number, current_channel)
         # Give device time to go to new focus
-        if self.active_camera == "BRIGHTFIELD":
+        if current_channel == "BRIGHTFIELD":
             time.sleep(0.5)
         else:
             time.sleep(2)
 
     def set_active_camera(
-        self, serial_number: str, color_channel: str = "BRIGHTFIELD"
+        self,
+        serial_number: str,
+        color_channel: str = "BRIGHTFIELD",
+        max_waiting_time: float = 10,
     ) -> None:
         """
         Set a camera to active.
@@ -191,19 +266,33 @@ class CytoSmartOpenAPI:
         This is only for fluo devices
 
         serial_number: (str) the serial number of device you want to connect
-        focus_level: (float) between 0 and 1 where the camera need to be.
+        focus_level: (float) between 0 and 1 where the camera needs to be.
         color_channel: (str) The camera you want to change the setting of.
             options: "BRIGHTFIELD", "RED", "GREEN"
             Default: "BRIGHTFIELD"
+        max_waiting_time (float, optional): Maximum time it waits for the stage to arrive.
+                If it is set to -1 it will never timeout
+                Defaults to 10.
         """
         color_channel = color_channel.upper()
-        assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"], f"color_channel needs to be BRIGHTFIELD, RED, or GREEN not {color_channel}"
-        self.active_camera = color_channel
-        self.__set_active_camera(serial_number, color_channel)
+        assert color_channel in [
+            "BRIGHTFIELD",
+            "RED",
+            "GREEN",
+        ], f"color_channel needs to be BRIGHTFIELD, RED, or GREEN not {color_channel}"
+        self.__set_active_camera(
+            serial_number, color_channel, max_waiting_time=max_waiting_time
+        )
 
     def __set_active_camera(
-        self, serial_number: str, color_channel: str = "BRIGHTFIELD"
+        self,
+        serial_number: str,
+        color_channel: str = "BRIGHTFIELD",
+        max_waiting_time: float = 60,
     ) -> None:
+        device = self.__all_devices[serial_number]
+        if device.active_channel == color_channel:
+            return
         self.__send_ws_message(
             {
                 "type": "COLOR_CHANNEL",
@@ -213,6 +302,19 @@ class CytoSmartOpenAPI:
                 },
             }
         )
+
+        start_time = time.time()
+        while True:
+            if device.active_channel == color_channel:
+                return
+            time.sleep(0.1)
+            current_waiting_time = time.time() - start_time
+            if current_waiting_time > max_waiting_time and max_waiting_time > 0:
+                raise TimeoutError(
+                    f"""
+                    Changing the channel took too long. It took {current_waiting_time}, max is {max_waiting_time}. 
+                    """
+                )
 
     def set_camera_settings(
         self,
@@ -244,13 +346,25 @@ class CytoSmartOpenAPI:
             If focus is set to 0.4 and focus_offset for RED is set to 0.1 RED focus is 0.5 (Fluo only)
         """
         color_channel = color_channel.upper()
-        assert color_channel in ["BRIGHTFIELD", "RED", "GREEN"], f"color_channel needs to be BRIGHTFIELD, RED, or GREEN not {color_channel}"
+        assert color_channel in [
+            "BRIGHTFIELD",
+            "RED",
+            "GREEN",
+        ], f"color_channel needs to be BRIGHTFIELD, RED, or GREEN not {color_channel}"
         if color_channel == "BRIGHTFIELD":
-            assert 0 < exposure and exposure <= 10, f"exposure for BRIGHTFIELD needs to be between 0 and 10, not {exposure}"
+            assert (
+                0 < exposure and exposure <= 10
+            ), f"exposure for BRIGHTFIELD needs to be between 0 and 10, not {exposure}"
         else:
-            assert 0 < exposure and exposure <= 8000, f"exposure for RED, or GREEN needs to be between 0 and 8000, not {exposure}"
-        assert 0 < gain and gain < 100, f"gain needs to be between 0 and 100, not {gain}"
-        assert 0 < brightness and brightness <= 10000, f"brightness needs to be between 0 and 10000, not {brightness}"
+            assert (
+                0 < exposure and exposure <= 8000
+            ), f"exposure for RED, or GREEN needs to be between 0 and 8000, not {exposure}"
+        assert (
+            0 < gain and gain < 100
+        ), f"gain needs to be between 0 and 100, not {gain}"
+        assert (
+            0 < brightness and brightness <= 10000
+        ), f"brightness needs to be between 0 and 10000, not {brightness}"
 
         # Turn on live stream and wait till it is one
         device = self.__all_devices[serial_number]
@@ -282,7 +396,9 @@ class CytoSmartOpenAPI:
         serial_number: (str) the serial number of device you want to connect
             duration (int): μs between 40 and 250
         """
-        assert 40 <= duration and duration <= 250, f"Duration needs to be between 40 and 250 ns, not {duration}"
+        assert (
+            40 <= duration and duration <= 250
+        ), f"Duration needs to be between 40 and 250 μs, not {duration}"
         self.__send_ws_message(
             {
                 "type": "OMNI_SET_FLASH_DURATION",
@@ -377,7 +493,7 @@ class CytoSmartOpenAPI:
 
     def get_position(self, serial_number: str) -> Tuple[float, float]:
         """
-        Returns the latest know position of the device.
+        Returns the latest known position of the device.
 
         serial_number: (str) the serial number of device you want to connect
         """
@@ -418,10 +534,10 @@ class CytoSmartOpenAPI:
     ) -> List[Image.Image]:
         """
         Creates a z-stack.
-        It will take multiple different image on different focus levels.
+        It will take multiple different images on different focus levels.
 
         serial_number: (str) the serial number of device you want to connect
-        num_img: (int) the amount of image in the z-stack
+        num_img: (int) the amount of images in the z-stack
         start_focus: (float) The focus of the first image
         stop_focus: (float) the focus of the last image
         """
