@@ -2,12 +2,12 @@
 import os
 import time
 
-from CytoSmartOpenAPI import CytoSmartOpenAPI
+from AxionVueOpenAPI import AxionVueOpenAPI
 
 result_folder = os.path.join("results", "z_stack")
 os.makedirs(result_folder, exist_ok=True)
 
-connector = CytoSmartOpenAPI(warranty=False)
+connector = AxionVueOpenAPI(warranty=False)
 
 serial_numbers = connector.get_all_serial_numbers()
 

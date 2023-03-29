@@ -3,7 +3,7 @@ from threading import Thread
 import time
 from typing import Dict, Callable
 
-from .cytosmart_device import CytoSmartDevice
+from .axion_vue_device import AxionVueDevice
 
 
 class Listener(Thread):
@@ -15,7 +15,7 @@ class Listener(Thread):
         Thread.__init__(self)
         self.receive_function = receive_function
         self.daemon = True
-        self.all_devices: Dict[str, CytoSmartDevice] = {}
+        self.all_devices: Dict[str, AxionVueDevice] = {}
 
     def run(self):
         while True:
@@ -67,7 +67,7 @@ class Listener(Thread):
     def __connect_device(self, serial_number: str, is_connected: bool = True):
         device = self.all_devices.get(serial_number, None)
         if device is None:
-            self.all_devices[serial_number] = CytoSmartDevice(
+            self.all_devices[serial_number] = AxionVueDevice(
                 serial_number, is_connected=is_connected
             )
         else:
