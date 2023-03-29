@@ -1,5 +1,9 @@
 History
 -------
+1.3.1 (2023-03-29)
+------------------
+- Renaming to AxionVueOpenAPI
+
 1.3.0 (2022-08-25)
 ------------------
 - Add open_liveview
@@ -81,7 +85,7 @@ History
 0.0.1 (2020-03-16)
 ------------------
 
-- Add function: Copy the AxionVueOpenAPI 
+- Add function: Copy the luxconnector 
 - Add function: focus change option
 - Add function: z-stack
 - Bugfix: add lux app to manifest
@@ -89,4 +93,4 @@ History
 0.0.0 (2020-03-13)
 ------------------
 
-Copied basic package a start of AxionVueOpenAPI
+Copied basic package a start of luxconnector

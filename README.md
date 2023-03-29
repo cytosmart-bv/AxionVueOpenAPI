@@ -233,7 +233,7 @@ Developers of the AxionVueOpenAPI please look at the [`developers readme`](READM
 
 ## Credits
 
-- Tom Nijhof
+- Tom "RoadRunner" Nijhof
 - Nora
 - Tessa
 - Count Nicolai Vondracek, Señior sunshine manager
