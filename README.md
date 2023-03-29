@@ -1,4 +1,5 @@
 [![Downloads](https://pepy.tech/badge/AxionVueOpenAPI)](https://pepy.tech/project/AxionVueOpenAPI)
+[![Downloads](https://pepy.tech/badge/CytoSmartOpenAPI)](https://pepy.tech/project/CytoSmartOpenAPI)
 [![Downloads](https://pepy.tech/badge/luxconnector)](https://pepy.tech/project/luxconnector)
 
 # Axion Vue Open API
