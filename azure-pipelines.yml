@@ -4,31 +4,26 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
-- master
+  - master
 
 jobs:
-- job: RunInContainer
-  
-  pool:
-    vmImage: 'ubuntu-20.04'
+  - job: RunInContainer
 
-  container:
-    image: cytosmarttestreg.azurecr.io/omni/base:24470
-    endpoint: DockerRegTest2
+    pool:
+      vmImage: "ubuntu-20.04"
 
-  steps:
+    steps:
+      - task: Bash@3
+        displayName: build package
+        inputs:
+          targetType: "inline"
+          script: |
+            python -m pip install --user --upgrade setuptools wheel
+            python setup.py sdist bdist_wheel
 
-  - task: Bash@3
-    displayName: build package
-    inputs:
-      targetType: 'inline'
-      script: |
-        python -m pip install --user --upgrade setuptools wheel
-        python setup.py sdist bdist_wheel
-
-  - task: PublishBuildArtifacts@1
-    displayName: publish package
-    inputs:
-      PathtoPublish: 'dist'
-      ArtifactName: 'dist_$(build.buildID)'
-      publishLocation: 'Container'
+      - task: PublishBuildArtifacts@1
+        displayName: publish package
+        inputs:
+          PathtoPublish: "dist"
+          ArtifactName: "dist_$(build.buildID)"
+          publishLocation: "Container"

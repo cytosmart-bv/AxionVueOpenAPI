@@ -2,12 +2,12 @@
 import os
 import time
 
-from CytoSmartOpenAPI import CytoSmartOpenAPI
+from AxionVueOpenAPI import AxionVueOpenAPI
 
 result_folder = os.path.join("results", "single_image")
 os.makedirs(result_folder, exist_ok=True)
 
-connector = CytoSmartOpenAPI(number_of_devices=1, warranty=False)
+connector = AxionVueOpenAPI(number_of_devices=1, warranty=False)
 
 serial_number = connector.get_all_serial_numbers()[0]
 
@@ -41,8 +41,12 @@ img.save(os.path.join(result_folder, f"{serial_number}_GREEN.jpg"), "JPEG")
 
 # GREEN z-stack
 connector.set_active_camera(serial_number, "GREEN")
-z_stack = connector.get_z_stack(serial_number, num_img=10 ,start_focus=0.1, stop_focus=0.2)
+z_stack = connector.get_z_stack(
+    serial_number, num_img=10, start_focus=0.1, stop_focus=0.2
+)
 
 for idx, img in enumerate(z_stack):
-    img.save(os.path.join(result_folder, f"{serial_number}_GREEN_z{str(idx).zfill(3)}.jpg"), "JPEG")
-
+    img.save(
+        os.path.join(result_folder, f"{serial_number}_GREEN_z{str(idx).zfill(3)}.jpg"),
+        "JPEG",
+    )

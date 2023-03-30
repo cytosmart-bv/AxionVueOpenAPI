@@ -15,7 +15,7 @@ from websocket import create_connection
 from .listener import Listener
 
 
-class CytoSmartOpenAPI:
+class AxionVueOpenAPI:
     def __init__(self, number_of_devices: int = 1, *, warranty: bool) -> None:
         """
         number_of_devices: (int) How many devices should be connected.
@@ -50,7 +50,7 @@ class CytoSmartOpenAPI:
 
     def __connect_with_service(self):
         """
-        Try to connect with CytoSmartService websocket instance.
+        Try to connect with Axion Vue websocket instance.
         If that does not work, start a instants of the service
         """
         try:
@@ -58,7 +58,7 @@ class CytoSmartOpenAPI:
             self.ws = create_connection("ws://localhost:3333/cytosmartservice")
         except:
             # If that fails, start the app first and make the connection again
-            self.__start_cytosmart_app()
+            self.__start_axion_vue_app()
             self.ws = create_connection("ws://localhost:3333/cytosmartservice")
 
     def __send_ws_message(self, msg: dict, count: int = 0):
@@ -116,13 +116,13 @@ class CytoSmartOpenAPI:
         )
 
     @staticmethod
-    def __start_cytosmart_app() -> None:
+    def __start_axion_vue_app() -> None:
         """
-        Run the cytosmart server in a subprocess
+        Run the Axion Vue server in a subprocess
         """
-        print("Start CytoSMART Server")
+        print("Start Axion Vue Server")
         basefolder_loc = Path(__file__).parents[0]
-        exe_loc = os.path.join(basefolder_loc, "CytoSmartApp", "CytoSmartService.exe")
+        exe_loc = os.path.join(basefolder_loc, "AxionVueApp", "CytoSmartService.exe")
         subprocess.Popen(["cmd", "/K", exe_loc])
 
     def do_autofocus(
