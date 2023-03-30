@@ -1,8 +1,8 @@
 #%%
-from CytoSmartOpenAPI import CytoSmartOpenAPI
+from AxionVueOpenAPI import AxionVueOpenAPI
 
 
-connector = CytoSmartOpenAPI(number_of_devices=1, warranty=False)
+connector = AxionVueOpenAPI(number_of_devices=1, warranty=False)
 
 serial_number = connector.get_all_serial_numbers()[0]
 

@@ -1,20 +1,21 @@
+[![Downloads](https://pepy.tech/badge/AxionVueOpenAPI)](https://pepy.tech/project/AxionVueOpenAPI)
 [![Downloads](https://pepy.tech/badge/CytoSmartOpenAPI)](https://pepy.tech/project/CytoSmartOpenAPI)
 [![Downloads](https://pepy.tech/badge/luxconnector)](https://pepy.tech/project/luxconnector)
 
-# CytoSMART Open API
+# Axion Vue Open API
 
-This is a Python wrapper for the CytoSMART Windows app to use it headless.
+This is a Python wrapper for the Axion Vue Windows app to use it headless.
 The package will only work on Windows 10 and above.
 
-This package was formally known as `luxconnector`
+This package was formally known as `luxconnector` or `CytoSmartOpenAPI`
 
 ## Warranty
 
 > ⚠️ **Hardware warranty is void by using this open API** ⚠️:
 >
-> Using the CytoSmartOpenAPI means you will have NO hardware warranty (see license).
+> Using the AxionVueOpenAPI means you will have NO hardware warranty (see license).
 
-This is because our devices are made to handle the normal usage ([the GUI app](http://download.cytosmart.com/)).
+This is because our devices are made to handle the normal usage ([the GUI app](https://download.axionbio.com/)).
 It also includes additionally bought warranty.
 Only if your additionally bought warranty implicitly includes the Open API usage you will have warranty.
 
@@ -24,7 +25,7 @@ To install this package follow these steps:
 
 ### Step 1: Drivers
 
-Make sure you had a [CytoSmart application installed](http://download.cytosmart.com/).
+Make sure you had a [Axion Vue application installed](http://download.axionbio.com/).
 
 Recommended is the cell counter given it does not restart itself after closing.
 This is needed to have all the correct drivers installed.
@@ -34,24 +35,24 @@ If the app is on the same machine the Open API might connect with the wrong one.
 ### Step 2: pip install
 
 ```cmd
-pip install CytoSmartOpenAPI
+pip install AxionVueOpenAPI
 ```
 
 ## Initialization
 
-Make sure at least one CytoSMART device is physically connected to your computer via a USB3 port.
-The CytoSmartOpenAPI is an object that maintains the connection with the device.
+Make sure at least one Axion imaging device is physically connected to your computer via a USB3 port.
+The AxionVueOpenAPI is an object that maintains the connection with the device.
 To create the object use the following code:
 
 ```python
-from CytoSmartOpenAPI import CytoSmartOpenAPI
-connector = CytoSmartOpenAPI(number_of_devices=2, warranty=False)
+from AxionVueOpenAPI import AxionVueOpenAPI
+connector = AxionVueOpenAPI(number_of_devices=2, warranty=False)
 ```
 
 > ⚠️ You are voiding your warranty by using this package
 
 NOTE: Make sure number_of_devices does not exceed the number of devices you have physically connected.
-Otherwise the CytoSmartOpenAPI will look for the missing devices forever.
+Otherwise the AxionVueOpenAPI will look for the missing devices forever.
 
 ## Getting serial numbers
 
@@ -80,7 +81,7 @@ img = connector.get_image(serial_numbers[index])
 
 ## Changing the focus
 
-This function will change the focus for the CytoSmartOpenAPI object.
+This function will change the focus for the AxionVueOpenAPI object.
 Every image taken after this function will have the new focus.
 
 The focus is in the range 0 until 1. (0.0 and 1.0 are valid entries)
@@ -103,9 +104,9 @@ It will use image analysis to determine how well the image is in focus.
 ```python
 # Fast but goes over a limited range to cover most manufactured cell counting slides
 connector.do_autofocus(serial_number, "slide")
-# Fastest: goes over the limited range where cells can be in focus on the CytoSMART cell counting slide
+# Fastest: goes over the limited range where cells can be in focus on the Axion Exact slide
 connector.do_autofocus(serial_number, "CSslide")
-# Slow, but goes over the full range of possible focusses: suitable for any vessel that works with the CytoSMART device
+# Slow, but goes over the full range of possible focusses: suitable for any vessel that works with the Axion imaging device
 connector.do_autofocus(serial_number, "other")
 ```
 
@@ -229,10 +230,13 @@ connector.open_liveview(serial_number) # Opens liveview in the default browser
 
 ## Developers
 
-Developers of the CytoSmartOpenAPI please look at the [`developers readme`](README_DEV.md)
+Developers of the AxionVueOpenAPI please look at the [`developers readme`](README_DEV.md)
 
 ## Credits
 
-- Tom Nijhof
+- Tom "RoadRunner" Nijhof
 - Nora
 - Tessa
+- Marc "it is with a c" van Vijven
+- Julia "I did not break it, I tested it" van den Beemd
+- Count Nicolai Vondracek, Señior sunshine manager

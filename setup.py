@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-with open("README.md") as readme_file:
+with open("README.md", errors="ignore") as readme_file:
     readme = readme_file.read()
 
 with open("HISTORY.rst") as history_file:
@@ -35,19 +35,19 @@ setup(
         "Topic :: Scientific/Engineering :: Bio-Informatics ",
         "Topic :: Scientific/Engineering :: Medical Science Apps.",
     ],
-    description="This is a python wrapper for the CytoSMART windows app to use it headless",
-    entry_points={"console_scripts": ["CytoSmartOpenAPI=CytoSmartOpenAPI.cli:__init__"]},
+    description="This is a python wrapper for the Axion Vue windows app to use it headless",
+    entry_points={"console_scripts": ["AxionVueOpenAPI=AxionVueOpenAPI.cli:__init__"]},
     install_requires=requirements,
     long_description=readme + "\n\n" + history + "\n\n" + license,
     long_description_content_type="text/markdown",
     include_package_data=True,
-    keywords="CytoSmartOpenAPI",
-    name="CytoSmartOpenAPI",
-    packages=find_packages(include=["CytoSmartOpenAPI*"], exclude=["docs*"]),
+    keywords="AxionVueOpenAPI",
+    name="AxionVueOpenAPI",
+    packages=find_packages(include=["AxionVueOpenAPI*"], exclude=["docs*"]),
     setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
-    url="https://github.com/cytosmart-bv/CytoSmartOpenAPI",
-    version="1.3.0b0",
+    url="https://github.com/cytosmart-bv/AxionVueOpenAPI",
+    version="1.3.1",
     zip_safe=False,
 )

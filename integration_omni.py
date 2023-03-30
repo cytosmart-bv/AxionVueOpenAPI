@@ -1,12 +1,12 @@
 #%%
 import os
 
-from CytoSmartOpenAPI import CytoSmartOpenAPI
+from AxionVueOpenAPI import AxionVueOpenAPI
 
 result_folder = os.path.join("results", "single_image")
 os.makedirs(result_folder, exist_ok=True)
 
-connector = CytoSmartOpenAPI(number_of_devices=1, warranty=False)
+connector = AxionVueOpenAPI(number_of_devices=1, warranty=False)
 
 serial_number = connector.get_all_serial_numbers()[0]
 
