@@ -237,4 +237,6 @@ Developers of the AxionVueOpenAPI please look at the [`developers readme`](READM
 - Tom "RoadRunner" Nijhof
 - Nora
 - Tessa
+- Marc "it is with a c" van Vijven
+- Julia "I did not break it, I tested it" van den Beemd
 - Count Nicolai Vondracek, Señior sunshine manager
