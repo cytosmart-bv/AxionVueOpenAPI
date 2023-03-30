@@ -7,7 +7,7 @@
 This is a Python wrapper for the Axion Vue Windows app to use it headless.
 The package will only work on Windows 10 and above.
 
-This package was formally known as `luxconnector`
+This package was formally known as `luxconnector` or `CytoSmartOpenAPI`
 
 ## Warranty
 
